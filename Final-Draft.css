@@ -1,0 +1,1220 @@
+@media (min-width: 1000px){
+  html{
+    font-size: 20px;
+  }
+}
+@media (max-width: 1000px){
+  html{
+    font-size: 18px;
+  }
+}
+@media (max-width: 840px){
+  html{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px){
+  html{
+    font-size: 14px;
+  }
+}
+@media (max-width: 430px){
+  html{
+    font-size: 12px;
+  }
+}
+@media (max-width: 340px){
+  html{
+    font-size: 11px;
+  }
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+* {
+  font-family: var(--font-family);
+  font-weight: 300;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------Form/Card--------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+.multi-step-form { /*Child of content wrapper*/
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.card { /*Child of multi-step-form*/
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: var(--backround-color);
+border: 1px solid var(--primary-color); 
+border-radius: .5rem;
+padding: .65rem .65rem;
+width: 90%;
+max-width: 1050px;
+float: none;
+max-height: fit-content;
+margin: 1.25rem auto;
+animation: fade 250ms ease-in-out forwards;
+box-shadow:inset 0 -2px 4px #FFF,inset 0 2px 4px #e7e3e3,4px 4px 8px #7a7878;
+}    
+.card.active { /*CHILD of "Card*/
+animation: slide 250ms 125ms ease-in-out both;
+}
+.hide {
+  display: none;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+:root { /*------------------------------------CUSTOM REALTOR INFORMATION-------------------------------------------------------------------------------*/
+  --primary-color: #1a4578;
+  --secondary-color: #FFF;
+  --button-hover-color:#3062a0;
+  --input-hover: #eaeaea;
+  --backround-color: #FFF;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --primary-gradient: linear-gradient(to right, rgba(48, 98, 160, 1) 0%, rgba(26, 69, 120, 1) 100%, rgba(48, 98, 160, 1) 0%  );
+  /*SLIDER CSS*/
+  --slider-starting-color: #4685d1;
+  --slider-thumb-size: 1rem;  
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------Header, Footer and Social Media ------------------------------------------------------------------*/
+.header {/*HEADER*/
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  background-color: var(--primary-color); 
+  color: var(--backround-color);
+  float: none;
+  font-size: 1.25rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+.footer {/*FOOTER*/
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--primary-color); 
+  color: var(--backround-color);
+  float: none;
+  height: 7.5rem;
+  font-size: 1.25rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+.logo{
+  position: relative;
+  height: 4.5rem;
+}
+.social-icons{
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  border: 2px solid var(--backround-color);
+  width: 40%;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding-left: .125rem;
+  cursor: pointer;
+}
+.social-icons i{
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+.header a,
+.footer a{
+  flex-grow: 1;
+  color: var(--backround-color);
+  text-align: left; /* Aligns the text to the left */
+}
+.header span,
+.footer span {
+  flex-grow: 1;
+  color: var(--backround-color);
+  text-align: left; /* Aligns the text to the left */
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------Realtor Questionaire-------------------------------------------------------------------------------------------------------*/
+
+.Realtor-Questionaire-Conditional{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------Property Type Buttons-----------------------------*/
+.propertytypebutton {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    padding: .625rem;
+    border-radius: .95rem;
+    margin: .625rem;
+    cursor: pointer;
+    height: 11rem;
+    width: 22rem;
+    background: var(--primary-color);
+    font-size: 1.75rem;
+    color: var(--backround-color);
+    box-shadow: .2rem .2rem .4rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+    box-shadow: .2rem .2rem .4rem #7e7c7c, inset -.1rem -.1rem .1rem -.1rem #FFF;
+}
+.button-icon{
+  margin-left: .25rem;
+  margin-right: .5rem;
+  font-size: 1.25rem;
+
+}
+.propertytypebutton:hover {
+    scale: 1.05;
+    transition: all .2s ease-in-out;
+}
+.propertytypebutton-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  margin-bottom: .625rem;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------Nav Buttons-----------------------------------------------------------------------------------------------------------------------------*/
+.nav-button-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+.primaryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  height: 3rem;
+  background-color: var(--primary-color);
+  color: var(--backround-color);
+  font-size: 1rem;
+  font-weight: 300;
+  border-radius: .5rem;
+  justify-self: center;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: .3s ease;
+  box-shadow: .2rem .2rem .5rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+  box-shadow: .2rem .2rem .5rem #7e7c7c, inset -.1rem -.1rem .1rem -.1rem #FFF;
+}
+.primaryButton:hover {
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    justify-self: center;
+    cursor: pointer;
+    transition: .1s ease;
+    outline: 2px solid var(--primary-color);
+}
+.primaryButton i{
+  position: absolute;
+  right: 2rem;
+}
+.secondaryButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    height: 3rem;
+    background-color: var(--backround-color);
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 300;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: .3s ease;
+    box-shadow: 0.31rem 0.31rem 0.625rem 0 rgba(0, 0, 0, 0.5), inset 0.125rem 0.125rem 0.31rem 0 rgba (0, 0, 0, 0.2);
+    box-shadow: .2rem .2rem .5rem #7e7c7c,-.2rem -.2rem .5rem #FFF; 
+    box-shadow: .2rem .2rem .5rem #7e7c7c, inset -.1rem -.1rem .1rem -.1rem #FFF;
+}
+.secondaryButton i {
+  position: absolute;
+  left: 2rem;
+}
+.secondaryButton:hover {
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: .1s ease;
+    outline: 2px solid var(--primary-color);
+}
+/*--------------------------------Icons------------------------------------------------------------------------------------------------------------------------------------*/
+.bi.bi-arrow-right,
+.bi.bi-arrow-left{
+  font-size: 1.5rem;
+  margin: 0 1.5rem;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------Divider------------------------------------------------------------------------------------------------------------------------------------*/
+.divider {
+    height: .2rem; /* Specifies the thickness of the divider */
+    width: 100%; /* Divider width as a percentage of its container's width */
+    background-color: var(--primary-color); /* Color of the divider */
+    margin: 1.25rem 0; /* Vertically spaces out the divider and horizontally centers it */
+}
+.invisible-divider {
+  height: .2rem; /* Specifies the thickness of the divider */
+  width: 100%; /* Divider width as a percentage of its container's width */
+  background-color: transparent; /* Color of the divider */
+  margin: 1rem 0; /* Vertically spaces out the divider and horizontally centers it */
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------Required Field Error Msg---------------------------------------------*/
+/*
+.error-message{
+  display: none;
+  position: relative;
+  text-align: center;
+  height: fit-content;
+  width: fit-content;
+  box-sizing: border-box;
+  margin: .3rem 0;
+  font-size: .7rem;
+  background-color: red;
+  color: var(--backround-color);
+  padding: .3rem .6rem;
+  border-radius: 5px;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------Progress Steps/Circles------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.progress-container {
+  display: flex;
+  margin: .5rem 1.25rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 840px){
+  .progress-container{
+    margin: .75rem .75rem;
+    }
+    
+  }
+.progress-container .steps {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+}
+.progress-container .step {
+  position: relative;
+  display: flex;
+  margin-top: .75rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center ;
+}
+.progress-container .step-text {
+  display: none;
+  text-align: center;
+}
+.progress-container .step-text.active {
+  display: flex;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 800;
+  color: #000000;
+}
+.progress-container .step-text-completed {
+  display: none;
+  color: var(--primary-color);
+}
+@media (max-width: 840px){
+    .progress-container .steps {
+      width: 100%;
+    }
+  }
+.progress-container .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.85rem;
+  width: 1.85rem;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 50%;
+  background: var(--backround-color);
+  border: 4px solid #e0e0e0;
+  transition: all 200ms ease;
+  transition-delay: 0s;
+}
+.progress-container .circle.active{
+  transition-delay: 100ms;
+  border-color: var(--primary-color);
+  color: #000000;
+}
+.progress-container .circle-completed::before {
+  content: "\F26E"; 
+  font-family: bootstrap-icons;
+  color: var(--backround-color);
+  font-size: 2rem; 
+  padding-right: 1.5px;
+  padding-top: 1px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.progress-container .circle-completed {
+  color: transparent; /* Hide the number */
+  background-color: var(--primary-color); 
+  border-color: var(--backround-color);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------Titles and Labels--------------------------------------------------------------------------------------------*/
+.step-title{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    border-bottom: .2rem solid var(--primary-color);
+    margin-top: .25rem;
+    margin-bottom: 0;
+}
+.step-title i{
+  position: absolute;
+  left: 1rem;
+  margin-right: .5rem;
+}
+  .step-sub-title{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding-bottom: .5rem;
+    margin-bottom: .625rem;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.input-title{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 1.25rem;
+  text-decoration: underline;
+  font-weight: 500;
+  padding-bottom: 8px;
+  margin-top: .75rem;
+  margin-left: .4rem;
+  margin-bottom: .4rem;
+}
+.input-label{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: .75rem;
+  margin-left: .4rem;
+  justify-content: flex-start;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------Containers-----------------------------------------------------------------------------*/
+.checkbox-grid-container-features{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .5rem;
+}
+@media (max-width: 850px){
+.checkbox-grid-container-features{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  gap: 0;
+  }
+}
+
+.twoColumn-grid-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+@media (max-width: 890px){
+  .twoColumn-grid-container{
+    grid-template-columns: 1fr ;
+    gap: 0;
+    align-items: center;
+
+  }
+}
+.flex-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/*--------------------------------Used for Address Page----------------------------------------------------------*/
+.threeColumn-grid-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .75rem;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 650px){
+    .threeColumn-grid-container{
+    grid-template-columns: 1fr 1fr; /* Adjusts to 2 columns */
+    grid-template-areas:
+    "item1 item1"
+    "item2 item3";
+    gap: .5rem;
+    }
+
+    .threeColumn-grid-container > div:nth-child(1) { grid-area: item1; }
+    .threeColumn-grid-container > div:nth-child(2) { grid-area: item2; }
+    .threeColumn-grid-container > div:nth-child(3) { grid-area: item3; }
+}
+/*-----------------------------------------------------------------------------------------------------------------------*/
+.electrical-radio-grid-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));  
+    gap: .75rem;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------Input Types------------------------------------------------------------------------------------*/
+label {  /* Labels for users inputs */
+  display: inline-block; 
+  margin-bottom: 10px; 
+  position: relative;
+  font-size: 1rem;
+  margin-right: 10px;
+  margin-top: 10px;
+  flex: 1;
+}
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+input[type="radio"]{
+    display: inline-block;
+    margin: 5px; /* Adjusts space between the radio button and its label text */
+
+}
+input[type="text"]{
+    width: auto;
+    height: 1.5rem;
+    border-radius: .5rem;
+}
+input[type="text"]:hover{
+    border: 2px solid var(--primary-color);
+    width: auto;
+    cursor: pointer;
+}
+input[type="text"]:focus{
+    outline: 2px solid var(--primary-color);
+    width: auto;
+    cursor: pointer;
+}
+input[type="textarea"]:focus{
+    outline: 2px solid var(--primary-color);
+    width: auto;
+    height: 1.5rem;
+    cursor: pointer;
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+ /*--------------------------------------------- Hidden (conditional) Text Inputs for "other"s-----------------------------------*/ 
+#LotRentInput {
+    display: block;
+    align-self: flex-start;
+    color: #000;
+    font-weight: 500;
+}
+#CondoFeesInput {
+  display: block;
+  align-self: flex-start;
+  color: #000;
+  font-weight: 500;
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------Text Area----------------------------------------------------*/
+textarea{
+  width: 100%;
+  height: 6rem;
+  font-size: .85rem;
+  flex: 1;
+  outline: .25px solid var(--primary-color);
+  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+  padding: 10px;
+  border-radius: .25rem;
+} 
+textarea:focus{
+  width: 100%;
+  outline: 2px solid var(--primary-color);
+  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+} 
+
+textarea:hover{
+  cursor: pointer;
+  font-size: .875rem;
+  flex: 1;
+  border-radius: .25rem;
+  outline: 2px solid var(--primary-color);
+}
+.textarea-container{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------Checkbox Inputs------------------------------------------------------------------------------*/
+[type="checkbox"]{
+    opacity: 0;
+}
+
+
+.checkbox{ /*Fieldset*/
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding:0;
+    border:none;   
+}
+.checkbox label {
+    text-align:center;
+    position:relative;
+    cursor:pointer;
+    width: 100%;
+}
+.checkbox label span {
+    display:flex;
+    justify-content: center;
+    line-height:1.5rem;
+    max-height:57px;
+    width: 100%;
+    min-width: 200px;
+    font-size: .85rem;
+    background:var(--backround-color);
+    color:var(--primary-color);
+    border-radius: 8px;
+    outline: 0.25px solid var(--primary-color);
+    box-shadow: 1.6px 1.6px 4px #7e7c7c,-4px -4px 4px 0 #FFF; 
+}
+.checkbox label input {
+    display:none
+}
+.checkbox label span:hover{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: 600;
+    scale: 1.01;
+}
+.checkbox label input:checked + span {
+    color: var(--backround-color);
+    background-color: var(--primary-color);
+    border: 2px #000;
+    font-weight: 600;
+}
+/*------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------Used for Contact and Address Information-------------------------------*/
+.CustomerInfo input[type="text"]:focus{
+    outline: var(--backround-color); 
+    width: 100%; 
+    
+}
+.CustomerInfo input[type="text"]:hover{
+    outline: var(--backround-color); 
+    width: 100%; 
+}
+.CustomerInfo input[type="text"]{
+    width: 100%; 
+}
+.CustomerInfo {
+    display: flex;
+    align-self: center;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 1.875rem;
+}
+.CustomerInfo input {
+    width: 100%;
+    height: 100%;
+    color: #000;
+    padding-top: 1.56rem;
+    padding-bottom: .31rem;
+    border-radius: .5rem;
+    outline: none;
+    background-color: var(--backround-color);
+}
+.CustomerInfo input:hover {
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+}
+.CustomerInfo input:focus {
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.CustomerInfo label {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin-left: .31rem;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.CustomerInfo label::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    transition: transform 0.3s ease
+}
+
+.input-content {
+    position: absolute;
+    bottom: .31rem;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.CustomerInfo input:focus + .cust-input .input-content,
+.CustomerInfo input:valid + .cust-input .input-content{
+    transform: translatey(-100%);
+    font-size: .85rem;
+    opacity: 65%;
+    color: var(--primary-color);
+}
+
+.CustomerInfo input:focus + .cust-input::after,
+.CustomerInfo input:valid + .cust-input::after {
+    transform: translatex(0%);
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------Radio Inputs--------------------------------------------------------------------------------------------*/
+.radio-grid-container{
+    display: grid;
+    width:100%;
+    margin-top: .25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));  
+    gap: .75rem;
+}
+@media (max-width: 500px){
+    .radio-grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+    }
+}
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .31rem;
+}
+
+.radio {/*Fieldset*/
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-width: none;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-around;
+    padding: .125rem 0;
+    border: 0.5px solid var(--primary-color);
+    background: var(--backround-color);
+    border-radius: 2rem;
+}
+
+.radio label{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    z-index: 2;
+    padding: .3rem .62rem;
+    margin-top: 0; /*These margins are to counteract master label*/
+    margin-right: 0;
+    margin-bottom: 0;
+}
+.radio label span {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: .85rem;
+    color: var(--primary-color);
+    transition: all 500ms ease-in-out;
+} 
+.radio label input:checked + span {
+    color: var(--backround-color); 
+    font-weight: 600;
+}
+
+.switch {/* floating background */
+    position: absolute;
+    left: .125rem; /* Initially positioned over the first radio option */
+    background-color: var(--primary-color);
+    transition: left 0.5s ease-out, width 0.25s ease;  
+    z-index: 1;
+    border-radius: 2rem;
+}
+/*-----------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+/*-------------------------------Spinner Number Input (used for bed/bath input)-------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+.spinner-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: .625rem;
+    gap: .35rem;
+  }
+  .bedroom-input{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 850px;
+    height: fit-content;
+    background-color: var(--backround-color);
+    border-radius: .5rem;
+    border: 0.5px solid var(--primary-color);
+    box-sizing: border-box;
+    padding: .95rem;
+    transform-style: preserve-3d;
+    box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+  }
+  .bathroom-input{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--backround-color);
+    border-radius: .5rem;
+    border: 0.5px solid var(--primary-color);
+    box-sizing: border-box;
+    padding: .95rem;
+    box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+  }
+  .bedroom-input:hover,
+  .bathroom-input:hover{
+    outline: .125rem solid var(--primary-color);
+  }
+  
+  .spinner-btn{
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--backround-color);
+    color: var(--primary-color);
+    outline: none;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+  }
+  .spinner-btn span{ /*Inside Button*/
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .spinner-btn:hover{
+    scale: 1.05;
+  }
+  .value{
+    flex-grow: .5;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .number{
+    flex-grow: 1;
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-left: .5rem;
+  }
+.bedroom-input.completed,
+.bathroom-input.completed{
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--backround-color);
+}
+.completed .number {
+  color: var(--backround-color); /* Change text color to indicate completion */
+  font-weight: 500;
+}
+  
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------DROPDOWNS-----------------------------------------------------------------------------------*/
+.dropdown { /*Dropdown Select Class Here*/
+    width: 100%;
+    margin-bottom: .95rem;
+    flex: 1;
+}
+.dropdown .input-box { /*INSIDE BOX STYLES*/
+    cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: auto;
+    height: 4rem;
+    margin-top: .65rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border-radius: .5rem;
+    padding: .65rem .95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 0.5px solid var(--primary-color);
+    box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+
+}
+.dropdown .input-box i{
+  position: absolute;
+  right: 1.5rem;
+}
+.dropdown .input-box:hover {
+    background: var(--secondary-color);
+    border: solid var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+}
+.dropdown .input-box.open {
+  background: var(--secondary-color);
+  border: solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+}
+.input-box.selected {
+  border-color: var(--primary-color); /* Change border color to indicate selection */
+  outline: 0.25px solid var(--primary-color);
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+.input-box.selected:hover {
+  border-color: var(--primary-color); /* Change border color to indicate selection */
+  outline: 0.25px solid var(--primary-color);
+  color: var(--secondary-color);
+  background-color: var(--button-hover-color);
+  font-size: 1rem;
+}
+
+
+.dropdown .list { /*LIST is the dropdown options*/
+    position:sticky;
+    cursor: pointer;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    background: var(--secondary-color);
+    border-radius: 2mm;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction: column;
+    max-height: 0;
+    transition: 0.25s ease-out;
+}
+.dropdown .list :hover { 
+    background: var(--input-hover);
+}
+.dropdown .list input{
+    display: none;
+}
+.dropdown .list label { /*DROPDOWN LABELS*/
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--primary-color);
+    align-items: center;
+    justify-content: flex-start;
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .7rem 1rem;
+    margin: 0 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+}
+.dropdown .user-input { /*DROPDOWN TEXT (SHOULD ALL BE IN LIST-LABEL*/
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .25em;
+
+}
+.dropdown .user-input:hover { /*DROPDOWN TEXT (SHOULD ALL BE IN LIST-LABEL*/
+  font-size: 1rem;
+  padding: .25em;
+  font-weight: 500;
+
+
+}
+.dropdown input:checked + label::before {
+    color: var(--button_hover);
+    position: absolute;
+    top: 50%;
+    right: .95rem;
+    transform: translate(0, -50%);
+    font-size: 1rem;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------SLIDER CSS-----------------------------------------------------------------------------------------*/
+  /* Slider Customizations */
+.slider-container {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    width: 100%;
+    margin-bottom: .625rem;
+    margin-right: .625rem;
+    margin-left: .625rem;
+    align-items: center; /* Center-align children horizontally */
+}
+.slider-custom {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  border-radius: 1px solid #000;
+  --thumb-size: 1.25rem; /* Size of the thumb */
+  --track-height: 1rem; /* Height of the slider track */
+  --primary-color: #1a4578; /* Primary color for the slider */
+}
+.slider-label{
+  font-size: 0.8rem;
+  margin: .1rem .625rem;
+  font-weight: 500;
+}
+.slider-label-wrapper{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media (max-width:450px){
+  .slider-label{font-size: .85rem;}
+}
+.slider-custom.label{
+  margin: .31rem .31rem;
+}
+.slider-label, #sliderValue {
+  text-align: center; /* Center text for labels and output */  
+}
+#sliderValue {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: .1875rem;
+  padding: .1875rem; /* Adds some space inside the border */
+  color: var(--primary-color); /* Dark grey text */
+  font-size: 1rem; /* Larger text */
+  font-weight: 500;
+  margin-top: 0; /* Adds space between the slider and the output */
+}
+/* Base Styles for Slider */
+.slider-custom input[type="range"] {
+  display: flex;
+  margin: .5rem .31rem;
+  background: var(--primary-color);
+  width: 100%; /* Slider takes full width of its container */
+  background: transparent; /* Transparent background */
+}
+/* Slider Track */
+.slider-custom input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.8rem;
+  background: linear-gradient(to right, var(--primary-color) 50%, var(--backround-color) 50%);
+  border-radius: var(--track-height);
+  cursor: pointer;
+
+}
+.slider-custom input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 0.8rem;
+  border: solid var(--primary-color);
+  border-radius: var(--track-height);
+  cursor: pointer;
+}
+.slider-custom input[type="range"]::-ms-track {
+  width: 100%;
+  height: 0.8rem;
+  border-radius: var(--track-height);
+  cursor: pointer;
+
+}
+/* Slider Thumb */
+.slider-custom input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: var(--thumb-size);
+  width: var(--thumb-size);
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  margin-top: calc((var(--track-height) - var(--thumb-size)) / 2); /* Center thumb over track */
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.5) inset;
+}
+.slider-custom input[type="range"]::-moz-range-thumb {
+  height: var(--thumb-size);
+  width: var(--thumb-size);
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+}
+.slider-custom input[type="range"]::-ms-thumb {
+  height: var(--thumb-size);
+  width: var(--thumb-size);
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+}
+/* Focus styles for Thumb */
+.slider-custom input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px var(--backround-color), 0 0 0 6px var(--primary-color);
+  max-width: fit-content;
+}
+/* Ensure the slider handles touch and mouse events effectively */
+.slider-custom input[type="range"]:active {
+  transform: scaleY(1.1);
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slider-custom {
+    --thumb-size: 1rem; /* Smaller thumb on smaller screens */
+  }
+}
+/*-----------------------------------------------------------SLIDER with ticks for home age-----------------------------*/
+.slider-label, #sliderValue2 {
+  text-align: center; /* Center text for labels and output */
+}
+#sliderValue2 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .31rem; /* Adds some space inside the border */
+  color: var(--primary-color); /* Dark grey text */
+  font-size: 1rem; /* Larger text */
+  font-weight: 500;
+}
+@media (max-width: 430px){
+
+
+}
+/*ANIMATIONS----------------------------------------------------------*/
+@keyframes slide {
+    0% {
+      transform: translateX(200%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(.75);
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
