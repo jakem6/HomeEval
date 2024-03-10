@@ -57,7 +57,7 @@ align-items: center;
 background-color: var(--backround-color);
 border: 1px solid var(--primary-color); 
 border-radius: .5rem;
-padding: .65rem .65rem;
+padding: .65rem .95rem;
 width: 90%;
 max-width: 1050px;
 float: none;
@@ -102,15 +102,16 @@ animation: slide 250ms 125ms ease-in-out both;
   cursor: pointer;
 }
 .footer {/*FOOTER*/
-  position: relative;
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   background-color: var(--primary-color); 
   color: var(--backround-color);
   float: none;
   height: 7.5rem;
-  font-size: 1.25rem;
+  font-size: 2.25rem;
   padding: 1rem;
   cursor: pointer;
 }
@@ -119,26 +120,29 @@ animation: slide 250ms 125ms ease-in-out both;
   height: 4.5rem;
 }
 .social-icons{
-  position: relative;
   display: flex;
-  box-sizing: border-box;
-  border: 2px solid var(--backround-color);
-  width: 40%;
+  width: 75%;
   align-items: center;
-  justify-content: space-between;
-  gap: .5rem;
+  justify-content: space-evenly;
   padding-left: .125rem;
+  margin-top: .8rem;
+
   cursor: pointer;
 }
 .social-icons i{
   font-size: 1.75rem;
+  margin-left: .35rem;
+  margin-right: .35rem;
+
   cursor: pointer;
 }
-.header a,
-.footer a{
+.header a{
   flex-grow: 1;
   color: var(--backround-color);
   text-align: left; /* Aligns the text to the left */
+}
+.footer a{
+  color: var(--backround-color);
 }
 .header span,
 .footer span {
