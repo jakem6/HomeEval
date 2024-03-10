@@ -182,7 +182,8 @@ animation: slide 250ms 125ms ease-in-out both;
   margin-left: .25rem;
   margin-right: .5rem;
   font-size: 1.25rem;
-
+  pointer-events: none;
+}
 }
 .propertytypebutton:hover {
     scale: 1.05;
@@ -197,9 +198,7 @@ animation: slide 250ms 125ms ease-in-out both;
   gap: .25rem;
   margin-bottom: .625rem;
 }
-.button-icon{
-  pointer-events: none;
-}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------Nav Buttons-----------------------------------------------------------------------------------------------------------------------------*/
 .nav-button-container{
