@@ -184,7 +184,7 @@ animation: slide 250ms 125ms ease-in-out both;
   font-size: 1.25rem;
   pointer-events: none;
 }
-}
+
 .propertytypebutton:hover {
     scale: 1.05;
     transition: all .2s ease-in-out;
