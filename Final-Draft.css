@@ -72,6 +72,7 @@ animation: slide 250ms 125ms ease-in-out both;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 :root { /*------------------------------------CUSTOM REALTOR INFORMATION-------------------------------------------------------------------------------*/
   --primary-color: #1a4578;
+  --primary-opacity:rgba(26, 69, 120, 0.35); /* (primary blue @35% Opacity) */
   --secondary-color: #FFF;
   --button-hover-color:#3062a0;
   --input-hover: #eaeaea;
@@ -207,6 +208,10 @@ animation: slide 250ms 125ms ease-in-out both;
     gap: 1rem;
     margin-top: .5rem;
 }
+.primaryButton i,
+.secondaryButton i{
+  pointer-events: none;
+}
 .primaryButton {
   display: flex;
   align-items: center;
@@ -238,7 +243,7 @@ animation: slide 250ms 125ms ease-in-out both;
 }
 .primaryButton i{
   position: absolute;
-  right: 2rem;
+  right: .5rem;
 }
 .secondaryButton {
     display: flex;
@@ -262,7 +267,7 @@ animation: slide 250ms 125ms ease-in-out both;
 }
 .secondaryButton i {
   position: absolute;
-  left: 2rem;
+  left: .5rem;
 }
 .secondaryButton:hover {
     font-size: 1rem;
@@ -350,7 +355,9 @@ animation: slide 250ms 125ms ease-in-out both;
   display: flex;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 800;
+  font-size: .75rem;
   color: #000000;
+  transform: translateY(1rem);
 }
 .progress-container .step-text-completed {
   display: none;
@@ -378,6 +385,7 @@ animation: slide 250ms 125ms ease-in-out both;
 }
 .progress-container .circle.active{
   transition-delay: 100ms;
+  transform: translateY(.75rem);
   border-color: var(--primary-color);
   color: #000000;
 }
@@ -423,6 +431,11 @@ animation: slide 250ms 125ms ease-in-out both;
   position: absolute;
   left: 1rem;
   margin-right: .5rem;
+}
+@media (max-width:450px){
+  .step-title i{
+    left: 0.2rem;
+  }
 }
   .step-sub-title{
     display: flex;
@@ -518,7 +531,7 @@ animation: slide 250ms 125ms ease-in-out both;
     grid-template-areas:
     "item1 item1"
     "item2 item3";
-    gap: .5rem;
+    gap: .75rem;
     }
 
     .threeColumn-grid-container > div:nth-child(1) { grid-area: item1; }
@@ -548,23 +561,27 @@ label {  /* Labels for users inputs */
 input[type="radio"] {
     position: absolute;
     opacity: 0;
-}
-input[type="radio"]{
     display: inline-block;
     margin: 0.25rem; /* Adjusts space between the radio button and its label text */
-
 }
+
+input[type="email"],
+input[type="tel"],
 input[type="text"]{
     font-size: 1rem;
     width: auto;
     height: 1.5rem;
     border-radius: .5rem;
 }
+input[type="email"]:hover,
+input[type="tel"]:hover,
 input[type="text"]:hover{
     border: 0.1rem solid var(--primary-color);
     width: auto;
     cursor: pointer;
 }
+input[type="email"]:focus,
+input[type="tel"]:focus,
 input[type="text"]:focus{
     outline: 0.1rem solid var(--primary-color);
     width: auto;
@@ -604,16 +621,14 @@ textarea{
 } 
 textarea:focus{
   width: 100%;
-  outline: 1rem solid var(--primary-color);
-  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+  outline: 0.25rem solid var(--primary-color);
 } 
 
 textarea:hover{
   cursor: pointer;
   font-size: .875rem;
   flex: 1;
-  border-radius: .25rem;
-  outline: 0.1rem solid var(--primary-color);
+  outline: 0.25rem solid var(--primary-color);
 }
 .textarea-container{
   display: flex;
@@ -675,15 +690,21 @@ textarea:hover{
 }
 /*------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------Used for Contact and Address Information-------------------------------*/
+.CustomerInfo input[type="email"]:focus,
+.CustomerInfo input[type="tel"]:focus,
 .CustomerInfo input[type="text"]:focus{
     outline: var(--backround-color); 
     width: 100%; 
     
 }
+.CustomerInfo input[type="email"]:hover,
+.CustomerInfo input[type="tel"]:hover,
 .CustomerInfo input[type="text"]:hover{
     outline: var(--backround-color); 
     width: 100%; 
 }
+.CustomerInfo input[type="email"],
+.CustomerInfo input[type="tel"],
 .CustomerInfo input[type="text"]{
     width: 100%; 
 }
@@ -757,7 +778,7 @@ textarea:hover{
     transform: translatex(0%);
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------Radio Inputs--------------------------------------------------------------------------------------------*/
 .radio-grid-container{
     display: grid;
@@ -780,7 +801,7 @@ textarea:hover{
     padding: .31rem;
 }
 
-.radio {/*Fieldset*/
+.radio {/*Fieldset*/       
     position: relative;
     display: flex;
     width: 100%;
@@ -793,7 +814,6 @@ textarea:hover{
     background: var(--backround-color);
     border-radius: 2rem;
 }
-
 .radio label{
     display: flex;
     text-align: center;
@@ -802,9 +822,12 @@ textarea:hover{
     height: 100%;
     z-index: 2;
     padding: .3rem .62rem;
-    margin-top: 0; /*These margins are to counteract master label*/
+    border-top: none;
+    border-bottom: none;
+    margin-top: 0; /*These margins are to counteract master label*/     
     margin-right: 0;
     margin-bottom: 0;
+    cursor: pointer;
 }
 .radio label span {
     display: flex;
@@ -813,18 +836,19 @@ textarea:hover{
     justify-content: center;
     cursor: pointer;
     font-size: .85rem;
+    font-weight: 600;
     color: var(--primary-color);
     transition: all 500ms ease-in-out;
 } 
-.radio label input:checked + span {
-    color: var(--backround-color); 
-    font-weight: 600;
-}
 
-.switch {/* floating background */
+.radio label input:checked + span {
+  color: var(--backround-color); 
+  font-weight: 600;
+}
+.switch {/* floating background */          
     position: absolute;
-    left: .125rem; /* Initially positioned over the first radio option */
     background-color: var(--primary-color);
+    color: var(--backround-color);
     transition: left 0.5s ease-out, width 0.25s ease;  
     z-index: 1;
     border-radius: 2rem;

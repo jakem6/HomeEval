@@ -1,47 +1,69 @@
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////FORM NAVIGATION///////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const multiStepForm = document.querySelector("[data-multi-step]")
-const formSteps = [...multiStepForm.querySelectorAll("[data-step]")]
-let currentStep = formSteps.findIndex(step => {
-  return step.classList.contains("active")
-})
+document.addEventListener('DOMContentLoaded', function() {
+  const multiStepForm = document.querySelector("[data-multi-step]");
+  const formSteps = Array.from(multiStepForm.querySelectorAll("[data-step]"));
+  let currentStep = formSteps.findIndex(step => step.classList.contains("active"));
 
-if (currentStep < 0) {
-  currentStep = 0
-  showCurrentStep()
-}
+  // Initialize current step
+  if (currentStep < 0) {
+      currentStep = 0;
+  }
+  showCurrentStep();
 
-multiStepForm.addEventListener("click", e => {
-  let incrementor
-  if (e.target.matches("[data-next]")) {
-    incrementor = 1
-  } else if (e.target.matches("[data-previous]")) {
-    incrementor = -1
+  multiStepForm.addEventListener("click", e => {
+      let incrementor;
+      if (e.target.matches("[data-next]")) {
+          incrementor = 1;
+      } else if (e.target.matches("[data-previous]")) {
+          incrementor = -1;
+      }
+
+      if (incrementor == null) return;
+
+      const inputs = Array.from(formSteps[currentStep].querySelectorAll("input"));
+      const allValid = inputs.every(input => input.reportValidity());
+
+      if (allValid) {
+          currentStep += incrementor;
+          currentStep = Math.max(0, Math.min(currentStep, formSteps.length - 1)); // Ensure currentStep is within bounds
+          showCurrentStep();
+      }
+  });
+
+  function showCurrentStep() {
+      formSteps.forEach((step, index) => {
+          const isActive = index === currentStep;
+          step.classList.toggle("active", isActive);
+          step.classList.toggle("hide", !isActive);
+      });
+      updateProgressBar(currentStep + 1); // Adding 1 to match progress bar steps which start from 1
   }
 
-  if (incrementor == null) return
-
-  const inputs = [...formSteps[currentStep].querySelectorAll("input")]
-  const allValid = inputs.every(input => input.reportValidity())
-  if (allValid) {
-    currentStep += incrementor
-    showCurrentStep()
+  function updateProgressBar(stepNumber) {
+      const progressSteps = document.querySelectorAll('.progress-container .step');
+      progressSteps.forEach((step, index) => {
+          const circle = step.querySelector('.circle');
+          const stepText = step.querySelector('.step-text');
+          if (index < stepNumber - 1) {
+              circle.classList.add('circle-completed');
+              circle.classList.remove('active');
+              stepText?.classList.add('step-text-completed');
+              stepText?.classList.remove('active');
+          } else if (index === stepNumber - 1) {
+              circle.classList.add('active');
+              circle.classList.remove('circle-completed');
+              stepText?.classList.add('active');
+              stepText?.classList.remove('step-text-completed');
+          } else {
+              circle.classList.remove('active', 'circle-completed');
+              stepText?.classList.remove('active', 'step-text-completed');
+          }
+      });
   }
-})
 
-formSteps.forEach(step => {
-  step.addEventListener("animationend", e => {
-    formSteps[currentStep].classList.remove("hide")
-    e.target.classList.toggle("hide", !e.target.classList.contains("active"))
-  })
-})
+  // Initial display update
+  showCurrentStep();
+});
 
-function showCurrentStep() {
-  formSteps.forEach((step, index) => {
-    step.classList.toggle("active", index === currentStep)
-  })
-}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////Form Submission/////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,9 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////Property Type Button Data being included in submission data///////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const propertyTypeButtons = document.querySelectorAll('.propertytypebutton-wrapper .propertytypebutton');
   const propertyTypeInput = document.getElementById('propertyType');
@@ -92,57 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //////////////////////////////////////////////////////Required field error message/////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////Script for progress bar/////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-document.addEventListener('DOMContentLoaded', function() {
-  const totalSteps = document.querySelectorAll('.circle').length - 1; // Adjusted for 7 movements for 8 steps
-  let currentStep = 1;
-  localStorage.setItem('currentStep', currentStep.toString());
-
-  function updateSteps() { // Renamed from updateProgressBar for clarity
-      const steps = document.querySelectorAll('.step');
-      steps.forEach((step, index) => {
-          const circle = step.querySelector('.circle');
-          const stepText = step.querySelector('.step-text');
-          if (index < currentStep - 1) {
-              // Previous steps
-              circle.classList.add('circle-completed');
-              circle.classList.remove('active');
-              stepText?.classList.add('step-text-completed');
-              stepText?.classList.remove('active');
-          } else if (index === currentStep - 1) {
-              // Current step
-              circle.classList.add('active');
-              circle.classList.remove('circle-completed');
-              stepText?.classList.add('active');
-              stepText?.classList.remove('step-text-completed');
-          } else {
-              // Future steps
-              circle.classList.remove('active', 'circle-completed');
-              stepText?.classList.remove('active', 'step-text-completed');
-          }
-      });
-  }
-
-  function changeStep(stepChange) {
-      currentStep += stepChange;
-      currentStep = Math.max(1, Math.min(currentStep, totalSteps + 1));
-      localStorage.setItem('currentStep', currentStep.toString());
-      updateSteps(); // Update call to reflect function renaming
-  }
-
-  // Event listeners for step changes
-  document.querySelectorAll('[data-next]').forEach(button => {
-      button.addEventListener('click', () => changeStep(1));
-  });
-
-  document.querySelectorAll('[data-previous]').forEach(button => {
-      button.addEventListener('click', () => changeStep(-1));
-  });
-
-  updateSteps(); // Initial update on DOMContentLoaded
-});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////Dropdown Function//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -252,20 +227,19 @@ document.querySelectorAll('.spinner-btn').forEach(button => {
 ////////////////////////////////////////Radio "Switch" Function////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', function () {
-  // Function to position the switch according to the checked radio button
   function positionSwitch() {
-    document.querySelectorAll('.radio').forEach(fieldset => {
-      const checkedRadio = fieldset.querySelector('input[type="radio"]:checked');
-      if (checkedRadio) {
-        const switchElement = fieldset.querySelector('.switch');
-        const selectedLabel = checkedRadio.closest('label');
-        
-        // Calculate and set the switch's position and size
-        switchElement.style.width = `${selectedLabel.offsetWidth}px`;
-        switchElement.style.height = `${fieldset.clientHeight}px`;
-        switchElement.style.left = `${selectedLabel.offsetLeft}px`;
-      }
-    });
+      document.querySelectorAll('.radio').forEach(fieldset => {
+          const checkedRadio = fieldset.querySelector('input[type="radio"]:checked');
+          if (checkedRadio) {
+              const switchElement = fieldset.querySelector('.switch');
+              const selectedLabel = checkedRadio.closest('label');
+
+              // Calculate and set the switch's position and size
+              switchElement.style.width = `${selectedLabel.offsetWidth}px`;
+              switchElement.style.height = `${selectedLabel.offsetHeight}px`; // Adjusted to match label height
+              switchElement.style.left = `${selectedLabel.offsetLeft}px`;
+          }
+      });
   }
 
   // Initial positioning of the switch
@@ -273,9 +247,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Attach event listeners to radio buttons for dynamic updates
   document.querySelectorAll('.radio input[type="radio"]').forEach(radio => {
-    radio.addEventListener('change', positionSwitch);
+      radio.addEventListener('change', positionSwitch);
   });
+
+  // Adjust switch on window resize
+  window.addEventListener('resize', positionSwitch);
 });
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////Homestyle Dropdowns + Condo Fee & Lot Rent Showing///////////////////////////////////////////////////////////////////
