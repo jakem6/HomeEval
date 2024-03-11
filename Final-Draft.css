@@ -1,32 +1,29 @@
+html{
+  font-size: 20px;
+  font-family: var(--font-family);
+  font-weight: 300;
+}
+
+
+
 @media (min-width: 1000px){
   html{
-    font-size: 1em;
+    font-size: 1.2em;
   }
 }
 @media (max-width: 1000px){
   html{
+    font-size: 1em;
+  }
+}
+@media (max-width: 850px){
+  html{
     font-size: 0.9em;
   }
 }
-@media (max-width: 840px){
+@media (max-width: 650px){
   html{
     font-size: 0.8em;
-  }
-}
-
-@media (max-width: 600px){
-  html{
-    font-size: 0.7em;
-  }
-}
-@media (max-width: 430px){
-  html{
-    font-size: 0.6em;
-  }
-}
-@media (max-width: 340px){
-  html{
-    font-size: 0.55em;
   }
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -37,11 +34,7 @@
 * {
   font-family: var(--font-family);
 }
-html{
-  font-size: 20px;
-  font-family: var(--font-family);
-  font-weight: 300;
-}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------Form/Card--------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -58,16 +51,16 @@ display: flex;
 flex-direction: column;
 align-items: center;
 background-color: var(--backround-color);
-border: 1px solid var(--primary-color); 
+border: 0.05rem solid var(--primary-color); 
 border-radius: .5rem;
 padding: .65rem .95rem;
 width: 90%;
-max-width: 1050px;
+max-width: 1250px;
 float: none;
 max-height: fit-content;
 margin: 1.25rem auto;
 animation: fade 250ms ease-in-out forwards;
-box-shadow:inset 0 -2px 4px #FFF,inset 0 2px 4px #e7e3e3,4px 4px 8px #7a7878;
+box-shadow:inset 0 -0.1rem 0.2rem #FFF,inset 0 0.1rem 0.2rem #e7e3e3,0.2rem 0.2rem 0.4rem #7a7878;
 }    
 .card.active { /*CHILD of "Card*/
 animation: slide 250ms 125ms ease-in-out both;
@@ -241,7 +234,7 @@ animation: slide 250ms 125ms ease-in-out both;
     justify-self: center;
     cursor: pointer;
     transition: .1s ease;
-    outline: 2px solid var(--primary-color);
+    outline: 0.1rem solid var(--primary-color);
 }
 .primaryButton i{
   position: absolute;
@@ -277,7 +270,7 @@ animation: slide 250ms 125ms ease-in-out both;
     border-radius: 1rem;
     cursor: pointer;
     transition: .1s ease;
-    outline: 2px solid var(--primary-color);
+    outline: 0.1rem solid var(--primary-color);
 }
 /*--------------------------------Icons------------------------------------------------------------------------------------------------------------------------------------*/
 .bi.bi-arrow-right,
@@ -379,7 +372,7 @@ animation: slide 250ms 125ms ease-in-out both;
   font-weight: 500;
   border-radius: 50%;
   background: var(--backround-color);
-  border: 4px solid #e0e0e0;
+  border: 0.2rem solid #e0e0e0;
   transition: all 200ms ease;
   transition-delay: 0s;
 }
@@ -393,8 +386,8 @@ animation: slide 250ms 125ms ease-in-out both;
   font-family: bootstrap-icons;
   color: var(--backround-color);
   font-size: 2rem; 
-  padding-right: 1.5px;
-  padding-top: 1px;
+  padding-right: 1.0.075rem;
+  padding-top: 0.05rem;
   display: block;
   align-items: center;
   justify-content: center;
@@ -450,7 +443,7 @@ animation: slide 250ms 125ms ease-in-out both;
   font-size: 1.25rem;
   text-decoration: underline;
   font-weight: 500;
-  padding-bottom: 8px;
+  padding-bottom: 0.4rem;
   margin-top: .75rem;
   margin-left: .4rem;
   margin-bottom: .4rem;
@@ -536,7 +529,7 @@ animation: slide 250ms 125ms ease-in-out both;
 .electrical-radio-grid-container{
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));  
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));  
     gap: .75rem;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -545,11 +538,11 @@ animation: slide 250ms 125ms ease-in-out both;
 /*--------------------------------------Input Types------------------------------------------------------------------------------------*/
 label {  /* Labels for users inputs */
   display: inline-block; 
-  margin-bottom: 10px; 
+  margin-bottom: 0.5rem; 
   position: relative;
   font-size: 1rem;
-  margin-right: 10px;
-  margin-top: 10px;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
   flex: 1;
 }
 input[type="radio"] {
@@ -558,7 +551,7 @@ input[type="radio"] {
 }
 input[type="radio"]{
     display: inline-block;
-    margin: 5px; /* Adjusts space between the radio button and its label text */
+    margin: 0.25rem; /* Adjusts space between the radio button and its label text */
 
 }
 input[type="text"]{
@@ -568,17 +561,17 @@ input[type="text"]{
     border-radius: .5rem;
 }
 input[type="text"]:hover{
-    border: 2px solid var(--primary-color);
+    border: 0.1rem solid var(--primary-color);
     width: auto;
     cursor: pointer;
 }
 input[type="text"]:focus{
-    outline: 2px solid var(--primary-color);
+    outline: 0.1rem solid var(--primary-color);
     width: auto;
     cursor: pointer;
 }
 input[type="textarea"]:focus{
-    outline: 2px solid var(--primary-color);
+    outline: 0.1rem solid var(--primary-color);
     width: auto;
     height: 1.5rem;
     cursor: pointer;
@@ -604,14 +597,14 @@ textarea{
   height: 6rem;
   font-size: .85rem;
   flex: 1;
-  outline: .25px solid var(--primary-color);
+  outline: 0.0125rem solid var(--primary-color);
   box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
-  padding: 10px;
+  padding: .5rem;
   border-radius: .25rem;
 } 
 textarea:focus{
   width: 100%;
-  outline: 2px solid var(--primary-color);
+  outline: 1rem solid var(--primary-color);
   box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
 } 
 
@@ -620,7 +613,7 @@ textarea:hover{
   font-size: .875rem;
   flex: 1;
   border-radius: .25rem;
-  outline: 2px solid var(--primary-color);
+  outline: 0.1rem solid var(--primary-color);
 }
 .textarea-container{
   display: flex;
@@ -654,15 +647,15 @@ textarea:hover{
     display:flex;
     justify-content: center;
     line-height:1.5rem;
-    max-height:57px;
+    max-height:2.85rem;
     width: 100%;
-    min-width: 200px;
+    min-width: 10rem;
     font-size: .85rem;
     background:var(--backround-color);
     color:var(--primary-color);
-    border-radius: 8px;
-    outline: 0.25px solid var(--primary-color);
-    box-shadow: 1.6px 1.6px 4px #7e7c7c,-4px -4px 4px 0 #FFF; 
+    border-radius: 0.4rem;
+    outline: 0.0125rem solid var(--primary-color);
+    box-shadow: 0.08rem 0.08rem 0.2rem #7e7c7c,-0.2rem -0.2rem 0.2rem 0 #FFF; 
 }
 .checkbox label input {
     display:none
@@ -677,7 +670,7 @@ textarea:hover{
 .checkbox label input:checked + span {
     color: var(--backround-color);
     background-color: var(--primary-color);
-    border: 2px #000;
+    border: 0.1rem #000;
     font-weight: 600;
 }
 /*------------------------------------------------------------------------------------------------------------*/
@@ -717,18 +710,18 @@ textarea:hover{
     background-color: var(--backround-color);
 }
 .CustomerInfo input:hover {
-    border: 2px solid var(--primary-color);
+    border: 0.1rem solid var(--primary-color);
     cursor: pointer;
 }
 .CustomerInfo input:focus {
-    border: 2px solid var(--primary-color);
+    border: 0.1rem solid var(--primary-color);
     cursor: pointer;
 }
 
 .CustomerInfo label {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     margin-left: .31rem;
@@ -739,15 +732,15 @@ textarea:hover{
 .CustomerInfo label::after {
     content: "";
     position: absolute;
-    left: 0px;
-    bottom: -1px;
+    left: 0;
+    bottom: -0.05rem;
     transition: transform 0.3s ease
 }
 
 .input-content {
     position: absolute;
     bottom: .31rem;
-    left: 0px;
+    left: 0;
     transition: all 0.3s ease;
 }
 
@@ -770,7 +763,7 @@ textarea:hover{
     display: grid;
     width:100%;
     margin-top: .25rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));  
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));  
     gap: .75rem;
 }
 @media (max-width: 500px){
@@ -796,7 +789,7 @@ textarea:hover{
     align-items: center;
     justify-content: space-around;
     padding: .125rem 0;
-    border: 0.5px solid var(--primary-color);
+    border: 0.025rem solid var(--primary-color);
     background: var(--backround-color);
     border-radius: 2rem;
 }
@@ -856,11 +849,11 @@ textarea:hover{
     flex: 1;
     align-items: center;
     justify-content: center;
-    width: 850px;
+    width: 42.5rem;
     height: fit-content;
     background-color: var(--backround-color);
     border-radius: .5rem;
-    border: 0.5px solid var(--primary-color);
+    border: 0.025rem solid var(--primary-color);
     box-sizing: border-box;
     padding: .95rem;
     transform-style: preserve-3d;
@@ -875,7 +868,7 @@ textarea:hover{
     height: fit-content;
     background-color: var(--backround-color);
     border-radius: .5rem;
-    border: 0.5px solid var(--primary-color);
+    border: 0.025rem solid var(--primary-color);
     box-sizing: border-box;
     padding: .95rem;
     box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
@@ -957,7 +950,7 @@ textarea:hover{
   padding: .65rem .95rem;
   cursor: pointer;
   background-color: var(--backround-color);
-  border: 0.5px solid var(--primary-color);
+  border: 0.025rem solid var(--primary-color);
   box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
 
 }
@@ -980,7 +973,7 @@ textarea:hover{
 }
 .input-box.selected {
   border-color: var(--primary-color); /* Change border color to indicate selection */
-  outline: 0.25px solid var(--primary-color);
+  outline: 0.0125rem solid var(--primary-color);
   color: var(--secondary-color);
   background-color: var(--primary-color);
   font-size: 1.05rem;
@@ -988,7 +981,7 @@ textarea:hover{
 }
 .input-box.selected:hover {
   border-color: var(--primary-color); /* Change border color to indicate selection */
-  outline: 0.25px solid var(--primary-color);
+  outline: 0.0125rem solid var(--primary-color);
   color: var(--secondary-color);
   background-color: var(--button-hover-color);
   font-size: 1rem;
@@ -1022,7 +1015,7 @@ textarea:hover{
 .dropdown .list label { /*DROPDOWN LABELS*/
     display: flex;
     width: 100%;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 0.05rem solid var(--primary-color);
     align-items: center;
     justify-content: flex-start;
     font-size: .85rem;
@@ -1064,7 +1057,7 @@ textarea:hover{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-size: 1rem;
-  border-radius: 1px solid #000;
+  border-radius: 0.05rem solid #000;
 }
 .slider-label{
   font-size: 0.8rem;
@@ -1162,7 +1155,7 @@ textarea:hover{
 }
 /*---------------------------------------------------------- Focus styles for Thumb---------------------------------------------------------- */
 .slider-custom input[type="range"]:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px var(--backround-color), 0 0 0 6px var(--primary-color);
+  box-shadow: 0 0 0 0.15rem var(--backround-color), 0 0 0 0.3rem var(--primary-color);
   max-width: fit-content;
 }
 /* Ensure the slider handles touch and mouse events effectively */
