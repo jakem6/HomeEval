@@ -42,7 +42,52 @@ function showCurrentStep() {
     step.classList.toggle("active", index === currentStep)
   })
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////Form Submission/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('myForm');
 
+  form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default form submission behavior
+
+      // Collect form data
+      const formData = new FormData(form);
+
+      // Send the form data to the webhook using fetch
+      fetch(form.action, {
+          method: 'POST',
+          body: formData,
+      })
+      .then(response => {
+          if (response.ok) {
+              // If the submission was successful, redirect the user
+              window.location.href = 'https://jakeblack.ca';
+          } else {
+              // Handle server errors or unsuccessful submission
+              alert('Form submission failed.');
+          }
+      })
+      .catch(error => {
+          // Handle network errors
+          console.error('Error submitting form:', error);
+          alert('Form submission failed due to a network error.');
+      });
+  });
+});
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////Property Type Button Data being included in submission data///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', function() {
+  const propertyTypeButtons = document.querySelectorAll('.propertytypebutton-wrapper .propertytypebutton');
+  const propertyTypeInput = document.getElementById('propertyType');
+
+  propertyTypeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      propertyTypeInput.value = this.id; // Sets the hidden input's value to the ID of the clicked button
+    });
+  });
+});
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////Required field error message/////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,38 +190,6 @@ document.addEventListener('DOMContentLoaded', function() {
     output.value = `${value} sqft`; // Assuming you want to display the value in an output element
   }
 
-/////////////////////////////////////*Home Age Slider Function*////////////////////////
-function updateSliderValue2(value) {
-  const output = document.getElementById('sliderValue2');
-  switch(value) {
-    case '1':
-      output.value = '1960 or older';
-      break;
-    case '2':
-      output.value = '1960-1970';
-      break;
-    case '3':
-      output.value = '1970-1980';
-      break;
-    case '4':
-      output.value = '1980-1990';
-      break;
-    case '5':
-      output.value = '1990-2000';
-      break;
-    case '6':
-      output.value = '2000-2010';
-      break;
-    case '7':
-      output.value = '2010-2020';
-      break;
-    case '8':
-      output.value = '2020 or newer';
-      break;
-    default:
-      output.value = 'Select a year range';
-  }
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////Spinner Element//////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Function to update spinner values based on the increment/decrement action
   function updateSpinner(container, isIncrement) {
       const numberSpan = container.querySelector('.number');
-      let currentValue = parseInt(numberSpan.textContent, 10);
+      let currentValue = parseInt(container.querySelector('input[type="hidden"]').value, 10); // Use the hidden input's value
       const min = parseInt(container.getAttribute('min'), 10);
       const max = parseInt(container.getAttribute('max'), 10);
       const step = parseInt(container.getAttribute('step'), 10);
@@ -193,6 +206,8 @@ document.addEventListener('DOMContentLoaded', function () {
       
       // Ensure newValue is within the defined bounds
       newValue = Math.max(min, Math.min(newValue, max));
+      // Update the hidden input's value along with the display text
+      container.querySelector('input[type="hidden"]').value = newValue; // Update hidden input value
 
       // Determine the type of spinner (bedroom or bathroom) and set appropriate label
       let labelText = '';
@@ -309,17 +324,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const detachedButton = document.getElementById('Detached');
   
   // Select the dropdown div
-  const homeStyleDropdown = document.getElementById('Homestyle');
+  const DetachedHomestyleDropdown = document.getElementById('DetachedHomestyle');
   
   // Add an event listener to the button
   detachedButton.addEventListener('click', function() {
       // Check if the dropdown is already visible
-      if (homeStyleDropdown.style.display === 'none') {
+      if (DetachedHomestyleDropdown.style.display === 'none') {
           // Show the dropdown
-          homeStyleDropdown.style.display = 'block';
+          DetachedHomestyleDropdown.style.display = 'block';
       } else {
           // Optional: Hide the dropdown if it's already visible and the button is clicked again
-          homeStyleDropdown.style.display = 'none';
+          DetachedHomestyleDropdown.style.display = 'none';
       }
   });
 });

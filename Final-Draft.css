@@ -939,22 +939,23 @@ textarea:hover{
     flex: 1;
 }
 .dropdown .input-box { /*INSIDE BOX STYLES*/
-    cursor: pointer;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: auto;
-    height: 4rem;
-    margin-top: .65rem;
-    font-size: 1rem;
-    box-sizing: border-box;
-    border-radius: .5rem;
-    padding: .65rem .95rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    border: 0.5px solid var(--primary-color);
-    box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 100%;
+  height: 4rem;
+  margin-top: .65rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border-radius: .5rem;
+  padding: .65rem .95rem;
+  cursor: pointer;
+  background-color: var(--backround-color);
+  border: 0.5px solid var(--primary-color);
+  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
 
 }
 .dropdown .input-box i{
@@ -1007,6 +1008,7 @@ textarea:hover{
     flex-direction: column;
     max-height: 0;
     transition: 0.25s ease-out;
+    z-index: 2;
 }
 .dropdown .list :hover { 
     background: var(--input-hover);
@@ -1028,19 +1030,7 @@ textarea:hover{
     cursor: pointer;
     position: relative;
 }
-.dropdown .user-input { /*DROPDOWN TEXT (SHOULD ALL BE IN LIST-LABEL*/
-    font-weight: 300;
-    font-size: 1rem;
-    padding: .25em;
 
-}
-.dropdown .user-input:hover { /*DROPDOWN TEXT (SHOULD ALL BE IN LIST-LABEL*/
-  font-size: 1rem;
-  padding: .25em;
-  font-weight: 500;
-
-
-}
 .dropdown input:checked + label::before {
     color: var(--button_hover);
     position: absolute;

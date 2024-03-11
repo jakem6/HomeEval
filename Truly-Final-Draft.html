@@ -52,7 +52,7 @@
         </div>
         
 
-    <form data-multi-step class="multi-step-form">
+    <form data-multi-step class="multi-step-form" id="myForm" method="POST" action="https://hooks.zapier.com/hooks/catch/13990135/3epjy1z/">
 <!-------------------------------------------------------------------Card 1--------------------------------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------Property Type Page--------------------------------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------Property Type Buttons---------------------------------------------------------------------------------->
@@ -60,19 +60,21 @@
             <div class="step-title">Property type</div>
             <div class="invisible-divider"></div>
             <div class="propertytypebutton-wrapper">
-                <button type="button" class="propertytypebutton" button id="Detached" data-next>
+               
+                <button type="button" class="propertytypebutton" button id="Detached" name="Single-Family-Detached" data-next>
                     Single Family (Detached)<img src="https://assets.codepen.io/12009279/Detached-Icon_1.svg" alt="Icon" class="button-icon">
                 </button>
-                <button type="button" class="propertytypebutton" button id="Condo-Apartment" data-next>
+                <button type="button" class="propertytypebutton" button id="Condo-Apartment" name="Condo-Apartment" data-next>
                     Condo-Apartment<img src="https://assets.codepen.io/12009279/Condo-Icon.svg" alt="Icon" class="button-icon">
                 </button>
-                <button type="button" class="propertytypebutton" button id="Mini-Home-Mobile-Home" data-next>
+                <button type="button" class="propertytypebutton" button id="Mini-Home-Mobile-Home" name="Mini-Home-Mobile-Home" data-next>
                     Mini-Home or Mobile-Home<img src="https://assets.codepen.io/12009279/Mini-Icon_1.svg" alt="Icon" class="button-icon">
                 </button>
-                <button type="button" class="propertytypebutton" button id="Semi-detached" data-next>
+                <button type="button" class="propertytypebutton" button id="Semi-detached" name="Semi-detached" data-next>
                     Semi-Detached (Garden Home, Townhouse, etc)<img src="https://assets.codepen.io/12009279/Garden-Icon.svg" alt="Icon" class="button-icon">
                 </button>
             </div>
+             <input type="hidden" id="propertyType" name="propertyType">
         </div>  
 
 <!---------------------------------------------------------------------Card 2-------------------------------------------------------------------------------------------------------->
@@ -83,26 +85,26 @@
             <div class="invisible-divider"></div>
 
                 <div class="CustomerInfo">
-                    <input type="text" name="location" autocomplete="on" required/>
+                    <input type="text" name="Street Address" autocomplete="on" required/>
                     <label for="StreetAddress" class="cust-input">
                         <span class="input-content">Street Address<span>
                     </label>
                 </div>
             <div class="threeColumn-grid-container">
                 <div class="CustomerInfo">
-                    <input type="text" name="location" autocomplete="on" required/>
+                    <input type="text" id="City" name="City" autocomplete="on" required/>
                     <label for="City" class="cust-input">
                     <span class="input-content">City<span>
                     </label>
                 </div>
                 <div class="CustomerInfo">
-                    <input type="text" name="location" autocomplete="on" required/>
+                    <input type="text" id="Province" name="Province" autocomplete="on" required/>
                     <label for="Province" class="cust-input">
                     <span class="input-content">Province<span>
                     </label>
                 </div>
                 <div class="CustomerInfo">
-                    <input type="text" name="location" autocomplete="on" required/>
+                    <input type="text" id="PostalCode" name="PostalCode" autocomplete="on" required/>
                     <label for="Postal" class="cust-input">
                     <span class="input-content">Postal Code<span>
                     </label>
@@ -124,118 +126,125 @@
         <div class="card" data-step>
             <div class="step-title">Property details</div>
             <div class="step-sub-title">Tell us about your property</div>
-            
-                <div class="dropdown" div id="Homestyle" style="display: none;"><!--Homestyle Select Dropdown Box Start-->
+<!----------------------------------------------Homestyle Select Dropdown Box Start------------------------------------------------------------------------------------------>
+                <div class="dropdown" div id="DetachedHomestyle" style="display: none;">
                     <label class="input-label">Style of property:</label>
-                  <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
-                  <div class="list">
-                    <input type="radio" name="drop1" id="id1" class="list" />
-                    <label for="id1">
-                      <span class="name">Not Sure</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id2" class="list" />
-                    <label for="id2">
-                      <span class="name">1.5 Storey</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id3" class="list" />
-                    <label for="id3">
-                      <span class="name">2 Storey / 2 Level</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id4" class="list" />
-                    <label for="id4">
-                      <span class="name">2.5 Storey</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id5" class="list" />
-                    <label for="id5">
-                      <span class="name">3 Level</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id6" class="list" />
-                    <label for="id6">
-                      <span class="name">4 Level</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id7" class="list" />
-                    <label for="id7">
-                      <span class="name">Bungalow</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id11" class="list" />
-                    <label for="id11">
-                      <span class="name">Split-Entry</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id13" class="list" />
-                    <label for="id13">
-                      <span class="name">Other</span>
-                    </label>
-                  </div>
-                </div> 
-
-                <div class="dropdown" div id="SemiDetachedHomestyle" style="display: none;"><!--Homestyle Select Dropdown Box Start-->
+                    <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+                    <div class="list">
+                        <input type="radio" name="DetachedHomestyle" value="NotSure" id="NotSure" class="list" />
+                        <label for="NotSure"><span>Not Sure</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="1.5Storey" id="OneAndHalfStorey" class="list" />
+                        <label for="OneAndHalfStorey"><span>1.5 Storey</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="2Storey2Level" id="TwoStoreyTwoLevel" class="list" />
+                        <label for="TwoStoreyTwoLevel"><span>2 Storey / 2 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="2.5Storey" id="TwoAndHalfStorey" class="list" />
+                        <label for="TwoAndHalfStorey"><span>2.5 Storey</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="3Level" id="ThreeLevel" class="list" />
+                        <label for="ThreeLevel"><span>3 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="4Level" id="FourLevel" class="list" />
+                        <label for="FourLevel"><span>4 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="Bungalow" id="Bungalow" class="list" />
+                        <label for="Bungalow"><span>Bungalow</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="SplitEntry" id="SplitEntry" class="list" />
+                        <label for="SplitEntry"><span>Split-Entry</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="Other" id="Other" class="list" />
+                        <label for="Other"><span>Other</span></label>
+                    </div>
+                </div>
+<!----------------------------------------------Semi-Detached Homestyle Select Dropdown Box Start---------------------------------------------->
+                <div class="dropdown" div id="SemiDetachedHomestyle" style="display: none;">
                     <label class="input-label">Style of property:</label>
-                  <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
-                  <div class="list">
-                    <input type="radio" name="drop1" id="id9" class="list" />
-                    <label for="id9">
-                      <span class="name">Garden Home</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id10" class="list" />
-                    <label for="id10">
-                      <span class="name">Semi-detached</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id12" class="list" />
-                    <label for="id12">
-                      <span class="name">Townhouse</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id13" class="list" />
-                    <label for="id13">
-                      <span class="name">Other</span>
-                    </label>
-                    <input type="radio" name="drop1" id="id8" class="list" />
-                    <label for="id8">
-                      <span class="name">Duplex (half)</span>
-                    </label>
-                  </div>
-                </div> 
-
+                    <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+                    <div class="list">
+                        <input type="radio" name="SemiDetachedHomestyle" value="GardenHome" id="GardenHome" class="list" />
+                        <label for="GardenHome"><span>Garden Home</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="SemiDetached" id="SemiDetached" class="list" />
+                        <label for="SemiDetached"><span>Semi-detached</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="Townhouse" id="Townhouse" class="list" />
+                        <label for="Townhouse"><span>Townhouse</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="Other" id="OtherSemiDetached" class="list" />
+                        <label for="OtherSemiDetached"><span>Other</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="DuplexHalf" id="DuplexHalf" class="list" />
+                        <label for="DuplexHalf"><span>Duplex (half)</span></label>
+                    </div>
+                </div>
 
                 
 <!-------------------------------------------------------------Lot Rent/Condo Fees------------------------------------------------------------------------------------------------------------------------------------------------->
                 <label id="LotRentInput" style="display: none; flex-direction: row; align-items: center; justify-content: center; width: 100%;">
                     <span>Monthly Lot Rent Amount:</span>
-                    <input type="text" id="LotRent">
+                    <input type="text" id="LotRent" name="LotRent">
                 </label>
                 <label id="CondoFeesInput" style="display: none; flex-direction: row; align-items: center; justify-content: center; width: 100%;">
                     <span>Monthly Condo Fees Amount:</span>
-                    <input type="text" id="CondoFees">
+                    <input type="text" id="CondoFees" name="CondoFees">
                 </label>
                 <div class="divider"></div>
 <!------------------------------------------------------------------Home Age Slider---------------------------------------------------------------------------------------------------------->
-                <label class="input-label">Age of property:</label>
-                <div class="slider-container">
-                  <div class="slider-custom">
-                        <div class="slider-label-wrapper">
-                            <span class="slider-label min-value">1960 Or Older</span>
-                            <span class="slider-label max-value">2020 Or Newer</span>
-                        </div>    
-                    <input type="range" min="1" max="8" step="1" value="5" id="slider-custom-2" oninput="updateSliderValue2(this.value);"><output for="slider2" id="sliderValue2"></output>
-                    <output for="slider2" id="sliderValue2"></output>
-                  </div>
+                <div class="dropdown" div id="YearBuilt">
+                    <label class="input-label">Age of property:</label>
+                    <div class="input-box">Approx year built<i class="bi bi-arrow-down-circle"></i></div>
+                    <div class="list">
+                        <input type="radio" name="YearBuilt" value="Unknown" id="Unknown" class="list" />
+                        <label for="Unknown"><span>Unknown</span></label>
+                    
+                        <input type="radio" name="YearBuilt" value="1960orOlder" id="1960orOlder" class="list" />
+                        <label for="1960orOlder"><span>1960 or older</span></label>
+
+                        <input type="radio" name="YearBuilt" value="1960-1970" id="1960-1970" class="list" />
+                        <label for="1960-1970"><span>1960-1970</span></label>
+                    
+                        <input type="radio" name="YearBuilt" value="1970-1980" id="1970-1980" class="list" />
+                        <label for="1970-1980"><span>1970-1980</span></label>
+                    
+                        <input type="radio" name="YearBuilt" value="1980-1990" id="1980-1990" class="list" />
+                        <label for="1980-1990"><span>1980-1990</span></label>
+                    
+                        <input type="radio" name="YearBuilt" value="1990-2000" id="1990-2000" class="list" />
+                        <label for="1990-2000"><span>1990-2000</span></label>
+                    
+                        <input type="radio" name="YearBuilt" value="2000-2010" id="2000-2010" class="list" />
+                        <label for="2000-2010"><span>2000-2010</span></label>
+                    
+                        <input type="radio" name="YearBuilt" value="2010-2020" id="2010-2020" class="list" />
+                        <label for="2010-2020"><span>2010-2020</span></label>
+                    
+                        <input type="radio" name="YearBuilt" value="2020orOlder" id="2020orOlder" class="list" />
+                        <label for="2020orOlder"><span>2020 or newer</span></label>
+                    </div>
                 </div>
+
+
                 <div class="divider"></div>
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                 <label class="input-label">Bedrooms/Bathrooms:</label>  
                 <div class="spinner-container"> <!--Spinner Bed/Bath Inputs-->  <!------------------NEED TO FIX CSS FOR MORE BROWSWERS------------>
-                    <div class="bedroom-input" min="0" max="10" step="1" value="0">
+                    <div class="bedroom-input" id="bedrooms" min="0" max="10" step="1" value="0">
                     <button type="button" class="spinner-btn" id="bedrooms">
                         <span class="minus"><i class="bi bi-dash-circle"></i></span>
                     </button>
-                    <div class="value">
-                    <span class="number">0 Bedroom(s)</span>
-                    
+                        <div class="value">
+                        <span class="number">0 Bedroom(s)</span>
+                        <input type="hidden" name="bedrooms" value="0">
                     </div>
                     <button type="button" class="spinner-btn">
                         <span class="plus"><i class="bi bi-plus-circle"></i></span>
                     </button>
                     </div>
                 </div>
+
                 <div class="spinner-container">
                   <div class="bathroom-input" id="full-bath" min="0" max="10" step="1" value="0">
                     <button type="button" class="spinner-btn">
@@ -243,17 +252,20 @@
                     </button>
                     <div class="value">
                         <span class="number">0 Full-Bathroom(s)</span>
+                        <input type="hidden" name="fullBath" value="0">
                     </div>
                     <button type="button" class="spinner-btn">
                       <span class="plus"><i class="bi bi-plus-circle"></i></span>
                     </button>
                   </div>
+
                   <div class="bathroom-input" id="half-bath" min="0" max="10" step="1" value="0">
                     <button type="button" class="spinner-btn">
                       <span class="minus"><i class="bi bi-dash-circle"></i></span>
                     </button>
                     <div class="value">
-                    <span class="number">0 Half-Bathroom(s)</span>
+                        <span class="number">0 Half-Bathroom(s)</span>
+                        <input type="hidden" name="halfBath" value="0">
                     </div>
                     <button type="button" class="spinner-btn">
                       <span class="plus"><i class="bi bi-plus-circle"></i></span>
@@ -262,6 +274,8 @@
                 </div>
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                 <div class="divider"></div>
+
+
                 <label class="input-label">Total finished space (includes basement if finished):</label>
                 <div class="slider-container"> <!--SQARE FOOTAGE-->
                     <div class="slider-custom" style="--min:0; --max:100; --step:5; --value:75; --text-value:'75';">
@@ -269,7 +283,7 @@
                             <span class="slider-label min-value">750 sqft or less</span>
                             <span class="slider-label max-value">3500 sqft or more</span>
                         </div>    
-                        <input type="range" min="750" max="3500" step="5" value="1400" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
+                        <input type="range" min="750" max="3500" step="5" value="1400" name="totalFinishedSpace" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
                         <output for="slider" id="sliderValue"></output>
                     </div>
                 </div> 
@@ -305,9 +319,9 @@
                 <div class="radio-group">  
                     <label class="input-label">Waste Management:</label><!--Income Potential?-->
                     <fieldset class="radio">
-                        <label><input type="radio" value="Septic" name="Sewer" checked/><span>Septic</span></label>
-                        <label><input type="radio" value="Municipal/City" name="Sewer"/><span>Municipal/City</span></label>
-                        <label><input type="radio" value="Other" name="Sewer"/><span>Other</span></label>
+                        <label><input type="radio" value="Septic" name="WasteManagement" checked/><span>Septic</span></label>
+                        <label><input type="radio" value="Municipal/City" name="WasteManagement"/><span>Municipal/City</span></label>
+                        <label><input type="radio" value="Other" name="WasteManagement"/><span>Other</span></label>
                         <span class="switch"></span>
                     </fieldset>
                 </div>  
@@ -330,31 +344,33 @@
             <div class="step-sub-title">Tell us about some of your properties features</div>
             <div class="checkbox-grid-container-features">
                 <fieldset class="checkbox">
-                    <label><input type="checkbox" id="outdoorLivingSpace" name="Features"/><span>Outdoor Living Space (Patio, Gazebo, etc)</span></label>
-                    <label><input type="checkbox" id="Security System" name="Features"/><span>Security System</span></label>
-                    <label><input type="checkbox" id="Walk-In Closet" name="Features"/><span>Walk-In Closet</span></label>
-                    <label><input type="checkbox" id="Upgraded Kitchen" name="Features"/><span>Upgraded Kitchen</span></label>
+                    <label><input type="checkbox" id="outdoorLivingSpace" name="Features" value="outdoorLivingSpace"/><span>Outdoor Living Space (Patio, Gazebo, etc)</span></label>
+                    <label><input type="checkbox" id="SecuritySystem" name="Features" value="SecuritySystem"/><span>Security System</span></label>
+                    <label><input type="checkbox" id="WalkInCloset" name="Features" value="WalkInCloset"/><span>Walk-In Closet</span></label>
+                    <label><input type="checkbox" id="UpgradedKitchen" name="Features" value="UpgradedKitchen"/><span>Upgraded Kitchen</span></label>
                 </fieldset>  
                 <fieldset class="checkbox">
-                    <label><input type="checkbox" id="Home Gym" name="Features"/><span>Home Gym</span></label>
-                    <label><input type="checkbox" id="Smart-Home System" name="Features"/><span>Smart-Home System</span></label>
-                    <label><input type="checkbox" id="Pool" name="Features"/><span>Pool</span></label>
-                    <label><input type="checkbox" id="Hot tub" name="Features"/><span>Hot tub</span></label>
-                    <label><input type="checkbox" id="Generator System" name="Features"/><span>Generator System</span></label>
+                    <label><input type="checkbox" id="HomeGym" name="Features" value="HomeGym"/><span>Home Gym</span></label>
+                    <label><input type="checkbox" id="SmartHomeSystem" name="Features" value="SmartHomeSystem"/><span>Smart-Home System</span></label>
+                    <label><input type="checkbox" id="Pool" name="Features" value="Pool"/><span>Pool</span></label>
+                    <label><input type="checkbox" id="HotTub" name="Features" value="HotTub"/><span>Hot tub</span></label>
+                    <label><input type="checkbox" id="GeneratorSystem" name="Features" value="GeneratorSystem"/><span>Generator System</span></label>
                 </fieldset>
                 <fieldset class="checkbox">
-                    <label><input type="checkbox" id="Central Vac" name="Features"/><span>Central Vac</span></label>
-                    <label><input type="checkbox" id="Ensuite Bathroom" name="Features"/><span>Ensuite Bathroom</span></label>
-                    <label><input type="checkbox" id="Heated Flooring" name="Features"/><span>Heated Flooring</span></label>    
-                    <label><input type="checkbox" id="Water-Views" name="Features"/><span>Water-Views</span></label>
-                    <label><input type="checkbox" id="Waterfront" name="Features"/><span>Waterfront</span></label>
+                    <label><input type="checkbox" id="CentralVac" name="Features" value="CentralVac"/><span>Central Vac</span></label>
+                    <label><input type="checkbox" id="EnsuiteBathroom" name="Features" value="EnsuiteBathroom"/><span>Ensuite Bathroom</span></label>
+                    <label><input type="checkbox" id="HeatedFlooring" name="Features" value="HeatedFlooring"/><span>Heated Flooring</span></label>    
+                    <label><input type="checkbox" id="WaterViews" name="Features" value="WaterViews"/><span>Water-Views</span></label>
+                    <label><input type="checkbox" id="Waterfront" name="Features" value="Waterfront"/><span>Waterfront</span></label>
                 </fieldset>
             </div>
                     <label class="input-label">Other Features:</label>
                 <div class="textarea-container">
-                    <textarea></textarea>
+                    <textarea name="OtherPropertyFeatures"></textarea>
                 </div>
+
                  <div class="error-message" hidden>Required Field Missing</div>
+
                  <div class="nav-button-container">   
                     <button type="button" button class="secondaryButton" data-previous>
                         <i class="bi bi-arrow-left"></i>Previous
@@ -395,25 +411,28 @@
             <div class="input-label">Garage features</div>
                 <div class="twoColumn-grid-container">
                     <fieldset class="checkbox">
-                        <label><input type="checkbox" id="Heated" name="GarageFeatures"/><span>Heated</span></label>
-                        <label><input type="checkbox" id="Electric Opener(s)" name="GarageFeatures"/><span>Electric Opener(s)</span></label>
-                        <label><input type="checkbox" id="Air Conditioning" name="GarageFeatures"/><span>Air Conditioning</span></label>
-                        <label><input type="checkbox" id="Security System" name="GarageFeatures"/><span>Security System</span></label>
-                        <label><input type="checkbox" id="Heavy Equitment" name="GarageFeatures"/><span>Heavy Equitment</span></label>
+                        <label><input type="checkbox" id="Heated" name="GarageFeatures" value="Heated"/><span>Heated</span></label>
+                        <label><input type="checkbox" id="ElectricOpeners" name="GarageFeatures" value="ElectricOpeners"/><span>Electric Opener(s)</span></label>
+                        <label><input type="checkbox" id="AirConditioning" name="GarageFeatures" value="AirConditioning"/><span>Air Conditioning</span></label>
+                        <label><input type="checkbox" id="SecuritySystem" name="GarageFeatures" value="SecuritySystem"/><span>Security System</span></label>
+                        <label><input type="checkbox" id="HeavyEquitment" name="GarageFeatures" value="HeavyEquitment"/><span>Heavy Equitment</span></label>
                     </fieldset>    
                     <fieldset class="checkbox">
-                        <label><input type="checkbox" id="Insulated" name="GarageFeatures"/><span>Insulated</span></label>
-                        <label><input type="checkbox" id="Living Space" name="GarageFeatures"/><span>Living Space: Rooms, Loft, etc</span></label>
-                        <label><input type="checkbox" id="Bathroom(s)" name="GarageFeatures"/><span>Bathroom(s)</span></label>
-                        <label><input type="checkbox" id="Plumbing" name="GarageFeatures"/><span>Plumbing</span></label>
-                        <label><input type="checkbox" id="Generator Equipped" name="GarageFeatures"/><span>Generator Equipped</span></label>
+                        <label><input type="checkbox" id="Insulated" name="GarageFeatures" value="Insulated"/><span>Insulated</span></label>
+                        <label><input type="checkbox" id="LivingSpace" name="GarageFeatures" value="LivingSpace"/><span>Living Space: Rooms, Loft, etc</span></label>
+                        <label><input type="checkbox" id="Bathrooms" name="GarageFeatures" value="Bathrooms"/><span>Bathroom(s)</span></label>
+                        <label><input type="checkbox" id="Plumbing" name="GarageFeatures" value="Plumbing"/><span>Plumbing</span></label>
+                        <label><input type="checkbox" id="GeneratorEquipped" name="GarageFeatures" value="GeneratorEquipped"/><span>Generator Equipped</span></label>
                     </fieldset>
                 </div>
-                    <label class="input-label">Other Garage Features:</label>
-                    <div class="textarea-container">
-                        <textarea></textarea>
-                    </div>
+
+            <label class="input-label">Other Garage Features:</label>
+                <div class="textarea-container">
+                    <textarea name="OtherGarageFeatures"></textarea>
+                </div>
+
             <div class="error-message" hidden>Required Field Missing</div>
+
             <div class="nav-button-container">   
                 <button type="button" button class="secondaryButton" data-previous>
                     <i class="bi bi-arrow-left"></i>Previous
@@ -432,35 +451,36 @@
             <div class="input-label">Heating type</div>
             <div class="twoColumn-grid-container">
                 <fieldset class="checkbox">
-                    <label><input type="checkbox" id="Other" name="HeatFuel"/><span>Other</span></label>
-                    <label><input type="checkbox" id="Electric" name="HeatFuel"/><span>Electric</span></label>
-                    <label><input type="checkbox" id="Natural Gas" name="HeatFuel"/><span>Natural Gas</span></label>
-                    <label><input type="checkbox" id="Wood" name="HeatFuel"/><span>Wood</span></label>
+                    <label><input type="checkbox" id="OtherHeatFuel" name="HeatFuel" value="Other"/><span>Other</span></label>
+                    <label><input type="checkbox" id="Electric" name="HeatFuel" value="Electric"/><span>Electric</span></label>
+                    <label><input type="checkbox" id="NaturalGas" name="HeatFuel" value="NaturalGas"/><span>Natural Gas</span></label>
+                    <label><input type="checkbox" id="Wood" name="HeatFuel" value="Wood"/><span>Wood</span></label>
                 </fieldset>
                 <fieldset class="checkbox">
-                    <label><input type="checkbox" id="Geothermal" name="HeatFuel"/><span>Geothermal</span></label>
-                    <label><input type="checkbox" id="Propane" name="HeatFuel"/><span>Propane</span></label>
-                    <label><input type="checkbox" id="Pellet" name="HeatFuel"/><span>Oil</span></label>
-                    <label><input type="checkbox" id="Solar (Electric)" name="HeatFuel"/><span>Solar</span></label>
-                </fieldset>
+                    <label><input type="checkbox" id="Geothermal" name="HeatFuel" value="Geothermal"/><span>Geothermal</span></label>
+                    <label><input type="checkbox" id="Propane" name="HeatFuel" value="Propane"/><span>Propane</span></label>
+                    <label><input type="checkbox" id="Oil" name="HeatFuel" value="Oil"/><span>Oil</span></label>
+                    <label><input type="checkbox" id="SolarElectric" name="HeatFuel" value="SolarElectric"/><span>Solar</span></label>
+                </fieldset>            
             </div> 
             <div class="input-label">Method of heating</div>
             <div class="twoColumn-grid-container">
                 <fieldset class="checkbox">
-                    <label><input type="checkbox" id="Forced-Air" name="HeatMethod"/><span>Forced-Air</span></label>
-                    <label><input type="checkbox" id="Baseboard" name="HeatMethod"/><span>Baseboard</span></label>
-                    <label><input type="checkbox" id="Heat-Pump" name="HeatMethod"/><span>Heat-Pump</span></label>
+                    <label><input type="checkbox" id="ForcedAir" name="HeatMethod" value="ForcedAir"/><span>Forced-Air</span></label>
+                    <label><input type="checkbox" id="Baseboard" name="HeatMethod" value="Baseboard"/><span>Baseboard</span></label>
+                    <label><input type="checkbox" id="HeatPump" name="HeatMethod" value="HeatPump"/><span>Heat-Pump</span></label>
                 </fieldset>
                 <fieldset class="checkbox">
-                    <label><input type="checkbox" id="Hot-Water" name="HeatMethod"/><span>Hot-Water</span></label>
-                    <label><input type="checkbox" id="Radiant" name="HeatMethod"/><span>Radiant</span></label>
-                    <label><input type="checkbox" id="Stove" name="HeatMethod"/><span>Stove</span></label>
-                    <label><input type="checkbox" id="Other" name="HeatMethod"/><span>Other</span></label>
-                </fieldset>
+                    <label><input type="checkbox" id="HotWater" name="HeatMethod" value="HotWater"/><span>Hot-Water</span></label>
+                    <label><input type="checkbox" id="Radiant" name="HeatMethod" value="Radiant"/><span>Radiant</span></label>
+                    <label><input type="checkbox" id="Stove" name="HeatMethod" value="Stove"/><span>Stove</span></label>
+                    <label><input type="checkbox" id="OtherHeatMethod" name="HeatMethod" value="OtherHeatMethod"/><span>Other</span></label>
+                </fieldset>            
             </div>
-                <label class="input-label">Other Methods:</label>
+            
+            <label class="input-label">Other Methods:</label>
                 <div class="textarea-container">
-                    <textarea></textarea>
+                    <textarea name="OtherHeatingMethods"></textarea>
                 </div>                       
 <!------------------------------------------------------------------------------------------Electrical Info------------------------------------------------------------------------------------------------------------------>
                     <div class="divider"></div>
@@ -503,17 +523,18 @@
                 <div class="input-title">Plumbing details</div>
                 <div class="twoColumn-grid-container">
                     <fieldset class="checkbox">
-                        <label><input type="checkbox" id="Forced-Air" name="HeatMethod"/><span>Copper</span></label>
-                        <label><input type="checkbox" id="Baseboard" name="HeatMethod"/><span>Cast-Iron</span></label>
-                        <label><input type="checkbox" id="Heat-Pump" name="HeatMethod"/><span>Lead</span></label>
+                        <label><input type="checkbox" id="Copper" name="PlumbingType" value="Copper"/><span>Copper</span></label>
+                        <label><input type="checkbox" id="Cast-Iron" name="PlumbingType" value="Cast-Iron"/><span>Cast-Iron</span></label>
+                        <label><input type="checkbox" id="Lead" name="PlumbingType" value="Lead"/><span>Lead</span></label>
                     </fieldset>
                     <fieldset class="checkbox">
-                        <label><input type="checkbox" id="Hot-Water" name="HeatMethod"/><span>PVC</span></label>
-                        <label><input type="checkbox" id="Radiant" name="HeatMethod"/><span>Plastic</span></label>
-                        <label><input type="checkbox" id="Other" name="HeatMethod"/><span>Other</span></label>
+                        <label><input type="checkbox" id="PVC" name="PlumbingType" value="PVC"/><span>PVC</span></label>
+                        <label><input type="checkbox" id="Plastic" name="PlumbingType" value="Plastic"/><span>Plastic</span></label>
+                        <label><input type="checkbox" id="Other" name="PlumbingType" value="Other"/><span>Other</span></label>
                     </fieldset>
                 </div>  
             <div class="error-message" hidden>Required Field Missing</div>
+
             <div class="nav-button-container">   
                 <button type="button" button class="secondaryButton" data-previous>
                     <i class="bi bi-arrow-left"></i>Previous
@@ -531,22 +552,23 @@
         <div class="card" data-step>
             <div class="step-title">Contact info</div>
             <div class="step-sub-title">Where should we send this market report?</div>
+
             <div class="CustomerInfo">
-                <input type="text" name="contact" autocomplete="on" required/>
-                <label for="name" class="cust-input">
+                <input type="text" name="contactName" autocomplete="on" required/>
+                <label for="contactName" class="cust-input">
                     <span class="input-content"><i class="bi bi-person"></i> Name<span>
                 </label>
             </div>
             <div class="twoColumn-grid-container">
                 <div class="CustomerInfo">
-                    <input type="email" name="contact" autocomplete="on" required/>
-                    <label for="Email" class="cust-input">
+                    <input type="email" name="contactEmail" autocomplete="on" required/>
+                    <label for="contactEmail" class="cust-input">
                         <span class="input-content"><i class="bi bi-envelope-at"></i> Email Address<span>
                     </label>
                 </div>
                 <div class="CustomerInfo">
-                    <input type="tel" name="contact" autocomplete="on" required/>
-                    <label for="Phone#" class="cust-input">
+                    <input type="tel" name="contactPhone" autocomplete="on" required/>
+                    <label for="contactPhone" class="cust-input">
                         <span class="input-content"><i class="bi bi-telephone"></i> Contact Number<span>
                     </label>
                 </div>
@@ -561,32 +583,35 @@
                         </fieldset>
                         <label class="input-label">Purpose of home evaluation:</label>
                         <fieldset class="radio">
-                            <label><input type="radio" value="No" name="PurposeOfEval" checked/><span>Interested in selling property</span></label>
-                            <label><input type="radio" value="Yes" name="PurposeOfEval"/><span>Just curious</span></label>
-                            <label><input type="radio" value="Yes" name="PurposeOfEval"/><span>Planning to re-finance</span></label>
-                            <label><input type="radio" value="Yes" name="PurposeOfEval"/><span>Other</span></label>
+                            <label><input type="radio" value="InterestedInSellingProperty" name="PurposeOfEval" checked/><span>Interested in selling property</span></label>
+                            <label><input type="radio" value="JustCurious" name="PurposeOfEval"/><span>Just curious</span></label>
+                            <label><input type="radio" value="ReFinance" name="PurposeOfEval"/><span>Planning to re-finance</span></label>
+                            <label><input type="radio" value="Other" name="PurposeOfEval"/><span>Other</span></label>
                             <span class="switch"></span>
                         </fieldset>
                         <label class="input-label">What is the timeline for selling your home?</label>
                         <fieldset class="radio">    
-                            <label><input type="radio" value="30 Days or less" name="SellingTimeline"checked/><span>30 Days or less</span></label>
-                            <label><input type="radio" value="30-90 Days" name="SellingTimeline"/><span>30-90 Days</span></label>
-                            <label><input type="radio" value="1Y or less" name="SellingTimeline"/><span>Within the next year</span></label>
+                            <label><input type="radio" value="30 Daysorless" name="SellingTimeline"checked/><span>30 Days or less</span></label>
+                            <label><input type="radio" value="30-90Days" name="SellingTimeline"/><span>30-90 Days</span></label>
+                            <label><input type="radio" value="1Yorless" name="SellingTimeline"/><span>Within the next year</span></label>
                             <label><input type="radio" value="1Y+" name="SellingTimeline"/><span>More than a year away</span></label>
-                            <label><input type="radio" value="not interested" name="SellingTimeline"/><span>I'm not interested in selling, just curious</span></label>
+                            <label><input type="radio" value="NotInterested" name="SellingTimeline"/><span>I'm not interested in selling, just curious</span></label>
                             <span class="switch"></span>
                         </fieldset>
                     </div>
+
                     <label class="input-label">Is there anything else we should know?<br><br>This could be upgrades you've made, recent renovations, important property history, or anything else that may effect your homes market value.</label>
-                    <div class="textarea-container">
-                        <textarea></textarea>
-                    </div>
+                        <div class="textarea-container">
+                            <textarea name="AdditionalUserNotes/Information"></textarea>
+                        </div>
+
             <div class="error-message" hidden>Required Field Missing</div>
+
             <div class="nav-button-container">   
                 <button type="button" button class="secondaryButton" data-previous>
                     <i class="bi bi-arrow-left"></i>Previous
                 </button>
-                <button type="button" button class="primaryButton" data-step="submit">
+                <button type="submit" button class="primaryButton" id="formSubmitButton" data-step="submit">
                     Submit<i class="bi bi-check-circle-fill"></i>
                 </button>
             </div>
