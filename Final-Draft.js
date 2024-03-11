@@ -174,21 +174,21 @@ document.addEventListener('DOMContentLoaded', function() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////*SLIDER Color+value FUNCTION*////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  function updateSliderValue(value) {
-    const slider = document.getElementById('slider-custom');
-    const max = slider.max;
-    const min = slider.min;
-    
-    // Calculate the value's percentage of the total range
-    const valuePercentage = ((value - min) / (max - min)) * 100;
-    
-    // Update the slider's background to reflect the current value
-    slider.style.background = `linear-gradient(to right, var(--slider-starting-color) 0%, var(--primary-color) ${valuePercentage}%, #FFF ${valuePercentage}%)`;
-    
-    // Update the output element with the current value
-    const output = document.getElementById('sliderValue');
-    output.value = `${value} sqft`; // Assuming you want to display the value in an output element
-  }
+function updateSliderValue(value) {
+  const slider = document.getElementById('slider-custom');
+  const max = slider.max;
+  const min = slider.min;
+
+  // Calculate the value's percentage of the total range
+  const valuePercentage = ((value - min) / (max - min)) * 100;
+
+  // Update the --slider-value-percentage variable to reflect the current value
+  document.documentElement.style.setProperty('--slider-value-percentage', `${valuePercentage}%`);
+
+  // Update the output element with the current value
+  const output = document.getElementById('sliderValue');
+  output.value = `${value} sqft`; // Assuming you want to display the value in an output element
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////Spinner Element//////////////////////////////////////////////
