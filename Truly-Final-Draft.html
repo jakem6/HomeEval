@@ -126,73 +126,10 @@
         <div class="card" data-step>
             <div class="step-title">Property details</div>
             <div class="step-sub-title">Tell us about your property</div>
-<!----------------------------------------------Homestyle Select Dropdown Box Start------------------------------------------------------------------------------------------>
-                <div class="dropdown" div id="DetachedHomestyle" style="display: none;">
-                    <label class="input-title">Style of property:</label>
-                    <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
-                    <div class="list">
-                        <input type="radio" name="DetachedHomestyle" value="NotSure" id="NotSure" class="list" />
-                        <label for="NotSure"><span>Not Sure</span></label>
-                    
-                        <input type="radio" name="DetachedHomestyle" value="1.5Storey" id="OneAndHalfStorey" class="list" />
-                        <label for="OneAndHalfStorey"><span>1.5 Storey</span></label>
-                    
-                        <input type="radio" name="DetachedHomestyle" value="2Storey2Level" id="TwoStoreyTwoLevel" class="list" />
-                        <label for="TwoStoreyTwoLevel"><span>2 Storey / 2 Level</span></label>
-                    
-                        <input type="radio" name="DetachedHomestyle" value="2.5Storey" id="TwoAndHalfStorey" class="list" />
-                        <label for="TwoAndHalfStorey"><span>2.5 Storey</span></label>
-                    
-                        <input type="radio" name="DetachedHomestyle" value="3Level" id="ThreeLevel" class="list" />
-                        <label for="ThreeLevel"><span>3 Level</span></label>
-                    
-                        <input type="radio" name="DetachedHomestyle" value="4Level" id="FourLevel" class="list" />
-                        <label for="FourLevel"><span>4 Level</span></label>
-                    
-                        <input type="radio" name="DetachedHomestyle" value="Bungalow" id="Bungalow" class="list" />
-                        <label for="Bungalow"><span>Bungalow</span></label>
-                    
-                        <input type="radio" name="DetachedHomestyle" value="SplitEntry" id="SplitEntry" class="list" />
-                        <label for="SplitEntry"><span>Split-Entry</span></label>
-                    
-                        <input type="radio" name="DetachedHomestyle" value="Other" id="Other" class="list" />
-                        <label for="Other"><span>Other</span></label>
-                    </div>
-                </div>
-<!----------------------------------------------Semi-Detached Homestyle Select Dropdown Box Start---------------------------------------------->
-                <div class="dropdown" div id="SemiDetachedHomestyle" style="display: none;">
-                    <label class="input-title">Style of property:</label>
-                    <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
-                    <div class="list">
-                        <input type="radio" name="SemiDetachedHomestyle" value="GardenHome" id="GardenHome" class="list" />
-                        <label for="GardenHome"><span>Garden Home</span></label>
-                    
-                        <input type="radio" name="SemiDetachedHomestyle" value="SemiDetached" id="SemiDetached" class="list" />
-                        <label for="SemiDetached"><span>Semi-detached</span></label>
-                    
-                        <input type="radio" name="SemiDetachedHomestyle" value="Townhouse" id="Townhouse" class="list" />
-                        <label for="Townhouse"><span>Townhouse</span></label>
-                    
-                        <input type="radio" name="SemiDetachedHomestyle" value="Other" id="OtherSemiDetached" class="list" />
-                        <label for="OtherSemiDetached"><span>Other</span></label>
-                    
-                        <input type="radio" name="SemiDetachedHomestyle" value="DuplexHalf" id="DuplexHalf" class="list" />
-                        <label for="DuplexHalf"><span>Duplex (half)</span></label>
-                    </div>
-                </div>
 
-                
-<!-------------------------------------------------------------Lot Rent/Condo Fees------------------------------------------------------------------------------------------------------------------------------------------------->
-                <label id="LotRentInput" style="display: none; flex-direction: row; align-items: center; justify-content: center; width: 100%;">
-                    <span>Monthly Lot Rent Amount:</span>
-                    <input type="text" id="LotRent" name="LotRent">
-                </label>
-                <label id="CondoFeesInput" style="display: none; flex-direction: row; align-items: center; justify-content: center; width: 100%;">
-                    <span>Monthly Condo Fees Amount:</span>
-                    <input type="text" id="CondoFees" name="CondoFees">
-                </label>
-                <div class="divider"></div>
-<!------------------------------------------------------------------Home Age Slider---------------------------------------------------------------------------------------------------------->
+            <div class="homeage-grid-container"> <!--Aligns Age with conditional box-->
+
+<!------------------------------------------------------------------Home Age Dropdown---------------------------------------------------------------------------------------------------------->
                 <div class="dropdown" div id="YearBuilt">
                     <label class="input-title">Age of property:</label>
                     <div class="input-box">Approx year built<i class="bi bi-arrow-down-circle"></i></div>
@@ -226,7 +163,73 @@
                     </div>
                 </div>
 
+<!----------------------------------------------Homestyle Select Dropdown Box Start------------------------------------------------------------------------------------------>
+                <div class="dropdown" id="DetachedHomestyle" style="display: none;">
+                    <label class="input-title">Style of property:</label>
+                    <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+                    <div class="list">
+                        <input type="radio" name="DetachedHomestyle" value="NotSure" id="NotSure" class="list" />
+                        <label for="NotSure"><span>Not Sure</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="1.5Storey" id="OneAndHalfStorey" class="list" />
+                        <label for="OneAndHalfStorey"><span>1.5 Storey</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="2Storey2Level" id="TwoStoreyTwoLevel" class="list" />
+                        <label for="TwoStoreyTwoLevel"><span>2 Storey / 2 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="2.5Storey" id="TwoAndHalfStorey" class="list" />
+                        <label for="TwoAndHalfStorey"><span>2.5 Storey</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="3Level" id="ThreeLevel" class="list" />
+                        <label for="ThreeLevel"><span>3 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="4Level" id="FourLevel" class="list" />
+                        <label for="FourLevel"><span>4 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="Bungalow" id="Bungalow" class="list" />
+                        <label for="Bungalow"><span>Bungalow</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="SplitEntry" id="SplitEntry" class="list" />
+                        <label for="SplitEntry"><span>Split-Entry</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="Other" id="Other" class="list" />
+                        <label for="Other"><span>Other</span></label>
+                    </div>
+                </div>
+<!----------------------------------------------Semi-Detached Homestyle Select Dropdown Box Start---------------------------------------------->
+                <div class="dropdown" id="SemiDetachedHomestyle" style="display: none;">
+                    <label class="input-title">Style of property:</label>
+                    <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+                    <div class="list">
+                        <input type="radio" name="SemiDetachedHomestyle" value="GardenHome" id="GardenHome" class="list" />
+                        <label for="GardenHome"><span>Garden Home</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="SemiDetached" id="SemiDetached" class="list" />
+                        <label for="SemiDetached"><span>Semi-detached</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="Townhouse" id="Townhouse" class="list" />
+                        <label for="Townhouse"><span>Townhouse</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="Other" id="OtherSemiDetached" class="list" />
+                        <label for="OtherSemiDetached"><span>Other</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="DuplexHalf" id="DuplexHalf" class="list" />
+                        <label for="DuplexHalf"><span>Duplex (half)</span></label>
+                    </div>
+                </div>
+        
+                
+<!-------------------------------------------------------------Lot Rent/Condo Fees------------------------------------------------------------------------------------------------------------------------------------------------->
+                <label class="input-title" id="LotRentInput" style="display: none;">
+                    <span>Monthly Lot Rent Amount:</span>
+                    <input type="text" id="LotRent" name="LotRent" placeholder="$">
+                </label>
+                <label class="input-title" id="CondoFeesInput" style="display: none;">
+                    <span>Monthly Condo Fees Amount:</span>
+                    <input type="text" id="CondoFees" name="CondoFees" placeholder="$">
+                </label>
 
+            </div>
                 <div class="divider"></div>
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                 <label class="input-title">Bedrooms/Bathrooms:</label>  

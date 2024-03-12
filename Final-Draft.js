@@ -119,31 +119,34 @@ document.addEventListener('DOMContentLoaded', function() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////Dropdown Function//
+////////////////////////////////////////////////////////Dropdown Function + adds check icon//////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  document.querySelectorAll('.dropdown').forEach(function(dropdown) {
-    var inputBox = dropdown.querySelector('.input-box');
+document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+  var inputBox = dropdown.querySelector('.input-box');
 
-    inputBox.onclick = function() {
+  inputBox.onclick = function() {
       this.classList.toggle('open');
       let list = this.nextElementSibling;
       if (list.style.maxHeight) {
-        list.style.maxHeight = null;
-        list.style.boxShadow = null;
+          list.style.maxHeight = null;
+          list.style.boxShadow = null;
       } else {
-        list.style.maxHeight = list.scrollHeight + 'px';
-        list.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.15),0 1px 3px 1px rgba(0, 0, 0, 0.1)';
+          list.style.maxHeight = list.scrollHeight + 'px';
+          list.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.1)';
       }
-    };
-  
-    var radios = dropdown.querySelectorAll('.dropdown input[type="radio"]');
-    radios.forEach(function(radio) {
+  };
+
+  var radios = dropdown.querySelectorAll('.dropdown input[type="radio"]');
+  radios.forEach(function(radio) {
       radio.addEventListener('change', function() {
-        inputBox.textContent = this.nextElementSibling.textContent;
-        inputBox.classList.add('selected'); // Add 'selected' class to indicate selection
-        inputBox.click(); // Optionally close the dropdown
+          // Clear previous selection text and icon
+          inputBox.innerHTML = `<span>${this.nextElementSibling.textContent}</span> <i class="bi bi-check-lg"></i>`;
+          inputBox.classList.add('selected'); // Add 'selected' class to indicate selection
+          
+          // Optionally close the dropdown
+          inputBox.click();
       });
-    });
+  });
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
