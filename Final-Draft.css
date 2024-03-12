@@ -28,48 +28,6 @@ html{
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-* {
-  font-family: var(--font-family);
-}
-
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*------------------------------------------------------Form/Card--------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------*/
-.multi-step-form { /*Child of content wrapper*/
-  overflow: hidden;
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.card { /*Child of multi-step-form*/
-display: flex;
-flex-direction: column;
-align-items: center;
-background-color: var(--backround-color);
-border: 0.05rem solid var(--primary-color); 
-border-radius: .5rem;
-padding: .65rem .95rem;
-width: 90%;
-max-width: 1250px;
-float: none;
-max-height: fit-content;
-margin: 1.25rem auto;
-animation: fade 250ms ease-in-out forwards;
-box-shadow:inset 0 -0.1rem 0.2rem #FFF,inset 0 0.1rem 0.2rem #e7e3e3,0.2rem 0.2rem 0.4rem #7a7878;
-}    
-.card.active { /*CHILD of "Card*/
-animation: slide 250ms 125ms ease-in-out both;
-}
-.hide {
-  display: none;
-}
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 :root { /*------------------------------------CUSTOM REALTOR INFORMATION-------------------------------------------------------------------------------*/
   --primary-color: #1a4578;
   --primary-opacity:rgba(26, 69, 120, 0.35); /* (primary blue @35% Opacity) */
@@ -150,14 +108,37 @@ animation: slide 250ms 125ms ease-in-out both;
   text-align: left; /* Aligns the text to the left */
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------Realtor Questionaire-------------------------------------------------------------------------------------------------------*/
-
-.Realtor-Questionaire-Conditional{
+/*------------------------------------------------------Form/Card--------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+.multi-step-form { /*Child of content wrapper*/
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-around;
+}
+.card { /*Child of multi-step-form*/
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: var(--backround-color);
+border: 0.05rem solid var(--primary-color); 
+border-radius: .5rem;
+padding: .65rem .95rem;
+width: 90%;
+max-width: 1250px;
+float: none;
+max-height: fit-content;
+margin: 1.25rem auto;
+animation: fade 250ms ease-in-out forwards;
+box-shadow:inset 0 -0.1rem 0.2rem #FFF,inset 0 0.1rem 0.2rem #e7e3e3,0.2rem 0.2rem 0.4rem #7a7878;
+}    
+.card.active { /*CHILD of "Card*/
+animation: slide 250ms 125ms ease-in-out both;
+}
+.hide {
+  display: none;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*---------------------------Property Type Buttons-----------------------------*/
@@ -299,6 +280,19 @@ animation: slide 250ms 125ms ease-in-out both;
   margin: 1rem 0; /* Vertically spaces out the divider and horizontally centers it */
 }
 
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------Realtor Questionaire-------------------------------------------------------------------------------------------------------*/
+
+.Realtor-Questionaire-Conditional{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------Required Field Error Msg---------------------------------------------*/
 /*
@@ -317,8 +311,178 @@ animation: slide 250ms 125ms ease-in-out both;
   border-radius: 5px;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------Progress Steps/Circles------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------Titles and Labels--------------------------------------------------------------------------------------------*/
+.step-title{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    border-bottom: .2rem solid var(--primary-color);
+    margin-top: .25rem;
+    margin-bottom: 0;
+}
+.step-title i{
+  position: absolute;
+  left: 1rem;
+  margin-right: .5rem;
+}
+@media (max-width:450px){
+  .step-title i{
+    left: 0.2rem;
+  }
+}
+  .step-sub-title{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding-bottom: .5rem;
+    margin-bottom: .625rem;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------Input Groups-----------------------------------------------------------------------------------------*/
+.input-title{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 1.25rem;
+  text-decoration: underline;
+  font-weight: 500;
+  padding-bottom: 0.4rem;
+  margin-top: .75rem;
+  margin-left: .4rem;
+  margin-bottom: .4rem;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------Containers-----------------------------------------------------------------------------*/
+.checkbox-grid-container{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: .75rem;
+}
+@media (max-width: 340px){
+  .checkbox-grid-container{
+    grid-template-columns: 1fr ;
+    gap: 0;
+    align-items: center;
+
+  }
+}
+.twoColumn-grid-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+@media (max-width: 890px){
+  .twoColumn-grid-container{
+    grid-template-columns: 1fr ;
+    gap: .25rem;
+    align-items: center;
+
+  }
+}
+.twoColumn-grid-container-absolute{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------Used for Address Page----------------------------------------------------------*/
+.threeColumn-grid-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .75rem;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 650px){
+    .threeColumn-grid-container{
+    grid-template-columns: 1fr 1fr; /* Adjusts to 2 columns */
+    grid-template-areas:
+    "item1 item1"
+    "item2 item3";
+    gap: .75rem;
+    }
+
+    .threeColumn-grid-container > div:nth-child(1) { grid-area: item1; }
+    .threeColumn-grid-container > div:nth-child(2) { grid-area: item2; }
+    .threeColumn-grid-container > div:nth-child(3) { grid-area: item3; }
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------Input Types------------------------------------------------------------------------------------*/
+label {  /* Labels for users inputs */
+  display: inline-block; 
+  margin-bottom: 0.5rem; 
+  position: relative;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  flex: 1;
+}
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    display: inline-block;
+    margin: 0.25rem; /* Adjusts space between the radio button and its label text */
+}
+
+input[type="email"],
+input[type="tel"],
+input[type="text"]{
+    font-size: 1rem;
+    width: auto;
+    height: 1.5rem;
+    border-radius: .5rem;
+}
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="text"]:hover{
+    border: 0.1rem solid var(--primary-color);
+    width: auto;
+    cursor: pointer;
+}
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="text"]:focus{
+    outline: 0.1rem solid var(--primary-color);
+    width: auto;
+    cursor: pointer;
+}
+input[type="textarea"]:focus{
+    outline: 0.1rem solid var(--primary-color);
+    width: auto;
+    height: 1.5rem;
+    cursor: pointer;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------Progress Steps/Circles------------------------------------------------------------------------------------*/
 
 .progress-container {
   display: flex;
@@ -411,202 +575,6 @@ animation: slide 250ms 125ms ease-in-out both;
   display: flex;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*------------------------------------------------Titles and Labels--------------------------------------------------------------------------------------------*/
-.step-title{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: 600;
-    border-bottom: .2rem solid var(--primary-color);
-    margin-top: .25rem;
-    margin-bottom: 0;
-}
-.step-title i{
-  position: absolute;
-  left: 1rem;
-  margin-right: .5rem;
-}
-@media (max-width:450px){
-  .step-title i{
-    left: 0.2rem;
-  }
-}
-  .step-sub-title{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: 500;
-    padding-bottom: .5rem;
-    margin-bottom: .625rem;
-}
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-.input-title{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  font-size: 1.25rem;
-  text-decoration: underline;
-  font-weight: 500;
-  padding-bottom: 0.4rem;
-  margin-top: .75rem;
-  margin-left: .4rem;
-  margin-bottom: .4rem;
-}
-.input-label{
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin-top: .75rem;
-  margin-left: .4rem;
-  justify-content: flex-start;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*-----------------------------------------------Containers-----------------------------------------------------------------------------*/
-.checkbox-grid-container-features{
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: .5rem;
-}
-@media (max-width: 850px){
-.checkbox-grid-container-features{
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr;
-  gap: 0;
-  }
-}
-
-.twoColumn-grid-container{
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: start;
-}
-@media (max-width: 890px){
-  .twoColumn-grid-container{
-    grid-template-columns: 1fr ;
-    gap: 0;
-    align-items: center;
-
-  }
-}
-.flex-container{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-/*--------------------------------Used for Address Page----------------------------------------------------------*/
-.threeColumn-grid-container{
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: .75rem;
-    align-items: center;
-    justify-content: center;
-}
-
-@media (max-width: 650px){
-    .threeColumn-grid-container{
-    grid-template-columns: 1fr 1fr; /* Adjusts to 2 columns */
-    grid-template-areas:
-    "item1 item1"
-    "item2 item3";
-    gap: .75rem;
-    }
-
-    .threeColumn-grid-container > div:nth-child(1) { grid-area: item1; }
-    .threeColumn-grid-container > div:nth-child(2) { grid-area: item2; }
-    .threeColumn-grid-container > div:nth-child(3) { grid-area: item3; }
-}
-/*-----------------------------------------------------------------------------------------------------------------------*/
-.electrical-radio-grid-container{
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));  
-    gap: .75rem;
-}
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------Input Types------------------------------------------------------------------------------------*/
-label {  /* Labels for users inputs */
-  display: inline-block; 
-  margin-bottom: 0.5rem; 
-  position: relative;
-  font-size: 1rem;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
-  flex: 1;
-}
-input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    display: inline-block;
-    margin: 0.25rem; /* Adjusts space between the radio button and its label text */
-}
-
-input[type="email"],
-input[type="tel"],
-input[type="text"]{
-    font-size: 1rem;
-    width: auto;
-    height: 1.5rem;
-    border-radius: .5rem;
-}
-input[type="email"]:hover,
-input[type="tel"]:hover,
-input[type="text"]:hover{
-    border: 0.1rem solid var(--primary-color);
-    width: auto;
-    cursor: pointer;
-}
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="text"]:focus{
-    outline: 0.1rem solid var(--primary-color);
-    width: auto;
-    cursor: pointer;
-}
-input[type="textarea"]:focus{
-    outline: 0.1rem solid var(--primary-color);
-    width: auto;
-    height: 1.5rem;
-    cursor: pointer;
-}
-/*----------------------------------------------------------------------------------------------------------------------------------------*/
- /*--------------------------------------------- Hidden (conditional) Text Inputs for "other"s-----------------------------------*/ 
-#LotRentInput {
-    display: block;
-    align-self: flex-start;
-    color: #000;
-    font-weight: 500;
-}
-#CondoFeesInput {
-  display: block;
-  align-self: flex-start;
-  color: #000;
-  font-weight: 500;
-}
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------Text Area----------------------------------------------------*/
 textarea{
@@ -664,8 +632,8 @@ textarea:hover{
     line-height:1.5rem;
     max-height:2.85rem;
     width: 100%;
+    padding: .2rem .1rem;
     min-width: 10rem;
-    font-size: .85rem;
     background:var(--backround-color);
     color:var(--primary-color);
     border-radius: 0.4rem;
@@ -780,37 +748,15 @@ textarea:hover{
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------Radio Inputs--------------------------------------------------------------------------------------------*/
-.radio-grid-container{
-    display: grid;
-    width:100%;
-    margin-top: .25rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));  
-    gap: .75rem;
-}
-@media (max-width: 500px){
-    .radio-grid-container{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: .5rem;
-    }
-}
-.radio-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: .31rem;
-}
-
 .radio {/*Fieldset*/       
     position: relative;
     display: flex;
     width: 100%;
-    min-width: none;
     height: fit-content;
     align-items: center;
     justify-content: space-around;
-    padding: .125rem 0;
-    border: 0.025rem solid var(--primary-color);
+    padding: 0 0;
+    border: 0.1rem solid var(--primary-color);
     background: var(--backround-color);
     border-radius: 2rem;
 }
@@ -828,14 +774,26 @@ textarea:hover{
     margin-right: 0;
     margin-bottom: 0;
     cursor: pointer;
-}
+} 
+@media (max-width: 390px){
+  .radio label{
+    padding: 0.15rem;
+    margin: 0.1rem
+  }
+} 
+@media (max-width: 335px){
+  .radio label{
+    padding: 0.15rem;
+    margin: 0.1rem;
+    font-size: 0.75rem;
+  }
+} 
 .radio label span {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: .85rem;
     font-weight: 600;
     color: var(--primary-color);
     transition: all 500ms ease-in-out;
@@ -847,6 +805,7 @@ textarea:hover{
 }
 .switch {/* floating background */          
     position: absolute;
+    left: 0;
     background-color: var(--primary-color);
     color: var(--backround-color);
     transition: left 0.5s ease-out, width 0.25s ease;  
@@ -856,7 +815,6 @@ textarea:hover{
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------Spinner Number Input (used for bed/bath input)-------------------------------------------------------------------*/
-
 .spinner-container {
     width: 100%;
     height: 100%;
@@ -1059,6 +1017,22 @@ textarea:hover{
     transform: translate(0, -50%);
     font-size: 1rem;
 }
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+ /*--------------------------------------------- Hidden (conditional) Text Inputs for "other"s-----------------------------------*/ 
+#LotRentInput {
+    display: block;
+    align-self: flex-start;
+    color: #000;
+    font-weight: 500;
+}
+#CondoFeesInput {
+  display: block;
+  align-self: flex-start;
+  color: #000;
+  font-weight: 500;
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------SLIDER CSS-------------------------------------------------------------------*/
