@@ -283,5 +283,30 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', positionSwitch);
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////Radio "Tile" Function////////////////////////
+////////////////////////////////////////Radio "Tile" Adding checkmark beside selected////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', () => {
+  const radioButtons = document.querySelectorAll('.radio-tiles input[type="radio"]');
+
+  radioButtons.forEach(radio => {
+      radio.addEventListener('change', (event) => {
+          // First, remove any existing icons from all radio tiles
+          document.querySelectorAll('.radio-tiles .bi-check-lg').forEach(icon => {
+              icon.remove();
+          });
+
+          // Then, check if the current radio button is selected
+          if (radio.checked) {
+              // Create a new icon element
+              let icon = document.createElement('i');
+              icon.className = 'bi bi-check-lg';
+              
+              // Find the corresponding label's span for the checked radio button
+              let labelSpan = radio.parentElement.querySelector('.radio-tile span');
+              
+              // Append the icon to the label's span
+              labelSpan.appendChild(icon);
+          }
+      });
+  });
+});
