@@ -28,6 +28,8 @@ html{
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 :root { /*------------------------------------CUSTOM REALTOR INFORMATION-------------------------------------------------------------------------------*/
   --primary-color: #1a4578;
   --primary-opacity:rgba(26, 69, 120, 0.35); /* (primary blue @35% Opacity) */
@@ -41,7 +43,7 @@ html{
   --slider-starting-color: #4685d1;
   --slider-thumb-size: 1.3rem; 
   --slider-value-percentage: 0%; 
-  --thumb-size: 1.25rem; /* Size of the thumb */
+  --thumb-size: 1.5rem; /* Size of the thumb */
   --track-height: 1rem; /* Height of the slider track */
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -179,7 +181,15 @@ animation: slide 250ms 125ms ease-in-out both;
   gap: .25rem;
   margin-bottom: .625rem;
 }
-
+/*----------------------------------------------------Dynamic Page after propertyTypeButtons--------------------------------------------------------------------------------------*/
+.input-test{
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2rem;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------Nav Buttons-----------------------------------------------------------------------------------------------------------------------------*/
 .nav-button-container{
@@ -365,6 +375,15 @@ animation: slide 250ms 125ms ease-in-out both;
   margin-left: .4rem;
   margin-bottom: .4rem;
 }
+.input-label{
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 0.4rem;
+}
 
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -374,6 +393,21 @@ animation: slide 250ms 125ms ease-in-out both;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------Containers-----------------------------------------------------------------------------*/
+.flex-container-column{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+}
+.flex-container-row{
+  display: flex;
+  width: 100%;
+  gap: .25rem;
+  align-content: center;
+  justify-content: center;
+}
+
 .checkbox-grid-container{
   display: grid;
   width: 100%;
@@ -457,7 +491,7 @@ input[type="email"],
 input[type="tel"],
 input[type="text"]{
     font-size: 1rem;
-    width: auto;
+    width: 100%;
     height: 1.5rem;
     border-radius: .5rem;
 }
@@ -465,19 +499,16 @@ input[type="email"]:hover,
 input[type="tel"]:hover,
 input[type="text"]:hover{
     border: 0.1rem solid var(--primary-color);
-    width: auto;
     cursor: pointer;
 }
 input[type="email"]:focus,
 input[type="tel"]:focus,
 input[type="text"]:focus{
     outline: 0.1rem solid var(--primary-color);
-    width: auto;
     cursor: pointer;
 }
 input[type="textarea"]:focus{
     outline: 0.1rem solid var(--primary-color);
-    width: auto;
     height: 1.5rem;
     cursor: pointer;
 }
@@ -748,7 +779,147 @@ textarea:hover{
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------Radio Inputs--------------------------------------------------------------------------------------------*/
+/*---------------------------------------------Property Age Input--------------------------------------------------------------------------------------------*/
+.property-age-radio { /*label container*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  user-select: none;
+}
+
+.property-age-radio input[type="radio"] {
+  display: none;
+}
+
+.property-age-radio label { /*labels themselves*/
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .35rem 0;
+  width: 100%;
+  color: var(--primary-color);
+  background-color: var(--backround-color); 
+  border: .125rem solid var(--primary-color); 
+  border-radius: 1.5rem; 
+  transition: background-color 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.property-age-radio label:hover {
+  background-color: var(--button-hover-color);
+  color: var(--backround-color);
+}
+
+.property-age-radio input[type="radio"]:checked + label {
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: var(--backround-color); 
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------Radio Tile Inputs--------------------------------------------------------------------------------------------*/
+.radio-tiles {/*Fieldset*/       
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  padding: 0 0;
+  background: var(--backround-color);
+}
+@media (max-width: 900px){
+.radio-tiles > :last-child {
+  grid-column: 1 / -1; /* Make the last child span all columns */
+}
+}
+@media (max-width: 900px){
+  .radio-tiles{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 650px){
+  .radio-tiles{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400px){
+  .radio-tiles{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+}
+.radio-tile{/*Each tile*/
+  width: 100%;
+  height: 9rem;
+  font-size: 2rem;
+  background-color: var(--primary-color);
+  color: var(--backround-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: solid #000 0.0125rem;
+  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+}
+.radio-tile:hover{
+  font-weight: 600;
+  scale: 1.05;
+}
+.radio-tile label{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  z-index: 2;
+  padding: .3rem .62rem;
+  border-top: none;
+  border-bottom: none;
+  margin-top: 0; /*These margins are to counteract master label*/     
+  margin-right: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+} 
+
+.radio-tile label span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: all 500ms ease-in-out;
+} 
+
+input[type="radio"]:checked + .radio-tile {
+  background-color: var(--button-hover-color);
+  color: var(--backround-color); 
+  font-weight: 600;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------Radio Slide Inputs--------------------------------------------------------------------------------------------*/
 .radio {/*Fieldset*/       
     position: relative;
     display: flex;
@@ -816,94 +987,112 @@ textarea:hover{
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------Spinner Number Input (used for bed/bath input)-------------------------------------------------------------------*/
-.spinner-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-top: .625rem;
-    gap: .35rem;
-  }
-  .bedroom-input{
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 4rem;
-    background-color: var(--backround-color);
-    border-radius: .5rem;
-    border: 0.025rem solid var(--primary-color);
-    box-sizing: border-box;
-    padding: .65rem .95rem;
-    transform-style: preserve-3d;
-    box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
-  }
-  .bathroom-input{
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: fit-content;
-    background-color: var(--backround-color);
-    border-radius: .5rem;
-    border: 0.025rem solid var(--primary-color);
-    box-sizing: border-box;
-    padding: .95rem;
-    box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
-  }
-  .bedroom-input:hover,
-  .bathroom-input:hover{
-    outline: .125rem solid var(--primary-color);
+.spinner-grid-containers {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 40% 5% 1fr 1fr;
+  gap: .25rem;
+}
+
+@media screen and (max-width: 750px) {
+  .spinner-grid-containers {
+    grid-template-columns: 1fr;
   }
   
-  .spinner-btn{
-    display: flex;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background: var(--backround-color);
-    color: var(--primary-color);
-    outline: none;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
+  
+  .spinner-grid-containers > div:nth-child(3),
+  .spinner-grid-containers > div:nth-child(4) {
+    grid-column: 1 / -1; 
   }
-  .spinner-btn span{ /*Inside Button*/
-    font-size: 2rem;
-    font-weight: 600;
-  }
-  .spinner-btn:hover{
-    scale: 1.05;
-  }
-  .value{
-    flex-grow: .5;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  .number{
-    flex-grow: 1;
-    font-size: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-left: .5rem;
-  }
+} 
+
+.plus-gap{ /* plus between beds and baths*/
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.plus-gap i{
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.bedroom-input{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  background-color: var(--backround-color);
+  border-radius: .5rem;
+  border: 0.025rem solid var(--primary-color);
+  box-sizing: border-box;
+  padding: .65rem .95rem;
+  transform-style: preserve-3d;
+  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+}
+.bathroom-input{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  height: fit-content;
+  background-color: var(--backround-color);
+  border-radius: .5rem;
+  border: 0.025rem solid var(--primary-color);
+  box-sizing: border-box;
+  padding: .95rem;
+  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+}
+.bedroom-input:hover,
+.bathroom-input:hover{
+  outline: .125rem solid var(--primary-color);
+}
+  
+.spinner-btn{
+display: flex;
+width: 2rem;
+height: 2rem;
+border-radius: 50%;
+background: var(--backround-color);
+color: var(--primary-color);
+outline: none;
+padding: 0;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+position: relative;
+}
+.spinner-btn span{ /*Inside Button*/
+font-size: 2rem;
+font-weight: 600;
+}
+.spinner-btn:hover{
+scale: 1.05;
+}
+.value{
+flex-grow: .5;
+display: flex;
+flex-direction: row;
+height: 100%;
+align-items: center;
+justify-content: center;
+}
+.number{
+flex-grow: 1;
+font-size: 1rem;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: .5rem;
+}
 .bedroom-input.completed,
 .bathroom-input.completed{
-    outline: none;
-    background-color: var(--primary-color);
-    color: var(--backround-color);
+  outline: none;
+  background-color: var(--primary-color);
+  color: var(--backround-color);
 }
 .completed .number {
   color: var(--backround-color); /* Change text color to indicate completion */
@@ -1073,7 +1262,17 @@ textarea:hover{
 .slider-label{
   margin: .1rem .625rem;
   font-weight: 500;
-  text-decoration: underline #1a4578;
+}
+.slider-label .bi.bi-arrow-left,
+.slider-label .bi.bi-arrow-right{
+  vertical-align: -.3rem;
+  margin: 0 0;
+}
+@media (max-width: 350px){
+  .slider-label .bi.bi-arrow-left,
+.slider-label .bi.bi-arrow-right{
+  font-size: 1rem;
+}
 }
 .slider-label-wrapper{
   display: flex;
@@ -1081,9 +1280,7 @@ textarea:hover{
   justify-content: space-between;
 }
 
-@media (max-width:450px){
-  .slider-label{font-size: .85rem;}
-}
+
 .slider-custom.label{
   margin: .31rem .31rem;
 }
@@ -1098,7 +1295,7 @@ textarea:hover{
   margin-top: .1875rem;
   padding: .1875rem; /* Adds some space inside the border */
   color: var(--primary-color);
-  font-size: 1rem; /* Larger text */
+  font-size: 1.2rem; /* Larger text */
   font-weight: 500;
   margin-top: 0; /* Adds space between the slider and the output */
 }
@@ -1106,7 +1303,7 @@ textarea:hover{
 .slider-custom input[type="range"]::-webkit-slider-runnable-track {
   appearance: none;
   width: 100%;
-  height: 0.8rem;
+  height: 1rem;
   background: linear-gradient(to right, var(--slider-starting-color) 0%, var(--primary-color) var(--slider-value-percentage), #FFF var(--slider-value-percentage));
   border: solid var(--primary-color);
   border-radius: var(--track-height);
@@ -1114,7 +1311,7 @@ textarea:hover{
 }
 .slider-custom input[type="range"]::-moz-range-track {
   width: 100%;
-  height: 0.8rem;
+  height: 1rem;
   background: linear-gradient(to right, var(--slider-starting-color) 0%, var(--primary-color) var(--slider-value-percentage), #FFF var(--slider-value-percentage));
   border: solid var(--primary-color);
   border-radius: var(--track-height);
@@ -1122,7 +1319,7 @@ textarea:hover{
 }
 .slider-custom input[type="range"]::-ms-track {
   width: 100%;
-  height: 0.8rem;
+  height: 1rem;
   border-radius: var(--track-height);
   cursor: pointer;
   background: var(--backround-color);
@@ -1134,8 +1331,8 @@ textarea:hover{
   appearance: none;
   transform: translateY(-0.3rem);
   border: transparent;
-  height: var(--slider-thumb-size);
-  width: var(--slider-thumb-size);
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
   background: var(--primary-color);
   cursor: pointer;
@@ -1150,16 +1347,16 @@ textarea:hover{
 
 .slider-custom input[type="range"]::-moz-range-thumb {
   border: transparent;
-  height: var(--slider-thumb-size);
-  width: var(--slider-thumb-size);
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
   background: var(--primary-color);
   cursor: pointer;
 }
 .slider-custom input[type="range"]::-ms-thumb {
   border: transparent;
-  height: var(--slider-thumb-size);
-  width: var(--slider-thumb-size);
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
   background: var(--primary-color);
   cursor: pointer;
@@ -1173,10 +1370,12 @@ textarea:hover{
 .slider-custom input[type="range"]:active {
   transform: scaleY(1.1);
 }
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .slider-custom {
-    --thumb-size: 1rem; /* Smaller thumb on smaller screens */
+@media (max-width: 600px){
+  .slider-custom{
+    font-size: 1.1rem;
+  }
+  #sliderValue{
+    font-size: 1.25rem;
   }
 }
 /*----------------------------------------------------------Slider ANIMATIONS----------------------------------------------------------*/

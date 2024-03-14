@@ -1,3 +1,8 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const multiStepForm = document.querySelector("[data-multi-step]");
   const formSteps = Array.from(multiStepForm.querySelectorAll("[data-step]"));
@@ -115,6 +120,27 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////Property type Dynamic Page//////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.propertytypebutton').forEach(button => {
+      button.addEventListener('click', function() {
+          document.querySelectorAll('.input-test').forEach(div => {
+              div.setAttribute('hidden', '');
+          });
+          
+          // Use the data-target-id attribute to find the matching div
+          const targetId = this.getAttribute('data-target-id');
+          const matchingDiv = document.getElementById(targetId);
+          if (matchingDiv) {
+              matchingDiv.removeAttribute('hidden');
+          }
+      });
+  });
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////Required field error message/////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -206,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Attach click event listeners to all spinner buttons
-  document.querySelectorAll('.spinner-container .spinner-btn').forEach(button => {
+  document.querySelectorAll('.spinner-grid-containers .spinner-btn').forEach(button => {
     button.addEventListener('click', () => {
         // Determine if the action is increment or decrement based on the presence of the 'plus' or 'minus' class
         const isIncrement = button.querySelector('.plus') !== null; // True if 'plus' is found, false otherwise
@@ -256,92 +282,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Adjust switch on window resize
   window.addEventListener('resize', positionSwitch);
 });
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////Homestyle Dropdowns + Condo Fee & Lot Rent Showing///////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-document.addEventListener('DOMContentLoaded', function() {
-  // Select the button by its ID
-  const MiniHomeMobileHomeButton = document.getElementById('Mini-Home-Mobile-Home');
-  
-  // Select the label that needs to be shown/hidden
-  const lotRentInput = document.getElementById('LotRentInput');
-  
-  // Add an event listener to the button
-  MiniHomeMobileHomeButton.addEventListener('click', function() {
-    // Toggle the display style between 'none' and 'flex'
-    if (lotRentInput.style.display === 'none') {
-      lotRentInput.style.display = 'flex'; // Show the label if it's hidden
-    } else {
-      lotRentInput.style.display = 'none'; // Hide the label if it's visible
-    }
-  });
-});
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Select the button by its ID
-  const CondoApartmentButton = document.getElementById('Condo-Apartment');
-  
-  // Select the label that needs to be shown/hidden
-  const CondoFeesInput = document.getElementById('CondoFeesInput');
-  
-  // Add an event listener to the button
-  CondoApartmentButton.addEventListener('click', function() {
-    // Toggle the display style between 'none' and 'flex'
-    if (CondoFeesInput.style.display === 'none') {
-      CondoFeesInput.style.display = 'flex'; // Show the label if it's hidden
-    } else {
-      CondoFeesInput.style.display = 'none'; // Hide the label if it's visible
-    }
-  });
-});
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Select the "Detached" button
-  const detachedButton = document.getElementById('Detached');
-  
-  // Select the dropdown div
-  const DetachedHomestyleDropdown = document.getElementById('DetachedHomestyle');
-  
-  // Add an event listener to the button
-  detachedButton.addEventListener('click', function() {
-      // Check if the dropdown is already visible
-      if (DetachedHomestyleDropdown.style.display === 'none') {
-          // Show the dropdown
-          DetachedHomestyleDropdown.style.display = 'block';
-      } else {
-          // Optional: Hide the dropdown if it's already visible and the button is clicked again
-          DetachedHomestyleDropdown.style.display = 'none';
-      }
-  });
-});
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Select the "Detached" button
-  const SemidetachedButton = document.getElementById('Semi-detached');
-  
-  // Select the dropdown div
-  const SemiDetachedHomestyleDropdown = document.getElementById('SemiDetachedHomestyle');
-  
-  // Add an event listener to the button
-  SemidetachedButton.addEventListener('click', function() {
-      // Check if the dropdown is already visible
-      if (SemiDetachedHomestyleDropdown.style.display === 'none') {
-          // Show the dropdown
-          SemiDetachedHomestyleDropdown.style.display = 'block';
-      } else {
-          // Optional: Hide the dropdown if it's already visible and the button is clicked again
-          SemiDetachedHomestyleDropdown.style.display = 'none';
-      }
-  });
-});
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////Radio "Tile" Function////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
