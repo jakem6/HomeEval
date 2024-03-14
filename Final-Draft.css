@@ -181,6 +181,11 @@ animation: slide 250ms 125ms ease-in-out both;
   margin-bottom: 1rem;
   margin-top: 1.5rem;
 }
+@media(max-width: 600px){
+  .propertytypebutton-wrapper{
+    grid-template-columns: 1fr;
+  }
+}
 /*----------------------------------------------------Dynamic Page after propertyTypeButtons--------------------------------------------------------------------------------------*/
 .input-test{
   width: 100%;
