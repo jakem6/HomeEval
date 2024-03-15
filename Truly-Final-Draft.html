@@ -104,6 +104,7 @@
         <div class="card" data-step>
 <!------------------------------------------------------------------Detached---------------------------------------------------------------------------------------------------------->
             <div class="input-test" id="Detached" hidden>Detached Test
+                
 
                 <fieldset class="radio-tiles">
                     <label>
@@ -560,22 +561,16 @@
 <!------------------------------------------------------------------------Roof Details--------------------------------------------------------------------------------------------->
 
             <label class="input-title">Roof Details:</label>
-        <div class="flex-container-column">
-            <div class="dropdown" id="RoofAge"><!--Roof Age-->
-                <div class="input-box">Age of Roof<i class="bi bi-arrow-down-circle"></i></div>
-                <div class="list">
-                    <input type="radio" name="RoofAge" value="5YorLess" id="5YorLess" class="list" />
-                    <label for="5YorLess"><span>Less than 5 years old</span></label>
-                    <input type="radio" name="RoofAge" value="5-10YearsOld" id="5-10YearsOld" class="list" />
-                    <label for="5-10YearsOld"><span>5-10 years old</span></label>
-                    <input type="radio" name="RoofAge" value="10-15YearsOld" id="10-15YearsOld" class="list" />
-                    <label for="10-15YearsOld"><span>10-15 years old</span></label>
-                    <input type="radio" name="RoofAge" value="15-20YearsOld" id="15-20YearsOld" class="list" />
-                    <label for="15-20YearsOld"><span>15-20 years old</span></label>
-                    <input type="radio" name="RoofAge" value="20YearsPlus" id="20YearsPlus" class="list" />
-                    <label for="20YearsPlus"><span>20 years or older</span></label>
-                    <input type="radio" name="RoofAge" value="Unsure" id="Unsure" class="list" />
-                    <label for="Unsure"><span>Unsure</span></label>
+        <div class="flex-container-column"><!--Roof Age-->
+            <div class="twoColumn-grid-container">
+                <div id="picker" class="picker" name="RoofAge">
+                    <div class="picker-item" name="RoofAge" data-value="New">New</div>
+                    <div class="picker-item" name="RoofAge" data-value="3YorLess">3 Years or older</div>
+                    <div class="picker-item" name="RoofAge" data-value="5YorLess">Less than 5 years old</div>
+                    <div class="picker-item" name="RoofAge" data-value="5-10YearsOld">5-10 years old</div>
+                    <div class="picker-item" name="RoofAge" data-value="10-15YearsOld">10-15 years old</div>
+                    <div class="picker-item" name="RoofAge" data-value="15-20YearsOld">15-20 years old</div>
+                    <div class="picker-item" name="RoofAge" data-value="20YearsPlus">20 years or older</div>
                 </div>
             </div>
             <div>   
