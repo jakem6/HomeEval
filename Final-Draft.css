@@ -28,48 +28,6 @@ html{
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*Picker Test*/
-.picker {
-  overflow-y: scroll;
-  border: 1px solid #ccc;
-  height: 5rem; /* Example height: Adjust as needed */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  user-select: none; /* Prevents text selection while dragging */
-  cursor: grab;
-  overflow-x: hidden;
-}
-.picker.active {
-  cursor: grabbing;
-}
-.picker-item {/* ADJUST THIS FURTHER */
-  height: 15%;
-  width: 100%;
-  font-size: .85rem;
-  padding: 0.85rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-top: 1px solid var(--primary-color);
-  border-bottom: 1px solid var(--primary-color);
-  transition: transform 0.1s ease, background-color 0.1s ease;
-}
-  
-.picker-item.selected {
-  background-color: var(--primary-color); /* Example background color for the selected item */
-  color: var(--backround-color);
-  font-weight: 600;
-  transform: scale(1.15);
-  /* Other styles to visually indicate selection */
-}
-
-
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 :root { /*------------------------------------CUSTOM REALTOR INFORMATION-------------------------------------------------------------------------------*/
   --primary-color: #1a4578;
   --primary-opacity:rgba(26, 69, 120, 0.35); /* (primary blue @35% Opacity) */
@@ -323,7 +281,7 @@ animation: slide 250ms 125ms ease-in-out both;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------Divider------------------------------------------------------------------------------------------------------------------------------------*/
 .divider {
-    height: .2rem; /* Specifies the thickness of the divider */
+    height: 1rem; /* Specifies the thickness of the divider */
     width: 100%; /* Divider width as a percentage of its container's width */
     background-color: var(--primary-color); /* Color of the divider */
     margin: 1.25rem 0; /* Vertically spaces out the divider and horizontally centers it */
@@ -680,6 +638,7 @@ textarea:hover{
   width: 100%;
   justify-content: space-around;
 }
+
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------Checkbox Inputs------------------------------------------------------------------------------*/
 [type="checkbox"]{
@@ -1038,120 +997,6 @@ input[type="radio"]:checked + .radio-tile {
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------Spinner Number Input (used for bed/bath input)-------------------------------------------------------------------*/
-.spinner-grid-containers {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 40% 5% 1fr 1fr;
-  gap: .25rem;
-}
-
-@media screen and (max-width: 750px) {
-  .spinner-grid-containers {
-    grid-template-columns: 1fr;
-  }
-  
-  
-  .spinner-grid-containers > div:nth-child(3),
-  .spinner-grid-containers > div:nth-child(4) {
-    grid-column: 1 / -1; 
-  }
-} 
-
-.plus-gap{ /* plus between beds and baths*/
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.plus-gap i{
-  font-size: 2.5rem;
-  color: var(--primary-color);
-}
-
-.bedroom-input{
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 4rem;
-  background-color: var(--backround-color);
-  border-radius: .5rem;
-  border: 0.025rem solid var(--primary-color);
-  box-sizing: border-box;
-  padding: .65rem .95rem;
-  transform-style: preserve-3d;
-  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
-}
-.bathroom-input{
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 4rem;
-  height: fit-content;
-  background-color: var(--backround-color);
-  border-radius: .5rem;
-  border: 0.025rem solid var(--primary-color);
-  box-sizing: border-box;
-  padding: .95rem;
-  box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
-}
-.bedroom-input:hover,
-.bathroom-input:hover{
-  outline: .125rem solid var(--primary-color);
-}
-  
-.spinner-btn{
-display: flex;
-width: 2rem;
-height: 2rem;
-border-radius: 50%;
-background: var(--backround-color);
-color: var(--primary-color);
-outline: none;
-padding: 0;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-position: relative;
-}
-.spinner-btn span{ /*Inside Button*/
-font-size: 2rem;
-font-weight: 600;
-}
-.spinner-btn:hover{
-scale: 1.05;
-}
-.value{
-flex-grow: .5;
-display: flex;
-flex-direction: row;
-height: 100%;
-align-items: center;
-justify-content: center;
-}
-.number{
-flex-grow: 1;
-font-size: 1rem;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-left: .5rem;
-}
-.bedroom-input.completed,
-.bathroom-input.completed{
-  outline: none;
-  background-color: var(--primary-color);
-  color: var(--backround-color);
-}
-.completed .number {
-  color: var(--backround-color); /* Change text color to indicate completion */
-  font-weight: 500;
-}
-/*--------------------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------DROPDOWNS-----------------------------------------------------------------------------------*/
 .dropdown { /*Dropdown Select Class Here*/
     width: 100%;
@@ -1261,6 +1106,82 @@ margin-left: .5rem;
     right: .95rem;
     transform: translate(0, -50%);
     font-size: 1rem;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------Picker Class (Scroll)--------------------------------------------------------------------------------------------------------*/
+.picker {
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  height: 5rem; /* Example height: Adjust as needed */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  user-select: none; /* Prevents text selection while dragging */
+  cursor: grab;
+  overflow-x: hidden;
+}
+.picker.active {
+  cursor: grabbing;
+}
+
+.picker-item {/* ADJUST THIS FURTHER */
+  height: 15%;
+  width: 100%;
+  font-size: .85rem;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+.picker-item:first-child{
+  padding-top: 2rem;
+  border-top: 0;
+}
+  
+/*-----------------------------------Lot size Picker--------------------------------------------------------------------------------------------------------*/
+
+#lotSizePicker .picker-item {
+  /* Different background color for lot size picker items, if needed */
+  background-color: #e8e8e8; /* Slightly different shade of grey, adjust as needed */
+}
+/*-----------------------------------DUAL Picker--------------------------------------------------------------------------------------------------------*/
+
+.dual-picker-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dual-picker {
+  margin: 0 10px; /* Adjust spacing between pickers */
+  border: 1px solid #000;
+  position: relative; /* Keeps the label positioned correctly */
+  height: 6.5rem;
+}
+.scroll-container {
+  overflow-y: scroll;
+  width: 100%;
+  
+}
+.picker-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  margin: 0 0;
+  padding: .20rem 0;
+  transform: translateX(-100%);
+  color:#FFF;
+  background-color: rgba(26, 69, 120, 0.75); /* Ensure label is visible over items */
+  box-sizing: border-box;
+  z-index: 10; /* Ensure label is above scrollable content */
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------------------*/

@@ -1,79 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const picker = document.getElementById('picker');
-    let isScrolling;
-    let isDown = false;
-    let startY;
-    let scrollTop;
-  
-    const highlightClosestItem = () => {
-        const items = document.querySelectorAll('.picker-item');
-        let closestItem = null;
-        let minDistance = Infinity;
-    
-        items.forEach(item => {
-            const itemRect = item.getBoundingClientRect();
-            const pickerRect = picker.getBoundingClientRect();
-            const distance = Math.abs(pickerRect.top + pickerRect.height / 2 - (itemRect.top + itemRect.height / 2));
-    
-            if (distance < minDistance) {
-                closestItem = item;
-                minDistance = distance;
-            }
-    
-            // Remove previously added 'selected' class from all items
-            item.classList.remove('selected');
-        });
-    
-        // Add 'selected' class to the closest item
-        if (closestItem) {
-            closestItem.classList.add('selected');
-        }
-    };
-  
-    picker.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startY = e.pageY - picker.offsetTop;
-        scrollTop = picker.scrollTop;
-    });
-  
-    picker.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-  
-    picker.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-  
-    picker.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const y = e.pageY - picker.offsetTop;
-        const walk = (y - startY) * 3; // Adjust scroll speed here
-        picker.scrollTop = scrollTop - walk;
-    });
-
-    picker.addEventListener('scroll', () => {
-        // Clear our timeout throughout the scroll
-        window.clearTimeout(isScrolling);
-  
-        // Set a timeout to run after scrolling ends
-        isScrolling = setTimeout(() => {
-            highlightClosestItem();
-  
-            // Snap to the closest item (adjust this logic based on your exact needs)
-            const selectedItem = document.querySelector('.picker-item.selected');
-            if (selectedItem) {
-                picker.scrollTo({ top: selectedItem.offsetTop - picker.offsetHeight / 2 + selectedItem.offsetHeight / 2, behavior: 'smooth' });
-            }
-        }, 66);
-    });
-
-    // Initially highlight the closest item
-    highlightClosestItem();
-});
-    
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -214,6 +138,174 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////DUAL Picker////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize both pickers
+    initPicker('dualPicker1');
+    initPicker('dualPicker2');
+
+    function initPicker(pickerId) {
+        const picker = document.getElementById(pickerId);
+        let isDown = false;
+        let startY;
+        let scrollTop;
+
+        picker.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startY = e.pageY - picker.offsetTop;
+            scrollTop = picker.scrollTop;
+        });
+
+        picker.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        picker.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        picker.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const y = e.pageY - picker.offsetTop;
+            const walk = (y - startY) * 3; // Adjust scroll speed here
+            picker.scrollTop = scrollTop - walk;
+        });
+    }
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////Picker/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+document.addEventListener('DOMContentLoaded', () => {
+    const picker = document.getElementById('picker');
+    let isScrolling;
+    let isDown = false;
+    let startY;
+    let scrollTop;
+  
+    const highlightClosestItem = () => {
+        const items = document.querySelectorAll('.picker-item');
+        let closestItem = null;
+        let minDistance = Infinity;
+    
+        items.forEach(item => {
+            const itemRect = item.getBoundingClientRect();
+            const pickerRect = picker.getBoundingClientRect();
+            const distance = Math.abs(pickerRect.top + pickerRect.height / 2 - (itemRect.top + itemRect.height / 2));
+    
+            if (distance < minDistance) {
+                closestItem = item;
+                minDistance = distance;
+            }
+    
+            // Remove previously added 'selected' class from all items
+            item.classList.remove('selected');
+        });
+    
+        // Add 'selected' class to the closest item
+        if (closestItem) {
+            closestItem.classList.add('selected');
+        }
+    };
+  
+    picker.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startY = e.pageY - picker.offsetTop;
+        scrollTop = picker.scrollTop;
+    });
+  
+    picker.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+  
+    picker.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+  
+    picker.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const y = e.pageY - picker.offsetTop;
+        const walk = (y - startY) * 3; // Adjust scroll speed here
+        picker.scrollTop = scrollTop - walk;
+    });
+
+    picker.addEventListener('scroll', () => {
+        // Clear our timeout throughout the scroll
+        window.clearTimeout(isScrolling);
+  
+        // Set a timeout to run after scrolling ends
+        isScrolling = setTimeout(() => {
+            highlightClosestItem();
+  
+            // Snap to the closest item (adjust this logic based on your exact needs)
+            const selectedItem = document.querySelector('.picker-item.selected');
+            if (selectedItem) {
+                picker.scrollTo({ top: selectedItem.offsetTop - picker.offsetHeight / 2 + selectedItem.offsetHeight / 2, behavior: 'smooth' });
+            }
+        }, 66);
+    });
+
+    // Initially highlight the closest item
+    highlightClosestItem();
+});
+    
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////Sqft Picker////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', () => {
+    const sqftPicker = document.getElementById('sqftPicker');
+
+    // Generate square footage options dynamically
+    const generateSqftOptions = () => {
+        for (let sqft = 450; sqft <= 3500; sqft += 25) { // Adjust step/increment as needed
+            const option = document.createElement('div');
+            option.className = 'picker-item';
+            option.setAttribute('name', 'SquareFootage');
+            option.setAttribute('data-value', sqft);
+            option.textContent = `${sqft} sqft`;
+            sqftPicker.insertBefore(option, sqftPicker.children[sqftPicker.children.length - 1]);
+        }
+    };
+
+    generateSqftOptions();
+
+    // Reuse existing picker logic for sqftPicker with minor adjustments if necessary
+    // This includes event listeners for 'mousedown', 'mousemove', 'mouseup', 'mouseleave', and 'scroll'
+    // Ensure to replace 'picker' with 'sqftPicker' and adjust any specific logic for square footage picker
+
+    // Example adjustment: You might want to adjust the scroll speed or the way options are generated based on your specific needs
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////Lot Size Picker////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', () => {
+    const lotSizePicker = document.getElementById('lotSizePicker');
+
+    // Generate lot size options dynamically
+    const generateLotSizeOptions = () => {
+        for (let sqm = 250; sqm <= 15000; sqm += 250) { // Adjust step/increment as needed
+            const option = document.createElement('div');
+            option.className = 'picker-item';
+            option.setAttribute('name', 'LotSize');
+            option.setAttribute('data-value', sqm);
+            option.textContent = `${sqm} sqm`;
+            lotSizePicker.insertBefore(option, lotSizePicker.children[lotSizePicker.children.length - 1]);
+        }
+    };
+
+    generateLotSizeOptions();
+
+    // Reuse existing picker logic for lotSizePicker with adjustments for lot size specifics
+    // This includes event listeners for 'mousedown', 'mousemove', 'mouseup', 'mouseleave', and 'scroll'
+    // Ensure to replace any specific logic or references from the square footage picker to apply to the lot size picker
+});
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -269,64 +361,6 @@ function updateSliderValue(value) {
   const output = document.getElementById('sliderValue');
   output.value = `${value} sqft`; // Assuming you want to display the value in an output element
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////Spinner Element//////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function () {
-  // Function to update spinner values based on the increment/decrement action
-  function updateSpinner(container, isIncrement) {
-      const numberSpan = container.querySelector('.number');
-      let currentValue = parseInt(container.querySelector('input[type="hidden"]').value, 10); // Use the hidden input's value
-      const min = parseInt(container.getAttribute('min'), 10);
-      const max = parseInt(container.getAttribute('max'), 10);
-      const step = parseInt(container.getAttribute('step'), 10);
-      let newValue = isIncrement ? currentValue + step : currentValue - step;
-      
-      // Ensure newValue is within the defined bounds
-      newValue = Math.max(min, Math.min(newValue, max));
-      // Update the hidden input's value along with the display text
-      container.querySelector('input[type="hidden"]').value = newValue; // Update hidden input value
-
-      // Determine the type of spinner (bedroom or bathroom) and set appropriate label
-      let labelText = '';
-      if (container.classList.contains('bedroom-input')) {
-          labelText = ' Bedroom(s)';
-      } else if (container.classList.contains('bathroom-input')) {
-          // Use the container's ID to differentiate between full and half bathrooms
-          const containerId = container.id;
-          if (containerId.includes('full')) {
-              labelText = ' Full-Bathroom(s)';
-          } else if (containerId.includes('half')) {
-              labelText = ' Half-Bathroom(s)';
-          }
-      }
-
-      // Update the display with the new value and the corresponding label text
-      numberSpan.textContent = `${newValue}${labelText}`;
-  }
-
-  // Attach click event listeners to all spinner buttons
-  document.querySelectorAll('.spinner-grid-containers .spinner-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        // Determine if the action is increment or decrement based on the presence of the 'plus' or 'minus' class
-        const isIncrement = button.querySelector('.plus') !== null; // True if 'plus' is found, false otherwise
-        const container = button.closest('.bedroom-input, .bathroom-input');
-        updateSpinner(container, isIncrement);
-    });
-  });  
-});
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-document.querySelectorAll('.spinner-btn').forEach(button => {
-  button.addEventListener('click', function() {
-    const container = button.closest('.bedroom-input, .bathroom-input');
-    if (container) {
-      container.classList.add('completed');
-    }
-  });
-});
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////Radio "Switch" Function////////////////////////
