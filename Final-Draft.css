@@ -28,6 +28,43 @@ html{
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*Picker Test*/
+.picker {
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  height: 5rem; /* Example height: Adjust as needed */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  user-select: none; /* Prevents text selection while dragging */
+  cursor: grab;
+  overflow-x: hidden;
+}
+.picker.active {
+  cursor: grabbing;
+}
+.picker-item {
+  height: 33%;
+  width: 100%;
+  font-size: .85rem;
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+.picker-item.selected {
+  background-color: var(--primary-color); /* Example background color for the selected item */
+  color: var(--backround-color);
+  font-weight: 600;
+  transform: scale(1.15);
+  /* Other styles to visually indicate selection */
+}
+
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 :root { /*------------------------------------CUSTOM REALTOR INFORMATION-------------------------------------------------------------------------------*/

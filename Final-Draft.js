@@ -1,3 +1,79 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const picker = document.getElementById('picker');
+    let isScrolling;
+    let isDown = false;
+    let startY;
+    let scrollTop;
+  
+    const highlightClosestItem = () => {
+        const items = document.querySelectorAll('.picker-item');
+        let closestItem = null;
+        let minDistance = Infinity;
+    
+        items.forEach(item => {
+            const itemRect = item.getBoundingClientRect();
+            const pickerRect = picker.getBoundingClientRect();
+            const distance = Math.abs(pickerRect.top + pickerRect.height / 2 - (itemRect.top + itemRect.height / 2));
+    
+            if (distance < minDistance) {
+                closestItem = item;
+                minDistance = distance;
+            }
+    
+            // Remove previously added 'selected' class from all items
+            item.classList.remove('selected');
+        });
+    
+        // Add 'selected' class to the closest item
+        if (closestItem) {
+            closestItem.classList.add('selected');
+        }
+    };
+  
+    picker.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startY = e.pageY - picker.offsetTop;
+        scrollTop = picker.scrollTop;
+    });
+  
+    picker.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+  
+    picker.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+  
+    picker.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const y = e.pageY - picker.offsetTop;
+        const walk = (y - startY) * 3; // Adjust scroll speed here
+        picker.scrollTop = scrollTop - walk;
+    });
+
+    picker.addEventListener('scroll', () => {
+        // Clear our timeout throughout the scroll
+        window.clearTimeout(isScrolling);
+  
+        // Set a timeout to run after scrolling ends
+        isScrolling = setTimeout(() => {
+            highlightClosestItem();
+  
+            // Snap to the closest item (adjust this logic based on your exact needs)
+            const selectedItem = document.querySelector('.picker-item.selected');
+            if (selectedItem) {
+                picker.scrollTo({ top: selectedItem.offsetTop - picker.offsetHeight / 2 + selectedItem.offsetHeight / 2, behavior: 'smooth' });
+            }
+        }, 66);
+    });
+
+    // Initially highlight the closest item
+    highlightClosestItem();
+});
+    
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
