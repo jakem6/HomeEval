@@ -70,40 +70,50 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////Form Submission/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////Form Submission To HOOK + Redirect//////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('myForm');
+    const form = document.getElementById('myForm');
 
-  form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent default form submission behavior
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission behavior
 
-      // Collect form data
-      const formData = new FormData(form);
+        const formData = new FormData(form);
+        let customFormattedData = '';
 
-      // Send the form data to the webhook using fetch
-      fetch(form.action, {
-          method: 'POST',
-          body: formData,
-      })
-      .then(response => {
-          if (response.ok) {
-              // If the submission was successful, redirect the user
-              window.location.href = 'https://jakeblack.ca';
-          } else {
-              // Handle server errors or unsuccessful submission
-              alert('Form submission failed.');
-          }
-      })
-      .catch(error => {
-          // Handle network errors
-          console.error('Error submitting form:', error);
-          alert('Form submission failed due to a network error.');
-      });
-  });
+        for (const [key, value] of formData.entries()) {
+            if (value) { // Ensure you only include fields with values
+                customFormattedData += `name="${key}" ${value}\n`; // Construct the data string
+            }
+        }
+
+        // Debugging: Log the custom formatted string to ensure it's correct
+        console.log(customFormattedData);
+
+        // Send the custom-formatted data as a text/plain content type
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain' // Change this if the server expects a different content type
+            },
+            body: customFormattedData
+        })
+        .then(response => {
+            if (response.ok) {
+                // If the submission was successful, redirect the user
+                window.location.href = 'https://jakeblack.ca';
+            } else {
+                // Handle server errors or unsuccessful submission
+                alert('Form submission failed.');
+            }
+        })
+        .catch(error => {
+            // Handle network errors
+            console.error('Error submitting form:', error);
+            alert('Form submission failed due to a network error.');
+        });
+    });
 });
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////Property Type Button Data being included in submission data///////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
