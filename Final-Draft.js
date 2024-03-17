@@ -1,8 +1,51 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////Form Submission To HOOK + Redirect//////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('myForm');
 
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission behavior
 
+        const formData = new FormData(form);
+        let customFormattedData = '';
+
+        for (const [key, value] of formData.entries()) {
+            if (value) { // Ensure you only include fields with values
+                customFormattedData += `name="${key}" ${value}\n`; // Construct the data string
+            }
+        }
+
+        // Debugging: Log the custom formatted string to ensure it's correct
+        console.log(customFormattedData);
+
+        // Send the custom-formatted data as a text/plain content type
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain' // Change this if the server expects a different content type
+            },
+            body: customFormattedData
+        })
+        .then(response => {
+            if (response.ok) {
+                // If the submission was successful, redirect the user
+                window.location.href = 'https://jakeblack.ca';
+            } else {
+                // Handle server errors or unsuccessful submission
+                alert('Form submission failed.');
+            }
+        })
+        .catch(error => {
+            // Handle network errors
+            console.error('Error submitting form:', error);
+            alert('Form submission failed due to a network error.');
+        });
+    });
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////Form Navagation Cards///////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', function() {
   const multiStepForm = document.querySelector("[data-multi-step]");
   const formSteps = Array.from(multiStepForm.querySelectorAll("[data-step]"));
@@ -70,51 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////Form Submission To HOOK + Redirect//////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('myForm');
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent default form submission behavior
-
-        const formData = new FormData(form);
-        let customFormattedData = '';
-
-        for (const [key, value] of formData.entries()) {
-            if (value) { // Ensure you only include fields with values
-                customFormattedData += `name="${key}" ${value}\n`; // Construct the data string
-            }
-        }
-
-        // Debugging: Log the custom formatted string to ensure it's correct
-        console.log(customFormattedData);
-
-        // Send the custom-formatted data as a text/plain content type
-        fetch(form.action, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'text/plain' // Change this if the server expects a different content type
-            },
-            body: customFormattedData
-        })
-        .then(response => {
-            if (response.ok) {
-                // If the submission was successful, redirect the user
-                window.location.href = 'https://jakeblack.ca';
-            } else {
-                // Handle server errors or unsuccessful submission
-                alert('Form submission failed.');
-            }
-        })
-        .catch(error => {
-            // Handle network errors
-            console.error('Error submitting form:', error);
-            alert('Form submission failed due to a network error.');
-        });
-    });
-});
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////Property Type Button Data being included in submission data///////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -148,16 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////DUAL Picker////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////Single & Dual Picker Functionality//////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize both pickers
-    initPicker('dualPicker1');
-    initPicker('dualPicker2');
+    document.querySelectorAll('.scroll-container').forEach(initPicker);
 
-    function initPicker(pickerId) {
-        const picker = document.getElementById(pickerId);
+    function initPicker(picker) {
         let isDown = false;
         let startY;
         let scrollTop;
@@ -168,103 +163,87 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTop = picker.scrollTop;
         });
 
-        picker.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        picker.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
+        picker.addEventListener('mouseleave', () => isDown = false);
+        picker.addEventListener('mouseup', () => isDown = false);
         picker.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
             const y = e.pageY - picker.offsetTop;
-            const walk = (y - startY) * 3; // Adjust scroll speed here
+            const walk = (y - startY) * 5; // Adjust scroll speed here
             picker.scrollTop = scrollTop - walk;
         });
+
+        // Add click event listener to each picker item
+        picker.querySelectorAll('.picker-item').forEach(item => {
+            item.addEventListener('click', () => {
+                scrollToItem(picker, item);
+            });
+        });
+
+        picker.addEventListener('scroll', () => {
+            highlightCurrentItem(picker);
+        });
+
+        // Initial highlight
+        highlightCurrentItem(picker);
     }
-});
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////Picker/////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', () => {
-    const picker = document.getElementById('picker');
-    let isScrolling;
-    let isDown = false;
-    let startY;
-    let scrollTop;
-  
-    const highlightClosestItem = () => {
-        const items = document.querySelectorAll('.picker-item');
-        let closestItem = null;
+    function highlightCurrentItem(picker) {
+        const overlay = picker.querySelector('.picker-overlay');
+        const items = Array.from(picker.querySelectorAll('.picker-item'));
+        const outputElement = document.getElementById('pickerOutput');
+        let closestItemIndex = null;
         let minDistance = Infinity;
-    
-        items.forEach(item => {
+
+        items.forEach((item, index) => {
             const itemRect = item.getBoundingClientRect();
-            const pickerRect = picker.getBoundingClientRect();
-            const distance = Math.abs(pickerRect.top + pickerRect.height / 2 - (itemRect.top + itemRect.height / 2));
-    
+            const overlayRect = overlay.getBoundingClientRect();
+            const overlayCenter = overlayRect.top + (overlayRect.height / 2) + window.scrollY;
+            const itemCenter = itemRect.top + (itemRect.height / 2) + window.scrollY;
+            const distance = Math.abs(itemCenter - overlayCenter);
+
             if (distance < minDistance) {
-                closestItem = item;
+                closestItemIndex = index;
                 minDistance = distance;
             }
-    
-            // Remove previously added 'selected' class from all items
-            item.classList.remove('selected');
         });
-    
-        // Add 'selected' class to the closest item
-        if (closestItem) {
-            closestItem.classList.add('selected');
-        }
-    };
-  
-    picker.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startY = e.pageY - picker.offsetTop;
-        scrollTop = picker.scrollTop;
-    });
-  
-    picker.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-  
-    picker.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-  
-    picker.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const y = e.pageY - picker.offsetTop;
-        const walk = (y - startY) * 3; // Adjust scroll speed here
-        picker.scrollTop = scrollTop - walk;
-    });
 
-    picker.addEventListener('scroll', () => {
-        // Clear our timeout throughout the scroll
-        window.clearTimeout(isScrolling);
-  
-        // Set a timeout to run after scrolling ends
-        isScrolling = setTimeout(() => {
-            highlightClosestItem();
-  
-            // Snap to the closest item (adjust this logic based on your exact needs)
-            const selectedItem = document.querySelector('.picker-item.selected');
-            if (selectedItem) {
-                picker.scrollTo({ top: selectedItem.offsetTop - picker.offsetHeight / 2 + selectedItem.offsetHeight / 2, behavior: 'smooth' });
+        // Reset classes for all items
+        items.forEach(item => item.classList.remove('picker-item-highlighted', 'picker-item-effected'));
+
+        // Highlight the closest item and apply special effect to items 2 positions away
+        if (closestItemIndex !== null) {
+            const closestItem = items[closestItemIndex];
+            closestItem.classList.add('picker-item-highlighted');
+            if (outputElement) {
+                outputElement.value = closestItem.getAttribute('data-value');
+                outputElement.textContent = closestItem.getAttribute('data-value');
             }
-        }, 66);
-    });
 
-    // Initially highlight the closest item
-    highlightClosestItem();
+            // Apply special effect to items 2 positions away, if they exist
+            [closestItemIndex - 2, closestItemIndex + 2].forEach(index => {
+                if (index >= 0 && index < items.length) {
+                    items[index].classList.add('picker-item-effected');
+                }
+            });
+        }
+    }
+
+    function scrollToItem(container, item) {
+        const containerRect = container.getBoundingClientRect();
+        const itemRect = item.getBoundingClientRect();
+        const centerPosition = itemRect.top + container.scrollTop - containerRect.top - (containerRect.height / 2) + (itemRect.height / 2);
+        container.scrollTo({ top: centerPosition, behavior: 'smooth' });
+
+        // Highlight the item after scrolling
+        setTimeout(() => {
+            highlightCurrentItem(container);
+        }, 300); // Adjust delay as needed to match scroll behavior
+    }
 });
-    
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////Sqft Picker////////////////////////////////////////////////////////////////////

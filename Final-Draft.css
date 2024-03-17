@@ -399,9 +399,11 @@ animation: slide 250ms 125ms ease-in-out both;
 .flex-container-column{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
   align-content: center;
-  justify-content: center;
+  margin-top: 8rem;
+
 }
 .flex-container-row{
   display: flex;
@@ -1110,78 +1112,90 @@ input[type="radio"]:checked + .radio-tile {
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------Picker Class (Scroll)--------------------------------------------------------------------------------------------------------*/
-.picker {
-  overflow-y: scroll;
-  border: 1px solid #ccc;
-  height: 5rem; /* Example height: Adjust as needed */
+.dual-picker-container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+  height: auto;
+  margin: 2rem auto;
+  border: .5rem solid #000;
+}
+.single-picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+  height: auto;
+  margin: 0 .5rem;
+  border: .5rem solid #000;
+}
+.scroll-container {
+  flex: 1;
+  position: relative;
+  height: 10rem;
+  max-height: 10rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
   width: 100%;
+  z-index: 1;
+  
+}
+.scroll-container :nth-child(2){
+  padding-top: 2rem;
+}
+.scroll-container :last-child{
+  margin-bottom: 4rem;
+}
+.picker-overlay {
+  position: sticky;
+  height: 2rem; /* Same as picker-item height */
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: calc(50% - 1rem);
+  background-color: #efefef;
+  pointer-events: none; /* Allows clicks to pass through */
+  z-index: 2;
+}
+
+
+.picker-item {/* ADJUST THIS FURTHER */
+  width: 100%;
+  position: relative;
+  font-size: .85rem;
+  padding: 0.5rem 0;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  user-select: none; /* Prevents text selection while dragging */
-  cursor: grab;
-  overflow-x: hidden;
-}
-.picker.active {
-  cursor: grabbing;
-}
-
-.picker-item {/* ADJUST THIS FURTHER */
-  height: 15%;
-  width: 100%;
-  font-size: .85rem;
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
   justify-content: center;
   cursor: pointer;
+  scroll-snap-align: center;
+  z-index: 3;
   transition: transform 0.1s ease, background-color 0.1s ease;
 }
-.picker-item:first-child{
-  padding-top: 2rem;
-  border-top: 0;
+.picker-item-highlighted {
+  color: #000; /* Change text color if needed */
+  font-weight: 600; /* Make text bold */
 }
+.picker-item-effected {/* Two away from highlighted */
+  opacity: 0.6; 
+  font-size: .7rem;
+  transition: .0005s ease-in-out;
+  
+}
+
   
 /*-----------------------------------Lot size Picker--------------------------------------------------------------------------------------------------------*/
 
 #lotSizePicker .picker-item {
   /* Different background color for lot size picker items, if needed */
   background-color: #e8e8e8; /* Slightly different shade of grey, adjust as needed */
-}
-/*-----------------------------------DUAL Picker--------------------------------------------------------------------------------------------------------*/
-
-.dual-picker-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.dual-picker {
-  margin: 0 10px; /* Adjust spacing between pickers */
-  border: 1px solid #000;
-  position: relative; /* Keeps the label positioned correctly */
-  height: 6.5rem;
-}
-.scroll-container {
-  overflow-y: scroll;
-  width: 100%;
-  
-}
-.picker-label {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  left: 100%;
-  width: 100%;
-  margin: 0 0;
-  padding: .20rem 0;
-  transform: translateX(-100%);
-  color:#FFF;
-  background-color: rgba(26, 69, 120, 0.75); /* Ensure label is visible over items */
-  box-sizing: border-box;
-  z-index: 10; /* Ensure label is above scrollable content */
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
