@@ -12,9 +12,11 @@
 
 
 </head>
-<body style="height: 10000px;">
+<body>
 
     <div class="flex-container-column">
+        <button id="DetachedHomestylePickerButton" class="primaryButton">Toggle Picker</button>
+        <div id="modalOverlay" class="modal-overlay"></div>
 
         <div id="dual-picker-container" class="dual-picker-container" name="DetachedHomestyle">
             <div class="scroll-container">
@@ -27,7 +29,6 @@
                 <div class="picker-item" name="FoundationType" data-value="FullConcrete">Full-concrete</div>
                 <div class="picker-item" name="FoundationType" data-value="Slab">Slab</div>
                 <div class="picker-item" name="FoundationType" data-value="Crawl">Crawl-space</div>
-                
             </div>
             <div class="scroll-container">
                 <div class="picker-overlay"></div>
@@ -35,6 +36,7 @@
                 <div class="picker-item" name="FoundationTypeT" data-value="Block">Block</div>
                 <div class="picker-item" name="FoundationTypeT" data-value="Stone">Stone</div>
                 <div class="picker-item" name="FoundationTypeT" data-value="Other">Other</div>
+                
             </div>
         </div>
 
@@ -51,10 +53,11 @@
                 <div class="picker-item" name="DetachedHomestyle" data-value="Bungalow">Bungalow</div>
                 <div class="picker-item" name="DetachedHomestyle" data-value="Split-Entry">Split-Entry</div>
                 <div class="picker-item" name="DetachedHomestyle" data-value="Other">Other</div>
-                
+                <button id="AcceptDetachedHomestylePickerButton" class="PickerButton">Accept</button>
             </div>
             <output for="picker-output" id="pickerOutput"></output>
             
+
         </div>
 
 

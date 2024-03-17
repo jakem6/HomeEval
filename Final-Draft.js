@@ -150,13 +150,40 @@ document.addEventListener('DOMContentLoaded', () => {
 /////////////////////////////////////////////////////Single & Dual Picker Functionality//////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize picker containers
     document.querySelectorAll('.scroll-container').forEach(initPicker);
 
+    const toggleButton = document.getElementById('DetachedHomestylePickerButton');
+    const acceptButton = document.getElementById('AcceptDetachedHomestylePickerButton'); // The accept button
+    const modalOverlay = document.getElementById('modalOverlay'); // The modal overlay element
+
+    toggleButton.addEventListener('click', () => {
+        document.querySelectorAll('.dual-picker-container, .single-picker-container').forEach(container => {
+            container.classList.toggle('show-picker'); // Toggle the visibility class for pickers
+        });
+        modalOverlay.classList.toggle('show-overlay'); // Also toggle the visibility class for the overlay
+    });
+
+    acceptButton.addEventListener('click', () => {
+        // Close the picker containers
+        document.querySelectorAll('.dual-picker-container, .single-picker-container').forEach(container => {
+            container.classList.remove('show-picker');
+        });
+        modalOverlay.classList.remove('show-overlay'); // Hide the overlay
+
+        // Update the accept button's text with the selected item's data-value
+        const highlightedItem = document.querySelector('.picker-item-highlighted');
+        if (highlightedItem) {
+            acceptButton.textContent = highlightedItem.getAttribute('data-value');
+        }
+    });
+    
     function initPicker(picker) {
         let isDown = false;
         let startY;
         let scrollTop;
 
+        // Setup mouse event listeners for drag-scroll functionality
         picker.addEventListener('mousedown', (e) => {
             isDown = true;
             startY = e.pageY - picker.offsetTop;
@@ -169,32 +196,33 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isDown) return;
             e.preventDefault();
             const y = e.pageY - picker.offsetTop;
-            const walk = (y - startY) * 5; // Adjust scroll speed here
+            const walk = (y - startY) * 5; // Scroll speed adjustment
             picker.scrollTop = scrollTop - walk;
         });
 
-        // Add click event listener to each picker item
+        // Setup click event listener for each picker item
         picker.querySelectorAll('.picker-item').forEach(item => {
             item.addEventListener('click', () => {
                 scrollToItem(picker, item);
             });
         });
 
+        // Setup scroll event listener to highlight the current item
         picker.addEventListener('scroll', () => {
             highlightCurrentItem(picker);
         });
 
-        // Initial highlight
+        // Initial highlight of the current item
         highlightCurrentItem(picker);
     }
 
     function highlightCurrentItem(picker) {
         const overlay = picker.querySelector('.picker-overlay');
         const items = Array.from(picker.querySelectorAll('.picker-item'));
-        const outputElement = document.getElementById('pickerOutput');
         let closestItemIndex = null;
         let minDistance = Infinity;
 
+        // Determine the closest item to the overlay center
         items.forEach((item, index) => {
             const itemRect = item.getBoundingClientRect();
             const overlayRect = overlay.getBoundingClientRect();
@@ -211,14 +239,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Reset classes for all items
         items.forEach(item => item.classList.remove('picker-item-highlighted', 'picker-item-effected'));
 
-        // Highlight the closest item and apply special effect to items 2 positions away
+        // Highlight the closest item and apply a special effect to items 2 positions away
         if (closestItemIndex !== null) {
             const closestItem = items[closestItemIndex];
             closestItem.classList.add('picker-item-highlighted');
-            if (outputElement) {
-                outputElement.value = closestItem.getAttribute('data-value');
-                outputElement.textContent = closestItem.getAttribute('data-value');
-            }
 
             // Apply special effect to items 2 positions away, if they exist
             [closestItemIndex - 2, closestItemIndex + 2].forEach(index => {
@@ -230,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function scrollToItem(container, item) {
+        // Calculate the scroll position to center the item
         const containerRect = container.getBoundingClientRect();
         const itemRect = item.getBoundingClientRect();
         const centerPosition = itemRect.top + container.scrollTop - containerRect.top - (containerRect.height / 2) + (itemRect.height / 2);
