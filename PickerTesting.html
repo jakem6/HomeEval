@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable="no">
+  <title>InstantHomeEvalForm__LandingPg</title> 
+  <link rel="stylesheet" href="Final-Draft.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="Final-Draft.js" defer></script>
+
+
+</head>
+<body>
+
+    <div class="flex-container-column">
+        <button id="DetachedHomestylePickerButton" class="primaryButton">Toggle Picker</button>
+        <div id="modalOverlay" class="modal-overlay"></div>
+
+        <div id="dual-picker-container" class="dual-picker-container" name="DetachedHomestyle">
+            <div class="scroll-container">
+                <div class="picker-overlay"></div>
+                <div class="picker-item" name="FoundationType" data-value="Unsure">Unsure</div>
+                <div class="picker-item" name="FoundationType" data-value="FullConcrete">Full-concrete</div>
+                <div class="picker-item" name="FoundationType" data-value="Slab">Slab</div>
+                <div class="picker-item" name="FoundationType" data-value="Crawl">Crawl-space</div>
+                <div class="picker-item" name="FoundationType" data-value="Unsure">Unsure</div>
+                <div class="picker-item" name="FoundationType" data-value="FullConcrete">Full-concrete</div>
+                <div class="picker-item" name="FoundationType" data-value="Slab">Slab</div>
+                <div class="picker-item" name="FoundationType" data-value="Crawl">Crawl-space</div>
+            </div>
+            <div class="scroll-container">
+                <div class="picker-overlay"></div>
+                <div class="picker-item" name="FoundationTypeT" data-value="ICF">ICF</div>
+                <div class="picker-item" name="FoundationTypeT" data-value="Block">Block</div>
+                <div class="picker-item" name="FoundationTypeT" data-value="Stone">Stone</div>
+                <div class="picker-item" name="FoundationTypeT" data-value="Other">Other</div>
+                
+            </div>
+        </div>
+
+        <div id="single-picker-container" class="single-picker-container" name="DetachedHomestyle">
+            <div class="scroll-container">
+                <div class="picker-overlay"></div>
+                <div class="picker-item" name="SemiDetachedHomestyle" data-value="GardenHome">Garden Home</div>
+                <div class="picker-item" name="SemiDetachedHomestyle" data-value="Townhouse">Townhouse</div>
+                <div class="picker-item" name="SemiDetachedHomestyle" data-value="DuplexHalf">Duplex (half)</div>
+                <div class="picker-item" name="SemiDetachedHomestyle" data-value="Other">Other</div>
+                <div class="picker-item" name="DetachedHomestyle" data-value="3 Level">3 Level</div>
+                <div class="picker-item" name="DetachedHomestyle" data-value="4 Level">4 Level</div>
+                <div class="picker-item" name="DetachedHomestyle" data-value="Bungalow">Bungalow</div>
+                <div class="picker-item" name="DetachedHomestyle" data-value="Split-Entry">Split-Entry</div>
+                <button id="AcceptDetachedHomestylePickerButton" class="PickerButton">Accept</button>
+            </div>
+            <output for="picker-output" id="pickerOutput"></output>
+        </div>
+
+
+        <!--Dropdown Version Condo-Homestyle-->
+        <div class="dropdown" id="CondoHomestyle">
+            <label class="input-title">Style of property:</label>
+            <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+            <div class="list">
+                <input type="radio" name="CondoHomestyle" value="CondoApartment" id="CondoApartment" class="list" />
+                <label for="CondoApartment"><span>Condo-Apartment</span></label>
+            
+                <input type="radio" name="CondoHomestyle" value="CondoTownhouse" id="CondoTownhouse" class="list" />
+                <label for="CondoTownhouse"><span>Condo-Townhouse</span></label>
+            
+                <input type="radio" name="CondoHomestyle" value="CondoGardenHome" id="CondoGardenHome" class="list" />
+                <label for="CondoGardenHome"><span>Condo Garden-Home</span></label>
+            
+                <input type="radio" name="CondoHomestyle" value="OtherCondo" id="OtherCondo" class="list" />
+                <label for="OtherCondo"><span>Other</span></label>
+            
+            </div>
+        </div>
+
+
+
+
+
+        <!--Generic Radio Example-->
+        <div class="generic-radio-container">
+            <div class="generic-radio">
+              <input type="radio" name="PropertyAge" id="2020 or newer" value="2020 or newer">
+              <label for="2020 or newer">2020 or newer</label>
+              <input type="radio" name="PropertyAge" id="1960orOlder" value="1960orOlder">
+              <label for="1960orOlder">1960 or older</label>
+              <input type="radio" name="PropertyAge" id="1960-1970" value="1960-1970">
+              <label for="1960-1970">1960-1970</label>
+            </div>
+            <div class="generic-radio">
+              <input type="radio" name="PropertyAge" id="1970-1980" value="1970-1980">
+              <label for="1970-1980">1970-1980</label>
+
+              <input type="radio" name="PropertyAge" id="1980-1990" value="1980-1990">
+              <label for="1980-1990">1980-1990</label>
+              <input type="radio" name="PropertyAge" id="1990-2000" value="1990-2000">
+              <label for="1990-2000">1990-2000</label>
+            </div>
+            <div class="generic-radio">
+              <input type="radio" name="PropertyAge" id="2000-2010" value="2000-2010">
+              <label for="2000-2010">2000-2010</label>
+              <input type="radio" name="PropertyAge" id="2010-2020" value="2010-2020">
+              <label for="2010-2020">2010-2020</label>
+              <input type="radio" name="PropertyAge" id="Unknown" value="Unknown">
+              <label for="Unknown">Unknown</label>
+            </div>
+        </div>
+
+
+
+
+
+</body>
