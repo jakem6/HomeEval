@@ -150,34 +150,34 @@ document.addEventListener('DOMContentLoaded', () => {
 /////////////////////////////////////////////////////Single & Dual Picker Functionality//////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize picker containers
     document.querySelectorAll('.scroll-container').forEach(initPicker);
 
-    const toggleButton = document.getElementById('DetachedHomestylePickerButton');
-    const acceptButton = document.getElementById('AcceptDetachedHomestylePickerButton'); // The accept button
-    const modalOverlay = document.getElementById('modalOverlay'); // The modal overlay element
+    // Initialize each picker's toggle and accept functionality
+    initPickerControls('Bedrooms');
+    initPickerControls('Bathrooms');
+    initPickerControls('YearBuilt');
 
-    toggleButton.addEventListener('click', () => {
-        document.querySelectorAll('.dual-picker-container, .single-picker-container').forEach(container => {
-            container.classList.toggle('show-picker'); // Toggle the visibility class for pickers
+    function initPickerControls(pickerName) {
+        const toggleButton = document.getElementById(`${pickerName}PickerButton`);
+        const acceptButton = document.getElementById(`Accept${pickerName}PickerButton`);
+        const modalOverlay = document.getElementById('modalOverlay');
+        const pickerContainer = document.getElementById(`${pickerName}-picker-container`);
+
+        toggleButton.addEventListener('click', () => {
+            pickerContainer.classList.toggle('show-picker');
+            modalOverlay.classList.toggle('show-overlay');
         });
-        modalOverlay.classList.toggle('show-overlay'); // Also toggle the visibility class for the overlay
-    });
 
-    acceptButton.addEventListener('click', () => {
-        // Close the picker containers
-        document.querySelectorAll('.dual-picker-container, .single-picker-container').forEach(container => {
-            container.classList.remove('show-picker');
+        acceptButton.addEventListener('click', () => {
+            pickerContainer.classList.remove('show-picker');
+            modalOverlay.classList.remove('show-overlay');
+
+            const highlightedItem = pickerContainer.querySelector('.picker-item-highlighted');
+            if (highlightedItem) {
+                acceptButton.textContent = highlightedItem.getAttribute('data-value');
+            }
         });
-        modalOverlay.classList.remove('show-overlay'); // Hide the overlay
-
-        // Update the accept button's text with the selected item's data-value
-        const highlightedItem = document.querySelector('.picker-item-highlighted');
-        if (highlightedItem) {
-            acceptButton.textContent = highlightedItem.getAttribute('data-value');
-        }
-    });
-    
+    }    
     function initPicker(picker) {
         let isDown = false;
         let startY;
@@ -271,32 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////Sqft Picker////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-document.addEventListener('DOMContentLoaded', () => {
-    const sqftPicker = document.getElementById('sqftPicker');
-
-    // Generate square footage options dynamically
-    const generateSqftOptions = () => {
-        for (let sqft = 450; sqft <= 3500; sqft += 25) { // Adjust step/increment as needed
-            const option = document.createElement('div');
-            option.className = 'picker-item';
-            option.setAttribute('name', 'SquareFootage');
-            option.setAttribute('data-value', sqft);
-            option.textContent = `${sqft} sqft`;
-            sqftPicker.insertBefore(option, sqftPicker.children[sqftPicker.children.length - 1]);
-        }
-    };
-
-    generateSqftOptions();
-
-    // Reuse existing picker logic for sqftPicker with minor adjustments if necessary
-    // This includes event listeners for 'mousedown', 'mousemove', 'mouseup', 'mouseleave', and 'scroll'
-    // Ensure to replace 'picker' with 'sqftPicker' and adjust any specific logic for square footage picker
-
-    // Example adjustment: You might want to adjust the scroll speed or the way options are generated based on your specific needs
-});
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////Lot Size Picker////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', () => {
@@ -375,6 +349,35 @@ function updateSliderValue(value) {
   const output = document.getElementById('sliderValue');
   output.value = `${value} sqft`; // Assuming you want to display the value in an output element
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////*Acres or sqmt being shown*////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Listen for changes on any input
+    document.querySelectorAll('input').forEach((radio) => {
+        input.addEventListener('change', (event) => {
+            showRelatedContainer(event.target.id);
+        });
+
+        // For checkboxes, also trigger on 'click' for immediate feedback
+        input.addEventListener('click', (event) => {
+            if (input.type !== 'radio' && input.type !== 'text') {
+                showRelatedContainer(event.target.id);
+            }
+        });
+    });
+
+    function showRelatedContainer(inputId) {
+        // Find and show the container related to the input
+        const relatedContainer = document.querySelector(`.hidden-container[data-related-input="${inputId}"]`);
+        if (relatedContainer) {
+            relatedContainer.hidden = false;
+        }
+    }
+});
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////Radio "Switch" Function////////////////////////

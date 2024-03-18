@@ -106,78 +106,30 @@
 <!------------------------------------------------------------------Detached---------------------------------------------------------------------------------------------------------->
             <div class="input-test" id="Detached" hidden>Detached Test
 
-              
-                 <!--Radio Version DetachedHomestyle-->
-                <fieldset class="radio-tiles">
-                    <label>
-                        <input type="radio" value="NotSure" name="DetachedHomestyle" />
-                        <div class="radio-tile">
-                                <span>Not Sure</span>
-                            </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="5Storey" name="DetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>1.5 Storey</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="2Storey2Level" name="DetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>2 Storey /<br> 2 Level</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="2.5Storey" name="DetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>2.5 Storey</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="3Level" name="DetachedHomestyle" />
-                        <div class="radio-tile">
-                                <span>3 Level</span>
-                            </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="4Level" name="DetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>4 Level</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="Bungalow" name="DetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>Bungalow</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="SplitEntry" name="DetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>Split-Entry</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="OtherDetached" name="DetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>Other</span>
-                        </div>
-                    </label>
-                </fieldset>
+                
 
                     <!--Picker Version DetachedHomestyle-->
-                <div id="picker" class="picker" name="DetachedHomestyle">
-                    <div class="picker-item" name="DetachedHomestyle" data-value="NotSure">Not Sure</div>
-                    <div class="picker-item" name="DetachedHomestyle" data-value="1.5 Storey">1.5 Storey</div>
-                    <div class="picker-item" name="DetachedHomestyle" data-value="2 Storey/2 Level">2 Storey / 2 Level</div>
-                    <div class="picker-item" name="DetachedHomestyle" data-value="2.5 Storey">2.5 Storey</div>
-                    <div class="picker-item" name="DetachedHomestyle" data-value="3 Level">3 Level</div>
-                    <div class="picker-item" name="DetachedHomestyle" data-value="4 Level">4 Level</div>
-                    <div class="picker-item" name="DetachedHomestyle" data-value="Bungalow">Bungalow</div>
-                    <div class="picker-item" name="DetachedHomestyle" data-value="Split-Entry">Split-Entry</div>
-                    <div class="picker-item" name="DetachedHomestyle" data-value="Other">Other</div>
-                  </div>
+                    <button id="DetachedHomestylePickerButton" class="primaryButton">Toggle Picker</button>
+                    <div id="modalOverlay" class="modal-overlay"></div>
 
+                    
+                    <div id="single-picker-container" class="single-picker-container" name="DetachedHomestyle">
+                        <div class="scroll-container">
+                            <div class="picker-overlay"></div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="NotSure">Not Sure</div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="1.5 Storey">1.5 Storey</div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="2 Storey/2 Level">2 Storey / 2 Level</div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="2.5 Storey">2.5 Storey</div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="3 Level">3 Level</div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="4 Level">4 Level</div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="Bungalow">Bungalow</div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="Split-Entry">Split-Entry</div>
+                            <div class="picker-item" name="DetachedHomestyle" data-value="Other">Other</div>
+                            <button id="AcceptDetachedHomestylePickerButton" class="PickerButton">Accept</button>
+                        </div>
+                        <output for="picker-output" id="pickerOutput"></output>
+                    </div>
+            
                    <!--Dropdown Version DetachedHomestyle-->
                 <div class="dropdown" id="DetachedHomestyle">
                     <label class="input-title">Style of property:</label>
@@ -223,43 +175,57 @@
                     </button>
                 </div>    
             </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
 <!------------------------------------------------------------------Condo---------------------------------------------------------------------------------------------------------->                    
             <div class="input-test" id="Condo-Apartment" hidden>Condo-Test
-                <div class="flex-container-column">
-                    <fieldset class="radio-tiles">
-                        <label>
-                            <input type="radio" value="CondoApartment" name="CondoType" />
-                            <div class="radio-tile">
-                                    <span>Apartment</span>
-                                </div>
-                        </label>
-                        <label>
-                            <input type="radio" value="CondoTownhouse" name="CondoType"/>
-                            <div class="radio-tile">
-                                <span>Townhouse</span>
-                            </div>
-                        </label>
-                        <label>
-                            <input type="radio" value="CondoGardenHome" name="CondoType"/>
-                            <div class="radio-tile">
-                                <span>Garden-Home</span>
-                            </div>
-                        </label>
-                        <label>
-                            <input type="radio" value="OtherCondo" name="CondoType"/>
-                            <div class="radio-tile">
-                                <span>Other</span>
-                            </div>
-                        </label>
-                    </fieldset>
 
+                <!--Picker Version Condo-Homestyle-->
+                <button id="DetachedHomestylePickerButton" class="primaryButton">Toggle Picker</button>
+                <div id="modalOverlay" class="modal-overlay"></div>
+
+                <div class="flex-container-column">
+                    <div id="single-picker-container" class="single-picker-container" name="CondoHomestyle">
+                        <div class="scroll-container">
+                            <div class="picker-overlay"></div>
+                            <div class="picker-item" name="CondoHomestyle" data-value="CondoApartment">Condo-Apartment</div>
+                            <div class="picker-item" name="CondoHomestyle" data-value="CondoTownhouse">Condo-Townhouse</div>
+                            <div class="picker-item" name="CondoHomestyle" data-value="CondoGardenHome">Condo Garden-Home</div>
+                            <div class="picker-item" name="CondoHomestyle" data-value="OtherCondo">Other</div>
+                            <button id="AcceptCondoHomestylePickerButton" class="PickerButton">Accept</button>
+                        </div>
+                        <output for="picker-output" id="pickerOutput"></output>
+                    </div>
+
+                    <!--Dropdown Version Condo-Homestyle-->
+                    <div class="dropdown" id="CondoHomestyle">
+                        <label class="input-title">Style of property:</label>
+                        <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+                        <div class="list">
+                            <input type="radio" name="CondoHomestyle" value="CondoApartment" id="CondoApartment" class="list" />
+                            <label for="CondoApartment"><span>Condo-Apartment</span></label>
+                        
+                            <input type="radio" name="CondoHomestyle" value="CondoTownhouse" id="CondoTownhouse" class="list" />
+                            <label for="CondoTownhouse"><span>Condo-Townhouse</span></label>
+                        
+                            <input type="radio" name="CondoHomestyle" value="CondoGardenHome" id="CondoGardenHome" class="list" />
+                            <label for="CondoGardenHome"><span>Condo Garden-Home</span></label>
+                        
+                            <input type="radio" name="CondoHomestyle" value="OtherCondo" id="OtherCondo" class="list" />
+                            <label for="OtherCondo"><span>Other</span></label>
+                        
+                        </div>
+                    </div>
+                </div>
 
 
                     <label class="input-title" id="CondoFeesInput">
                         <span>Monthly Condo Fees Amount:</span>
                         <input type="text" id="CondoFees" name="CondoFees" placeholder="$">
                     </label>
-                </div> 
+                
+<!------------------------------------------------------NAV----------------------------------------------------------------------------------------------------------------->                    
+
                 <div class="error-message" hidden>Required Field Missing</div>
                 <div class="nav-button-container">   
                     <button type="button" button class="secondaryButton" data-previous>
@@ -270,12 +236,14 @@
                     </button>
                 </div>           
             </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
 <!------------------------------------------------------------------Mini-home---------------------------------------------------------------------------------------------------------->
             <div class="input-test" id="Mini-Home-Mobile-Home" hidden>Mini Test
                         <label class="input-title">Leased or owned land:</label>
                         <fieldset class="radio">
-                            <label><input type="radio" value="Well" name="OwnerOrLeasedLand" /><span>Owned</span></label>
-                            <label><input type="radio" value="Municipal/City" name="OwnerOrLeasedLand"/><span>Leased</span></label>
+                            <label><input type="radio" value="Well" name="OwnerOrLeasedLand" /><span>Owned<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="Municipal/City" name="OwnerOrLeasedLand"/><span>Leased<i class="bi bi-check-lg"></i></span></label>
                             <span class="switch"></span>
                         </fieldset>
             
@@ -296,53 +264,31 @@
                     </button>
                 </div>    
             </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
 <!------------------------------------------------------------------Semi-Detached---------------------------------------------------------------------------------------------------------->
             <div class="input-test" id="Semi-detached" hidden>Semi-Detached Test
 
-                <fieldset class="radio-tiles">
-                    <label>
-                        <input type="radio" value="GardenHome" name="SemiDetachedHomestyle" />
-                        <div class="radio-tile">
-                                <span>Garden Home</span>
-                            </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="SemiDetached" name="SemiDetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>Semi-detached</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="Townhouse" name="SemiDetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>Townhouse</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="DuplexHalf" name="SemiDetachedHomestyle"/>
-                        <div class="radio-tile">
-                            <span>Duplex (half)</span>
-                        </div>
-                    </label>
-                    <label>
-                        <input type="radio" value="Other" name="SemiDetachedHomestyle" />
-                        <div class="radio-tile">
-                                <span>Other</span>
-                            </div>
-                    </label>
-                </fieldset>
-
 
                 <!--Picker Version Semi-DetachedHomestyle-->
-                <div class="input-title">Select Home's Style</div>
-                <div id="picker" class="picker" name="SemiDetachedHomestyle">
-                    <div class="picker-item" name="SemiDetachedHomestyle" data-value="GardenHome">Garden Home</div>
-                    <div class="picker-item" name="SemiDetachedHomestyle" data-value="Semi-detached">Semi-detached</div>
-                    <div class="picker-item" name="SemiDetachedHomestyle" data-value="Townhouse">Townhouse</div>
-                    <div class="picker-item" name="SemiDetachedHomestyle" data-value="DuplexHalf">Duplex (half)</div>
-                    <div class="picker-item" name="SemiDetachedHomestyle" data-value="Other">Other</div>
-                </div>
+                <button id="DetachedHomestylePickerButton" class="primaryButton">Toggle Picker</button>
+                <div id="modalOverlay" class="modal-overlay"></div>
 
+                <div class="input-title">Select Home's Style</div>
+                <div id="single-picker-container" class="single-picker-container" name="SemiDetachedHomestyle">
+                    <div class="scroll-container">
+                        <div class="picker-overlay"></div>
+                        <div class="picker-item" name="SemiDetachedHomestyle" data-value="GardenHome">Garden Home</div>
+                        <div class="picker-item" name="SemiDetachedHomestyle" data-value="Townhouse">Townhouse</div>
+                        <div class="picker-item" name="SemiDetachedHomestyle" data-value="DuplexHalf">Duplex (half)</div>
+                        <div class="picker-item" name="SemiDetachedHomestyle" data-value="Other">Other</div>
+                        <button id="AcceptSemiDetachedHomestylePickerButton" class="PickerButton">Accept</button>
+                    </div>
+                    <output for="picker-output" id="pickerOutput"></output>
+                </div>
+        
+
+                
                     <!--Dropdown Version Semi-DetachedHomestyle-->
                 <div class="dropdown" id="SemiDetachedHomestyle">
                     <label class="input-title">Style of property:</label>
@@ -430,174 +376,187 @@
 
 
 <!------------------------------------------------------------------Home Age---------------------------------------------------------------------------------------------------------->
-            <label class="input-title">Age of property:</label>
-            <!--Radio Version-->
-            <div class="flex-container-row">
-                <div class="property-age-radio">
-                    <input type="radio" name="PropertyAge" id="2020 or newer" value="2020 or newer">
-                    <label for="2020 or newer">2020 or newer</label>
-                    <input type="radio" name="PropertyAge" id="1960orOlder" value="1960orOlder">
-                    <label for="1960orOlder">1960 or older</label>
-                    <input type="radio" name="PropertyAge" id="1960-1970" value="1960-1970">
-                    <label for="1960-1970">1960-1970</label>
-                    <input type="radio" name="PropertyAge" id="1970-1980" value="1970-1980">
-                    <label for="1970-1980">1970-1980</label>
-                </div>    
-                <div class="property-age-radio">
-                    <input type="radio" name="PropertyAge" id="1980-1990" value="1980-1990">
-                    <label for="1980-1990">1980-1990</label>
-                    <input type="radio" name="PropertyAge" id="1990-2000" value="1990-2000">
-                    <label for="1990-2000">1990-2000</label>
-                    <input type="radio" name="PropertyAge" id="2000-2010" value="2000-2010">
-                    <label for="2000-2010">2000-2010</label>
-                    <input type="radio" name="PropertyAge" id="2010-2020" value="2010-2020">
-                    <label for="2010-2020">2010-2020</label>
-                </div>
-            </div>
-                <div class="property-age-radio">
-                    <input type="radio" name="PropertyAge" id="Unknown" value="Unknown">
-                    <label for="Unknown">Unknown</label>
-                </div>
+<!------------------------------------------------------------------Home Age---------------------------------------------------------------------------------------------------------->
+<label class="input-title">Age of property:</label>
 
-                <!--Dropdown Version-->
-                <div class="dropdown" div id="YearBuilt"> 
-                    
-                    <div class="input-box">Approx year built<i class="bi bi-arrow-down-circle"></i></div>
-                    <div class="list">
-                        <input type="radio" name="YearBuilt" value="Unknown" id="Unknown" class="list" />
-                        <label for="Unknown"><span>Unknown</span></label>
-                    
-                        <input type="radio" name="YearBuilt" value="1960orOlder" id="1960orOlder" class="list" />
-                        <label for="1960orOlder"><span>1960 or older</span></label>
+<!--Dropdown Version-->
+<div class="dropdown" div id="YearBuilt"> 
+    
+    <div class="input-box">Approx year built<i class="bi bi-arrow-down-circle"></i></div>
+    <div class="list">
+        <input type="radio" name="YearBuilt" value="Unknown" id="Unknown" class="list" />
+        <label for="Unknown"><span>Unknown</span></label>
+    
+        <input type="radio" name="YearBuilt" value="1960orOlder" id="1960orOlder" class="list" />
+        <label for="1960orOlder"><span>1960 or older</span></label>
 
-                        <input type="radio" name="YearBuilt" value="1960-1970" id="1960-1970" class="list" />
-                        <label for="1960-1970"><span>1960-1970</span></label>
-                    
-                        <input type="radio" name="YearBuilt" value="1970-1980" id="1970-1980" class="list" />
-                        <label for="1970-1980"><span>1970-1980</span></label>
-                    
-                        <input type="radio" name="YearBuilt" value="1980-1990" id="1980-1990" class="list" />
-                        <label for="1980-1990"><span>1980-1990</span></label>
-                    
-                        <input type="radio" name="YearBuilt" value="1990-2000" id="1990-2000" class="list" />
-                        <label for="1990-2000"><span>1990-2000</span></label>
-                    
-                        <input type="radio" name="YearBuilt" value="2000-2010" id="2000-2010" class="list" />
-                        <label for="2000-2010"><span>2000-2010</span></label>
-                    
-                        <input type="radio" name="YearBuilt" value="2010-2020" id="2010-2020" class="list" />
-                        <label for="2010-2020"><span>2010-2020</span></label>
-                    
-                        <input type="radio" name="YearBuilt" value="2020orOlder" id="2020orOlder" class="list" />
-                        <label for="2020orOlder"><span>2020 or newer</span></label>
-                    </div>
-                </div>
+        <input type="radio" name="YearBuilt" value="1960-1970" id="1960-1970" class="list" />
+        <label for="1960-1970"><span>1960-1970</span></label>
+    
+        <input type="radio" name="YearBuilt" value="1970-1980" id="1970-1980" class="list" />
+        <label for="1970-1980"><span>1970-1980</span></label>
+    
+        <input type="radio" name="YearBuilt" value="1980-1990" id="1980-1990" class="list" />
+        <label for="1980-1990"><span>1980-1990</span></label>
+    
+        <input type="radio" name="YearBuilt" value="1990-2000" id="1990-2000" class="list" />
+        <label for="1990-2000"><span>1990-2000</span></label>
+    
+        <input type="radio" name="YearBuilt" value="2000-2010" id="2000-2010" class="list" />
+        <label for="2000-2010"><span>2000-2010</span></label>
+    
+        <input type="radio" name="YearBuilt" value="2010-2020" id="2010-2020" class="list" />
+        <label for="2010-2020"><span>2010-2020</span></label>
+    
+        <input type="radio" name="YearBuilt" value="2020orOlder" id="2020orOlder" class="list" />
+        <label for="2020orOlder"><span>2020 or newer</span></label>
+    </div>
+</div>
 
 
 
-                <!--Picker Version-->
-                <div id="picker" class="picker" name="YearBuilt">
-                <div class="picker-item" name="YearBuilt" data-value="Unknown">Unknown</div>
-                <div class="picker-item" name="YearBuilt" data-value="1960 or older">1960 or older</div>
-                <div class="picker-item" name="YearBuilt" data-value="1960-1970">1960-1970</div>
-                <div class="picker-item" name="YearBuilt" data-value="1970-1980">1970-1980</div>
-                <div class="picker-item" name="YearBuilt" data-value="1980-1990">1980-1990</div>
-                <div class="picker-item" name="YearBuilt" data-value="1990-2000">1990-2000</div>
-                <div class="picker-item" name="YearBuilt" data-value="2000-2010">2000-2010</div>
-                <div class="picker-item" name="YearBuilt" data-value="2010-2020">2010-2020</div>
-                <div class="picker-item" name="YearBuilt" data-value="2020 or newer">2020 or newer</div>
-                <div class="picker-item" name="YearBuilt" data-value="Unsure">Unsure</div>
-                </div>
+<!--Picker Version-->
+<div id="YearBuilt-picker-container" class="single-picker-container" name="YearBuilt">
+<div class="scroll-container">
+    <div class="picker-overlay"></div>        
+    <div class="picker-item" name="YearBuilt" data-value="Unknown">Unknown</div>
+    <div class="picker-item" name="YearBuilt" data-value="1960 or older">1960 or older</div>
+    <div class="picker-item" name="YearBuilt" data-value="1960-1970">1960-1970</div>
+    <div class="picker-item" name="YearBuilt" data-value="1970-1980">1970-1980</div>
+    <div class="picker-item" name="YearBuilt" data-value="1980-1990">1980-1990</div>
+    <div class="picker-item" name="YearBuilt" data-value="1990-2000">1990-2000</div>
+    <div class="picker-item" name="YearBuilt" data-value="2000-2010">2000-2010</div>
+    <div class="picker-item" name="YearBuilt" data-value="2010-2020">2010-2020</div>
+    <div class="picker-item" name="YearBuilt" data-value="2020 or newer">2020 or newer</div>
+    <div class="picker-item" name="YearBuilt" data-value="Unsure">Unsure</div>
+</div>
+<output for="picker-output" id="pickerOutput"></output>
+</div>
 
-            <div class="divider"></div>
+<div class="divider"></div>
 
 <!--------------------------------------------------------------------------------------Picker Bed/Bath Inputs------------------------------------------------------------------------------------------------------------------------>
-            
 
-                <label class="input-title">Bedrooms/Bathrooms:</label> 
-            <div class="homeage-grid-container">
-                <div id="picker" class="picker" name="Bedrooms">
-                    <div class="picker-item" name="Bedrooms" data-value="1">1 Bedroom</div>
-                    <div class="picker-item" name="Bedrooms" data-value="2">2 Bedrooms</div>
-                    <div class="picker-item" name="Bedrooms" data-value="3">3 Bedrooms</div>
-                    <div class="picker-item" name="Bedrooms" data-value="4">4 Bedrooms</div>
-                    <div class="picker-item" name="Bedrooms" data-value="5">5 Bedrooms</div>
-                    <div class="picker-item" name="Bedrooms" data-value="6">6 Bedrooms</div>
-                    <div class="picker-item" name="Bedrooms" data-value="7">7 Bedrooms</div>
-                    <div class="picker-item" name="Bedrooms" data-value="7+">7+ Bedrooms</div>
-                </div>
-                <div id="picker" class="picker" name="Bathrooms">
-                    <div class="picker-item" name="Bathrooms" data-value="0">0 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="1">1 Bathroom</div>
-                    <div class="picker-item" name="Bathrooms" data-value="1.5">1.5 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="2">2 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="2.5">2.5 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="3">3 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="3.5">3.5 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="4">4 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="4.5">4.5 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="5">5 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="5.5">5.5 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="6">6 Bathrooms</div>
-                    <div class="picker-item" name="Bathrooms" data-value="6+">6+ Bathrooms</div>
-                </div>
-            </div>     
+
+<label class="input-title">Bedrooms/Bathrooms:</label> 
+<div class="homeage-grid-container">
+
+
+    <div id="Bedrooms-picker-container" class="single-picker-container" name="Bedrooms">
+        <div class="scroll-container">
+            <div class="picker-overlay"></div>        
+            <div class="picker-item" name="Bedrooms" data-value="1">1 Bedroom</div>
+            <div class="picker-item" name="Bedrooms" data-value="2">2 Bedrooms</div>
+            <div class="picker-item" name="Bedrooms" data-value="3">3 Bedrooms</div>
+            <div class="picker-item" name="Bedrooms" data-value="4">4 Bedrooms</div>
+            <div class="picker-item" name="Bedrooms" data-value="5">5 Bedrooms</div>
+            <div class="picker-item" name="Bedrooms" data-value="6">6 Bedrooms</div>
+            <div class="picker-item" name="Bedrooms" data-value="7">7 Bedrooms</div>
+            <div class="picker-item" name="Bedrooms" data-value="7+">7+ Bedrooms</div>
+        </div>
+        <output for="picker-output" id="pickerOutput"></output>
+    </div>
+
+
+    <div id="Bathrooms-picker-container" class="single-picker-container" name="Bathrooms">
+        <div class="scroll-container">
+            <div class="picker-overlay"></div>  
+            <div class="picker-item" name="Bathrooms" data-value="0">0 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="1">1 Bathroom</div>
+            <div class="picker-item" name="Bathrooms" data-value="1.5">1.5 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="2">2 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="2.5">2.5 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="3">3 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="3.5">3.5 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="4">4 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="4.5">4.5 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="5">5 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="5.5">5.5 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="6">6 Bathrooms</div>
+            <div class="picker-item" name="Bathrooms" data-value="6+">6+ Bathrooms</div>
+        </div>
+        <output for="picker-output" id="pickerOutput"></output>
+    </div>
+</div>     
 
 
 
 
 
 <!-------------------------------------------------------------------------------------------Square Footage--------------------------------------------------------------------------------------------->
-                <div class="divider"></div>
+<div class="divider"></div>
 
-                                <!-- Slider SQFT -->
-                <label class="input-title">Total finished space: (includes basement if finished)</label>
-                <div class="slider-container"> 
-                    <div class="slider-custom" style="--min:0; --max:100; --step:5; --value:75; --text-value:'75';">
-                        <div class="slider-label-wrapper">
-                            <span class="slider-label min-value"><i class="bi bi-arrow-left"></i>750 sqft or less</span>
-                            <span class="slider-label max-value">3500 sqft or more<i class="bi bi-arrow-right"></i></span>
-                        </div>    
-                        <input type="range" min="750" max="3500" step="5" value="1400" name="totalFinishedSpace" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
-                        <output for="slider" id="sliderValue"></output>
-                    </div>
-                </div> 
-                            <!-- Picker SQFT -->
-                <label class="input-title">Total finished space: (includes basement if finished)</label>
-                <div id="sqftPicker" class="picker" name="SquareFootage">
-                    <div class="picker-item" name="SquareFootage" data-value="less">450 sqft or less</div>
-                    <!-- Dynamically generated options will go here -->
-                    <div class="picker-item" name="SquareFootage" data-value="more">3500 sqft+</div>
-                </div>
-                  <div class="divider"></div>
+                <!-- Slider SQFT -->
+<label class="input-title">Total finished space: (includes basement if finished)</label>
+<div class="slider-container"> 
+    <div class="slider-custom" style="--min:0; --max:100; --step:5; --value:75; --text-value:'75';">
+        <div class="slider-label-wrapper">
+            <span class="slider-label min-value"><i class="bi bi-arrow-left"></i>750 sqft or less</span>
+            <span class="slider-label max-value">3500 sqft or more<i class="bi bi-arrow-right"></i></span>
+        </div>    
+        <input type="range" min="750" max="3500" step="5" value="1400" name="totalFinishedSpace" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
+        <output for="slider" id="sliderValue"></output>
+    </div>
+</div> 
+
+
+
+
+  <div class="divider"></div>
 <!-------------------------Picker Lot Size----------------------------------------->
-                <label class="input-title">Lot Size</label>
-                  <div id="lotSizePicker" class="picker" name="LotSize">
-                    <div class="picker-item" name="LotSize" data-value="less">250 sqm or less</div>
-                    <!-- Dynamically generated options will go here -->
-                    <div class="picker-item" name="LotSize" data-value="more">15000 sqm+</div>
-                  </div>
+<label class="input-title">Lot Size (Unit)</label>
+<fieldset class="radio">
+    <label><input type="radio" value="SquareMeters" id="SquareMetersRadio" name="LotSizeUnit"/><span>Square Meters<i class="bi bi-check-lg"></i></span></label>
+    <label><input type="radio" value="Acres" id="AcresRadio" name="LotSizeUnit"/><span>Acres<i class="bi bi-check-lg"></i></span></label>
+    <span class="switch"></span>
+</fieldset>
 
-                  
-<!-----------------------------------------------------------------------------------------------MAKE GARAGE AND LOT SIZE CONDITIONAL ON NOT-CONDOS--------------------------------------------------------------------------------------->
-                    <div class="divider"></div>
-<!-----------------------------------Garage Y/N + Lot SIze-------------------------------------->
-                
-                <div class="twoColumn-grid-container"> 
-                    <div> 
-                        <label class="input-title">Do you have a garage?:</label><!--Garage Y/N-->
-                        <fieldset class="radio">
-                            <label><input type="radio" value="No" name="Garage?"/><span>No</span></label>
-                            <label><input type="radio" value="Yes" id="HasGarage" name="Garage?"/><span>Yes</span></label>
-                            <span class="switch"></span>
-                        </fieldset>
-                    </div> 
-                </div>
+<div class="hidden-container" id="SquareMetersRadio" hidden>
+  <div class="slider-container"> 
+      <div class="slider-custom" style="--min:0; --max:100; --step:5; --value:75; --text-value:'75';">
+          <div class="slider-label-wrapper">
+              <span class="slider-label min-value"><i class="bi bi-arrow-left"></i>750 sqft or less</span>
+              <span class="slider-label max-value">3500 sqft or more<i class="bi bi-arrow-right"></i></span>
+          </div>    
+          <input type="range" min="750" max="3500" step="5" value="1400" name="totalFinishedSpace" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
+          <output for="slider" id="sliderValueSquareMeters"></output>
+      </div>
+  </div>
+</div> 
+
+<div class="hidden-container" id="AcresRadio" hidden>
+  <div class="slider-container"> 
+      <div class="slider-custom" style="--min:0; --max:100; --step:5; --value:75; --text-value:'75';">
+          <div class="slider-label-wrapper">
+              <span class="slider-label min-value"><i class="bi bi-arrow-left"></i>750 sqft or less</span>
+              <span class="slider-label max-value">3500 sqft or more<i class="bi bi-arrow-right"></i></span>
+          </div>    
+          <input type="range" min="750" max="3500" step="5" value="1400" name="totalFinishedSpace" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
+          <output for="slider" id="sliderValueAcres"></output>
+      </div>
+  </div> 
+</div>
+
   
-                  
+<!-----------------------------------------------------------------------------------------------MAKE GARAGE AND LOT SIZE CONDITIONAL ON NOT-CONDOS--------------------------------------------------------------------------------------->
+    <div class="divider"></div>
+<!-----------------------------------Garage Y/N + Lot SIze-------------------------------------->
+
+<div class="twoColumn-grid-container"> 
+    <div> 
+        <label class="input-title">Do you have a garage?:</label><!--Garage Y/N-->
+        <fieldset class="radio">
+            <label><input type="radio" value="No" name="Garage?"/><span>No<i class="bi bi-check-lg"></i></span></label>
+            <label><input type="radio" value="Yes" id="HasGarage" name="Garage?"/><span>Yes<i class="bi bi-check-lg"></i></span></label>
+            <span class="switch"></span>
+        </fieldset>
+    </div> 
+</div>
+
+  
 
 <!----------------------------------------------------------------------------------------------NAV------------------------------------------------------------------------>
-            <div class="error-message" hidden>Required Field Missing</div>
+<div class="error-message" hidden>Required Field Missing</div>
             <div class="nav-button-container">   
                 <button type="button" button class="secondaryButton" data-previous>
                     <i class="bi bi-arrow-left"></i>Previous
@@ -646,7 +605,9 @@
                 </div>
 
                   <!--Picker Version-->
-                <div id="picker" class="picker" name="FoundationType">
+            <div id="single-picker-container" class="single-picker-container" name="Bathrooms">
+                <div class="scroll-container">
+                    <div class="picker-overlay"></div>  
                     <div class="picker-item" name="FoundationType" data-value="Unsure">Unsure</div>
                     <div class="picker-item" name="FoundationType" data-value="FullConcrete">Full-concrete</div>
                     <div class="picker-item" name="FoundationType" data-value="Slab">Slab</div>
@@ -656,16 +617,19 @@
                     <div class="picker-item" name="FoundationType" data-value="Stone">Stone</div>
                     <div class="picker-item" name="FoundationType" data-value="Other">Other</div>
                 </div>
+                <output for="picker-output" id="pickerOutput"></output>
+            </div>
 
 
 
                     <fieldset class="radio"><!--Basement Type-->
-                        <label><input type="radio" value="Unfinished" name="BasementDetails"/><span>Unfinished</span></label>
-                        <label><input type="radio" value="PartiallyFinished" name="BasementDetails"/><span>Partially-Finished</span></label>
-                        <label><input type="radio" value="FullyFinished" name="BasementDetails"/><span>Fully-Finished</span></label>
-                        <label><input type="radio" value="WalkoutBasement" name="BasementDetails"/><span>Walkout-Basement</span></label>
+                        <label><input type="radio" value="Unfinished" name="BasementDetails"/><span>Unfinished<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="PartiallyFinished" name="BasementDetails"/><span>Partially-Finished<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="FullyFinished" name="BasementDetails"/><span>Fully-Finished<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="WalkoutBasement" name="BasementDetails"/><span>Walkout-Basement<i class="bi bi-check-lg"></i></span></label>
                         <span class="switch"></span>
                     </fieldset>
+                    
             <div class="divider"></div>
 <!------------------------------------------------------------------------Roof Details--------------------------------------------------------------------------------------------->
 
@@ -685,9 +649,9 @@
             <div>   
                 <label class="input-label">Material:</label><!--Roof type-->
                 <fieldset class="radio">
-                    <label><input type="radio" value="Yes" name="RoofType"/><span>Asphault</span></label>
-                    <label><input type="radio" value="No" name="RoofType"/><span>Metal/Steel</span></label>
-                    <label><input type="radio" value="NoBasement" name="RoofType"/><span>Other</span></label>
+                    <label><input type="radio" value="Yes" name="RoofType"/><span>Asphault<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="No" name="RoofType"/><span>Metal/Steel<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="NoBasement" name="RoofType"/><span>Other<i class="bi bi-check-lg"></i></span></label>
                     <span class="switch"></span>
                 </fieldset>
             </div>
@@ -702,18 +666,18 @@
                 <div>  
                     <label class="input-title">Your home's water source:</label>
                     <fieldset class="radio">
-                        <label><input type="radio" value="Well" name="WaterSource" /><span>Well</span></label>
-                        <label><input type="radio" value="Municipal/City" name="WaterSource"/><span>Municipal/City</span></label>
-                        <label><input type="radio" value="Other" name="WaterSource"/><span>Other</span></label>
+                        <label><input type="radio" value="Well" name="WaterSource" /><span>Well<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Municipal/City" name="WaterSource"/><span>Municipal/City<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Other" name="WaterSource"/><span>Other<i class="bi bi-check-lg"></i></span></label>
                         <span class="switch"></span>
                     </fieldset>
                 </div>
                 <div>  
                     <label class="input-title">Waste Management:</label>
                     <fieldset class="radio">
-                        <label><input type="radio" value="Septic" name="WasteManagement" /><span>Septic</span></label>
-                        <label><input type="radio" value="Municipal/City" name="WasteManagement"/><span>Municipal/City</span></label>
-                        <label><input type="radio" value="Other" name="WasteManagement"/><span>Other</span></label>
+                        <label><input type="radio" value="Septic" name="WasteManagement" /><span>Septic<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Municipal/City" name="WasteManagement"/><span>Municipal/City<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Other" name="WasteManagement"/><span>Other<i class="bi bi-check-lg"></i></span></label>
                         <span class="switch"></span>
                     </fieldset>
                 </div>  
@@ -827,21 +791,21 @@
                 <div> 
                     <label class="input-title">Type Of Garage:</label>
                     <fieldset class="radio">
-                        <label><input type="radio" value="Attached" name="GarageType" /><span>Attached</span></label>
-                        <label><input type="radio" value="Detached" name="GarageType"/><span>Detached</span></label>
-                        <label><input type="radio" value="Other" name="GarageType"/><span>Other</span></label>
+                        <label><input type="radio" value="Attached" name="GarageType" /><span>Attached<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Detached" name="GarageType"/><span>Detached<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Other" name="GarageType"/><span>Other<i class="bi bi-check-lg"></i></span></label>
                         <span class="switch"></span>
                     </fieldset>
                 </div>     
                 <div> 
                     <label class="input-title">Size Of Garage:</label>
                     <fieldset class="radio">
-                        <label><input type="radio" value="Single" name="GarageSize" /><span>Single</span></label>
-                        <label><input type="radio" value="1.5" name="GarageSize"/><span>1.5</span></label>
-                        <label><input type="radio" value="Double" name="GarageSize"/><span>Double</span></label>
-                        <label><input type="radio" value="Triple" name="GarageSize"/><span>Triple</span></label>
-                        <label><input type="radio" value="Oversized" name="GarageSize"/><span>Oversized</span></label>
-                        <label><input type="radio" value="Other" name="GarageSize"/><span>Other</span></label>
+                        <label><input type="radio" value="Single" name="GarageSize" /><span>Single<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="1.5" name="GarageSize"/><span>1.5<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Double" name="GarageSize"/><span>Double<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Triple" name="GarageSize"/><span>Triple<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Oversized" name="GarageSize"/><span>Oversized<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Other" name="GarageSize"/><span>Other<i class="bi bi-check-lg"></i></span></label>
                         <span class="switch"></span>
                     </fieldset>
                 </div>
@@ -940,10 +904,10 @@
 
                     <label class="input-label">Electrical Panel:</label>
                     <fieldset class="radio">
-                        <label><input type="radio" value="Breakers" name="PanelType" /><span>Breakers</span></label>
-                        <label><input type="radio" value="Fuses" name="PanelType"/><span>Fuses</span></label>
-                        <label><input type="radio" value="Both" name="PanelType"/><span>Both</span></label>
-                        <label><input type="radio" value="Other" name="PanelType"/><span>Other</span></label>
+                        <label><input type="radio" value="Breakers" name="PanelType" /><span>Breakers<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Fuses" name="PanelType"/><span>Fuses<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Both" name="PanelType"/><span>Both<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Other" name="PanelType"/><span>Other<i class="bi bi-check-lg"></i></span></label>
                         <span class="switch"></span>
                     </fieldset>
                     <div class="divider"></div>
@@ -961,10 +925,10 @@
                     <div class="divider"></div>
                     <label class="input-label">Panel's Amperage:</label>
                     <fieldset class="radio">
-                        <label><input type="radio" value="100" name="Amperage" /><span>100Amp</span></label>
-                        <label><input type="radio" value="200" name="Amperage"/><span>200Amp</span></label>
-                        <label><input type="radio" value="400" name="Amperage"/><span>400Amp</span></label>
-                        <label><input type="radio" value="Other" name="Amperage"/><span>Other</span></label>
+                        <label><input type="radio" value="100" name="Amperage" /><span>100Amp<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="200" name="Amperage"/><span>200Amp<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="400" name="Amperage"/><span>400Amp<i class="bi bi-check-lg"></i></span></label>
+                        <label><input type="radio" value="Other" name="Amperage"/><span>Other<i class="bi bi-check-lg"></i></span></label>
                         <span class="switch"></span>
                     </fieldset>
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -1058,25 +1022,25 @@
                     <div class="Realtor-Questionaire-Conditional"><!--Realtor Questionaire-->
                         <label class="input-title">Are you currently working with a Realtor?</label>
                         <fieldset class="radio">
-                            <label><input type="radio" value="No" name="WWAR"/><span>No</span></label>
-                            <label><input type="radio" value="Yes" name="WWAR"/><span>Yes</span></label>
+                            <label><input type="radio" value="No" name="WWAR"/><span>No<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="Yes" name="WWAR"/><span>Yes<i class="bi bi-check-lg"></i></span></label>
                             <span class="switch"></span>
                         </fieldset>
                         <label class="input-title">Purpose of home evaluation:</label>
                         <fieldset class="radio">
-                            <label><input type="radio" value="InterestedInSellingProperty" name="PurposeOfEval" /><span>Interested in selling property</span></label>
-                            <label><input type="radio" value="JustCurious" name="PurposeOfEval"/><span>Just curious</span></label>
-                            <label><input type="radio" value="ReFinance" name="PurposeOfEval"/><span>Planning to re-finance</span></label>
-                            <label><input type="radio" value="Other" name="PurposeOfEval"/><span>Other</span></label>
+                            <label><input type="radio" value="InterestedInSellingProperty" name="PurposeOfEval" /><span>Interested in selling property<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="JustCurious" name="PurposeOfEval"/><span>Just curious<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="ReFinance" name="PurposeOfEval"/><span>Planning to re-finance<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="Other" name="PurposeOfEval"/><span>Other<i class="bi bi-check-lg"></i></span></label>
                             <span class="switch"></span>
                         </fieldset>
                         <label class="input-title">What is the timeline for selling your home?</label>
                         <fieldset class="radio">    
-                            <label><input type="radio" value="30 Daysorless" name="SellingTimeline"/><span>30 Days or less</span></label>
-                            <label><input type="radio" value="30-90Days" name="SellingTimeline"/><span>30-90 Days</span></label>
-                            <label><input type="radio" value="1Yorless" name="SellingTimeline"/><span>Within the next year</span></label>
-                            <label><input type="radio" value="1Y+" name="SellingTimeline"/><span>More than a year away</span></label>
-                            <label><input type="radio" value="NotInterested" name="SellingTimeline"/><span>I'm not interested in selling, just curious</span></label>
+                            <label><input type="radio" value="30 Daysorless" name="SellingTimeline"/><span>30 Days or less<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="30-90Days" name="SellingTimeline"/><span>30-90 Days<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="1Yorless" name="SellingTimeline"/><span>Within the next year<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="1Y+" name="SellingTimeline"/><span>More than a year away<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="NotInterested" name="SellingTimeline"/><span>I'm not interested in selling, just curious<i class="bi bi-check-lg"></i></span></label>
                             <span class="switch"></span>
                         </fieldset>
                     </div>
