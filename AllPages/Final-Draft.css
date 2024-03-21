@@ -679,7 +679,10 @@ textarea:hover{
     box-shadow: 0.08rem 0.08rem 0.2rem #7e7c7c,-0.2rem -0.2rem 0.2rem 0 #FFF; 
 } 
 .checkbox label input {
-    display:none
+    display: none;
+}
+.checkbox label i{
+  display: none;
 }
 .checkbox label span:hover{
     color: var(--primary-color);
@@ -693,6 +696,10 @@ textarea:hover{
     background-color: var(--primary-color);
     border: 0.1rem #000;
     font-weight: 600;
+}
+.checkbox label input:checked + span i{
+  display: block;
+  color: var(--backround-color);
 }
 /*------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------Used for Contact and Address Information-------------------------------*/
