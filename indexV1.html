@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable="no">
+  <title>InstantHomeEvalForm__LandingPg</title> 
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="index.js" defer></script>
+
+</head>
+<body>
+        <div class="header"> <!-- HEADER SECTION -->
+            <a href="https://jakeblack.ca" target="_blank">
+                <span> <i class="bi bi-globe2"></i> Visit Our Site</span>
+            </a>    
+            <img src="https://assets.codepen.io/12009279/Final+Full+Logo++%284+x+1.25+in%29.png" alt="logo" class="logo" />        </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="steps">
+                <div class="step">
+                    <span class="circle active">1</span>
+                    <div class="step-text">Property<br>Type</div>
+                </div>
+                <div class="step">
+                    <span class="circle">2</span>
+                    <div class="step-text">Property<br>Address</div>
+                </div>
+                <div class="step">
+                    <span class="circle">3</span>
+                    <div class="step-text">Property<br>Details</div>
+                </div>
+                <div class="step">
+                    <span class="circle">4</span>
+                    <div class="step-text">General<br>Property<br>Details</div>
+                </div>
+                <div class="step">
+                    <span class="circle">5</span>
+                    <div class="step-text">Interior<br>Features</div>
+                </div>
+                <div class="step">
+                    <span class="circle">6</span>
+                    <div class="step-text">Exterior<br>Features</div>
+                </div>
+                <div class="step">
+                    <span class="circle">7</span>
+                    <div class="step-text">Garage<br>Details</div>
+                </div>
+                <div class="step">
+                    <span class="circle">8</span>
+                    <div class="step-text">Heating<br>Information</div>
+                </div>
+                <div class="step">
+                    <span class="circle">9</span>
+                    <div class="step-text">Electrical<br>Information</div>
+                </div>
+                <div class="step">
+                    <span class="circle">10</span>
+                    <div class="step-text">Plumbing<br>Information</div>
+                </div>
+                <div class="step">
+                    <span class="circle">11</span>
+                    <div class="step-text">Upgrades/<br>Notes</div>
+                </div>
+                <div class="step">
+                    <span class="circle">12</span>
+                    <div class="step-text">Contact<br>Information</div>
+                </div>
+            </div>    
+        </div>
+        
+
+    <form data-multi-step class="multi-step-form" id="myForm" method="POST" action="https://hooks.zapier.com/hooks/catch/13990135/3epjy1z/">
+<!-------------------------------------------------------------------Card 1--------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------Property Type Page--------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------Property Type Buttons---------------------------------------------------------------------------------->
+        <div class="card" data-step>
+            <div class="step-title">Property type</div>
+            <div class="propertytypebutton-wrapper">
+
+                <button type="button" class="propertytypebutton" button-id="Detached" data-target-id="Detached" name="Single-Family-Detached" data-next>
+                    Single Family<img src="https://assets.codepen.io/12009279/Detached-Icon_1.svg" alt="Icon" class="button-icon">
+                </button>        
+                <button type="button" class="propertytypebutton" button-id="Condo-Apartment" data-target-id="Condo-Apartment" name="Condo-Apartment" data-next>
+                    Condominium<img src="https://assets.codepen.io/12009279/Condo-Icon.svg" alt="Icon" class="button-icon">
+                </button>
+                <button type="button" class="propertytypebutton" button-id="Mini-Home-Mobile-Home" data-target-id="Mini-Home-Mobile-Home" name="Mini-Home-Mobile-Home" data-next>
+                    Mini-Home/<br> Mobile-Home<img src="https://assets.codepen.io/12009279/Mini-Icon_1.svg" alt="Icon" class="button-icon">
+                </button>
+                <button type="button" class="propertytypebutton" button-id="Semi-detached" data-target-id="Semi-detached" name="Semi-detached" data-next>
+                    Semi-Detached<img src="https://assets.codepen.io/12009279/Garden-Icon.svg" alt="Icon" class="button-icon">
+                </button>
+            </div>
+                <input type="hidden" id="propertyType" name="propertyType">
+        </div>  
+
+        
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------Page 2-------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------Conditional Property Type Card---------------------------------------------------------------------------------------------------------->
+        <div class="card" data-step>
+<!------------------------------------------------------------------Detached---------------------------------------------------------------------------------------------------------->
+            <div class="input-test" id="Detached" hidden>Detached Test
+
+                
+
+                   <!--Dropdown Version DetachedHomestyle-->
+                <div class="dropdown" id="DetachedHomestyle">
+                    <label class="input-title">Style of property:</label>
+                    <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+                    <div class="list">
+                        <input type="radio" name="DetachedHomestyle" value="NotSure" id="NotSure" class="list" />
+                        <label for="NotSure"><span>Not Sure</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="1.5Storey" id="OneAndHalfStorey" class="list" />
+                        <label for="OneAndHalfStorey"><span>1.5 Storey</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="2Storey2Level" id="TwoStoreyTwoLevel" class="list" />
+                        <label for="TwoStoreyTwoLevel"><span>2 Storey / 2 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="2.5Storey" id="TwoAndHalfStorey" class="list" />
+                        <label for="TwoAndHalfStorey"><span>2.5 Storey</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="3Level" id="ThreeLevel" class="list" />
+                        <label for="ThreeLevel"><span>3 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="4Level" id="FourLevel" class="list" />
+                        <label for="FourLevel"><span>4 Level</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="Bungalow" id="Bungalow" class="list" />
+                        <label for="Bungalow"><span>Bungalow</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="SplitEntry" id="SplitEntry" class="list" />
+                        <label for="SplitEntry"><span>Split-Entry</span></label>
+                    
+                        <input type="radio" name="DetachedHomestyle" value="Other" id="Other" class="list" />
+                        <label for="Other"><span>Other</span></label>
+                    </div>
+                </div>
+    
+<!------------------------------------------------------------------NAV---------------------------------------------------------------------------------------------------------->
+                <div class="error-message" hidden>Required Field Missing</div>
+                <div class="nav-button-container">   
+                    <button type="button" button class="secondaryButton" data-previous>
+                        <i class="bi bi-arrow-left"></i>Previous
+                    </button>
+                    <button type="button" button class="primaryButton" data-next>
+                        Next<i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>    
+            </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!------------------------------------------------------------------Condo---------------------------------------------------------------------------------------------------------->                    
+            <div class="input-test" id="Condo-Apartment" hidden>Condo-Test
+
+                    <!--Dropdown Version Condo-Homestyle-->
+                    <div class="dropdown" id="CondoHomestyle">
+                        <label class="input-title">Style of property:</label>
+                        <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+                        <div class="list">
+                            <input type="radio" name="CondoHomestyle" value="CondoApartment" id="CondoApartment" class="list" />
+                            <label for="CondoApartment"><span>Condo-Apartment</span></label>
+                        
+                            <input type="radio" name="CondoHomestyle" value="CondoTownhouse" id="CondoTownhouse" class="list" />
+                            <label for="CondoTownhouse"><span>Condo-Townhouse</span></label>
+                        
+                            <input type="radio" name="CondoHomestyle" value="CondoGardenHome" id="CondoGardenHome" class="list" />
+                            <label for="CondoGardenHome"><span>Condo Garden-Home</span></label>
+                        
+                            <input type="radio" name="CondoHomestyle" value="OtherCondo" id="OtherCondo" class="list" />
+                            <label for="OtherCondo"><span>Other</span></label>
+                        
+                        </div>
+                    </div>
+             
+
+                    <label class="input-title" id="CondoFeesInput">
+                        <span>Monthly Condo Fees Amount:</span>
+                        <input type="text" id="CondoFees" name="CondoFees" placeholder="$">
+                    </label>
+                
+<!------------------------------------------------------NAV----------------------------------------------------------------------------------------------------------------->                    
+
+                <div class="error-message" hidden>Required Field Missing</div>
+                <div class="nav-button-container">   
+                    <button type="button" button class="secondaryButton" data-previous>
+                        <i class="bi bi-arrow-left"></i>Previous
+                    </button>
+                    <button type="button" button class="primaryButton" data-next>
+                        Next<i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>           
+            </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!------------------------------------------------------------------Mini-home---------------------------------------------------------------------------------------------------------->
+            <div class="input-test" id="Mini-Home-Mobile-Home" hidden>Mini Test
+                        <label class="input-title">Leased or owned land:</label>
+                        <fieldset class="radio">
+                            <label><input type="radio" value="Well" name="OwnerOrLeasedLand" /><span>Owned<i class="bi bi-check-lg"></i></span></label>
+                            <label><input type="radio" value="Municipal/City" name="OwnerOrLeasedLand"/><span>Leased<i class="bi bi-check-lg"></i></span></label>
+                            <span class="switch"></span>
+                        </fieldset>
+            
+                <div class="divider"></div>
+<!-----------------------------------------------------------------------------------------------Lot Rent--------------------------------------------------------------------------------------->
+
+                        <label class="input-title">Monthly lot rent amount:</label>
+                            <input type="text" id="LotRent" name="LotRent" placeholder="$">
+           
+<!------------------------------------------------------------------NAV---------------------------------------------------------------------------------------------------------->
+                <div class="error-message" hidden>Required Field Missing</div>
+                <div class="nav-button-container">   
+                    <button type="button" button class="secondaryButton" data-previous>
+                        <i class="bi bi-arrow-left"></i>Previous
+                    </button>
+                    <button type="button" button class="primaryButton" data-next>
+                        Next<i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>    
+            </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                    
+<!------------------------------------------------------------------Semi-Detached---------------------------------------------------------------------------------------------------------->
+            <div class="input-test" id="Semi-detached" hidden>Semi-Detached Test
+
+                
+                    <!--Dropdown Version Semi-DetachedHomestyle-->
+                <div class="dropdown" id="SemiDetachedHomestyle">
+                    <label class="input-title">Style of property:</label>
+                    <div class="input-box">Select Home Style<i class="bi bi-arrow-down-circle"></i></div>
+                    <div class="list">
+                        <input type="radio" name="SemiDetachedHomestyle" value="GardenHome" id="GardenHome" class="list" />
+                        <label for="GardenHome"><span>Garden Home</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="SemiDetached" id="SemiDetached" class="list" />
+                        <label for="SemiDetached"><span>Semi-detached</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="Townhouse" id="Townhouse" class="list" />
+                        <label for="Townhouse"><span>Townhouse</span></label>
+                    
+                        <input type="radio" name="SemiDetachedHomestyle" value="DuplexHalf" id="DuplexHalf" class="list" />
+                        <label for="DuplexHalf"><span>Duplex (half)</span></label>
+
+                        <input type="radio" name="SemiDetachedHomestyle" value="Other" id="OtherSemiDetached" class="list" />
+                        <label for="OtherSemiDetached"><span>Other</span></label>
+                    
+                    </div>
+                </div>
+                        
+<!------------------------------------------------------------------NAV---------------------------------------------------------------------------------------------------------->
+                <div class="error-message" hidden>Required Field Missing</div>
+                <div class="nav-button-container">   
+                    <button type="button" button class="secondaryButton" data-previous>
+                        <i class="bi bi-arrow-left"></i>Previous
+                    </button>
+                    <button type="button" button class="primaryButton" data-next>
+                        Next<i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>    
+            </div>
+        </div>
+<!---------------------------------------------------------------------Card 3-------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------Address Page------------------------------------------------------------------------------------------------------>
+<!---------------------------------------------------------------------Address Inputs--------------------------------------------------------------------------------------->
+        <div class="card" data-step>
+            <div class="step-title"><i class="bi bi-house"></i>   Property address</div>
+            <div class="invisible-divider"></div>
+
+                <div class="CustomerInfo">
+                    <input type="text" name="Street Address" autocomplete="on" required/>
+                    <label for="StreetAddress" class="cust-input">
+                        <span class="input-content">Street Address<span>
+                    </label>
+                </div>
+            <div class="threeColumn-grid-container">
+                <div class="CustomerInfo">
+                    <input type="text" id="City" name="City" autocomplete="on" required/>
+                    <label for="City" class="cust-input">
+                    <span class="input-content">City<span>
+                    </label>
+                </div>
+                <div class="CustomerInfo">
+                    <input type="text" id="Province" name="Province" autocomplete="on" required/>
+                    <label for="Province" class="cust-input">
+                    <span class="input-content">Province<span>
+                    </label>
+                </div>
+                <div class="CustomerInfo">
+                    <input type="text" id="PostalCode" name="PostalCode" autocomplete="on" required/>
+                    <label for="Postal" class="cust-input">
+                    <span class="input-content">Postal Code<span>
+                    </label>
+                </div>
+            </div>
+            <div class="error-message" hidden>Required Field Missing</div>
+            <div class="nav-button-container">   
+                <button type="button" button class="secondaryButton" data-previous>
+                    <i class="bi bi-arrow-left"></i>Previous
+                </button>
+                <button type="button" button class="primaryButton" data-next>
+                    Next<i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+<!------------------------------------------------------------------Card 4---------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------Property Details Page---------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <div class="card" data-step>
+            <div class="step-title">Property details</div>
+            <div class="step-sub-title">Tell us about your property</div>
+        
+        
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------Home Age---------------------------------------------------------------------------------------------------------->
+            <label class="input-title">Age of property:</label>
+    
+            <!--Dropdown Version-->
+            <div class="dropdown" div id="YearBuilt"> 
+            <div class="input-box">Approx year built<i class="bi bi-arrow-down-circle"></i></div>
+                <div class="list">
+                    <input type="radio" name="YearBuilt" value="Unknown" id="Unknown" class="list" />
+                    <label for="Unknown"><span>Unknown</span></label>
+    
+                    <input type="radio" name="YearBuilt" value="1960orOlder" id="1960orOlder" class="list" />
+                    <label for="1960orOlder"><span>1960 or older</span></label>
+    
+                    <input type="radio" name="YearBuilt" value="1960-1970" id="1960-1970" class="list" />
+                    <label for="1960-1970"><span>1960-1970</span></label>
+    
+                    <input type="radio" name="YearBuilt" value="1970-1980" id="1970-1980" class="list" />
+                    <label for="1970-1980"><span>1970-1980</span></label>
+    
+                    <input type="radio" name="YearBuilt" value="1980-1990" id="1980-1990" class="list" />
+                    <label for="1980-1990"><span>1980-1990</span></label>
+    
+                    <input type="radio" name="YearBuilt" value="1990-2000" id="1990-2000" class="list" />
+                    <label for="1990-2000"><span>1990-2000</span></label>
+    
+                    <input type="radio" name="YearBuilt" value="2000-2010" id="2000-2010" class="list" />
+                    <label for="2000-2010"><span>2000-2010</span></label>
+    
+                    <input type="radio" name="YearBuilt" value="2010-2020" id="2010-2020" class="list" />
+                    <label for="2010-2020"><span>2010-2020</span></label>
+    
+                    <input type="radio" name="YearBuilt" value="2020orOlder" id="2020orOlder" class="list" />
+                    <label for="2020orOlder"><span>2020 or newer</span></label>
+                </div>
+            </div>
+    
+    
+            <div class="divider"></div>
+        
+<!--------------------------------------------------------------------------------------Picker Bed/Bath Inputs------------------------------------------------------------------------------------------------------------------------>
+        
+        
+            <label class="input-title">Bedrooms/Bathrooms:</label> 
+            <div class="homeage-grid-container">
+    
+                    <div class="dropdown" div id="Bedrooms"> 
+                        <div class="input-box">Total Bedrooms<i class="bi bi-arrow-down-circle"></i></div>
+                            <div class="list">
+                                <input type="radio" name="Bedrooms" value="1Bed" id="1Bed" class="list" />
+                                <label for="1Bed"><span>1 Bedroom</span></label>
+                
+                                <input type="radio" name="Bedrooms" value="2Bed" id="2Bed" class="list" />
+                                <label for="2Bed"><span>2 Bedrooms</span></label>
+                
+                                <input type="radio" name="Bedrooms" value="3Bed" id="3Bed" class="list" />
+                                <label for="3Bed"><span>3 Bedrooms</span></label>
+                
+                                <input type="radio" name="Bedrooms" value="4Bed" id="4Bed" class="list" />
+                                <label for="4Bed"><span>4 Bedrooms</span></label>
+                
+                                <input type="radio" name="Bedrooms" value="5Bed" id="5Bed" class="list" />
+                                <label for="5Bed"><span>5 Bedrooms</span></label>
+                
+                                <input type="radio" name="Bedrooms" value="6Bed" id="6Bed" class="list" />
+                                <label for="6Bed"><span>6 Bedrooms</span></label>
+                
+                                <input type="radio" name="Bedrooms" value="7Bed" id="7Bed" class="list" />
+                                <label for="7Bed"><span>7 Bedrooms</span></label>
+                
+                                <input type="radio" name="Bedrooms" value="7+Bed" id="7+Bed" class="list" />
+                                <label for="7+Bed"><span>7+ Bedrooms</span></label>
+                            </div>
+                    </div>
+    
+                        <div class="dropdown" div id="Bathrooms"> 
+                            <div class="input-box">Total Bathrooms<i class="bi bi-arrow-down-circle"></i></div>
+                                <div class="list">
+                                    <input type="radio" name="Bathrooms" value="0Bath" id="0Bath" class="list" />
+                                    <label for="0Bath"><span>0 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="0.5Bath" id="0.5Bath" class="list" />
+                                    <label for="0.5Bath"><span>0.5 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="1Bath" id="1Bath" class="list" />
+                                    <label for="1Bath"><span>1 Bathroom</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="1.5Bath" id="1.5Bath" class="list" />
+                                    <label for="1.5Bath"><span>1.5 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="2Bath" id="2Bath" class="list" />
+                                    <label for="2Bath"><span>2 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="2.5Bath" id="2.5Bath" class="list" />
+                                    <label for="2.5Bath"><span>2.5 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="3Bath" id="3Bath" class="list" />
+                                    <label for="3Bath"><span>3 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="3.5Bath" id="3.5Bath" class="list" />
+                                    <label for="3.5Bath"><span>3.5 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="4Bath" id="4Bath" class="list" />
+                                    <label for="4Bath"><span>4 Bathrooms</span></label>
+            
+                                    <input type="radio" name="Bathrooms" value="4.5Bath" id="4.5Bath" class="list" />
+                                    <label for="4.5Bath"><span>4.5 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="5Bath" id="5Bath" class="list" />
+                                    <label for="5Bath"><span>5 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="5.5Bath" id="5.5Bath" class="list" />
+                                    <label for="5.5Bath"><span>5.5 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="6Bath" id="6Bath" class="list" />
+                                    <label for="6Bath"><span>6 Bathrooms</span></label>
+                    
+                                    <input type="radio" name="Bathrooms" value="6+Bath" id="6+Bath" class="list" />
+                                    <label for="6+Bath"><span>6+ Bathrooms</span></label>
+            
+                                </div>
+                        </div>
+            </div>
+        
+        
+<!-------------------------------------------------------------------------------------------Square Footage--------------------------------------------------------------------------------------------->
+            <div class="divider"></div>
+            
+                    <!-- Slider SQFT -->
+            <label class="input-title">Total finished space: (includes basement if finished)</label>
+            <div class="slider-container"> 
+            <div class="slider-custom" style="--min:0; --max:100; --step:5; --value:75; --text-value:'75';">
+            <div class="slider-label-wrapper">
+                <span class="slider-label min-value"><i class="bi bi-arrow-left"></i>750 sqft or less</span>
+                <span class="slider-label max-value">3500 sqft or more<i class="bi bi-arrow-right"></i></span>
+            </div>    
+            <input type="range" min="750" max="3500" step="5" value="1400" name="totalFinishedSpace" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
+            <output for="slider" id="sliderValue"></output>
+            </div>
+            </div> 
+        
+        
+        
+<!-----------------------------------------------------------------------------------------------MAKE GARAGE AND LOT SIZE CONDITIONAL ON NOT-CONDOS--------------------------------------------------------------------------------------->
+            <div class="divider"></div>
+<!-----------------------------------Garage Y/N + Lot SIze-------------------------------------->
+                
+                <label class="input-title">Do you have a garage?:</label><!--Garage Y/N-->
+                <fieldset class="radio">
+                    <label><input type="radio" value="No" name="Garage?"/><span>No<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="Yes" id="HasGarage" name="Garage?"/><span>Yes<i class="bi bi-check-lg"></i></span></label>
+                    <span class="switch"></span>
+                </fieldset>
+        
+        
+        
+<!----------------------------------------------------------------------------------------------NAV------------------------------------------------------------------------>
+            <div class="error-message" hidden>Required Field Missing</div>
+                <div class="nav-button-container">   
+                    <button type="button" button class="secondaryButton" data-previous>
+                        <i class="bi bi-arrow-left"></i>Previous
+                    </button>
+                    <button type="button" button class="primaryButton" data-next>
+                        Next<i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div> 
+        
+        
+        
+        
+        
+        
+        </div>
+<!------------------------------------------------------------------Card 13---------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------Contact Info Page---------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------Contact Info, extra notes & Optional Realtor Questionaire-------------------------------------------------------------------------------------->
+        <div class="card" data-step>
+            <div class="step-title">Contact info</div>
+            <div class="step-sub-title">Where should we send this market report?</div>
+
+            <div class="CustomerInfo">
+                <input type="text" name="contactName" autocomplete="on" required/>
+                <label for="contactName" class="cust-input">
+                    <span class="input-content"><i class="bi bi-person"></i> Name<span>
+                </label>
+            </div>
+            <div class="twoColumn-grid-container">
+                <div class="CustomerInfo">
+                    <input type="email" name="contactEmail" autocomplete="on" required/>
+                    <label for="contactEmail" class="cust-input">
+                        <span class="input-content"><i class="bi bi-envelope-at"></i> Email Address<span>
+                    </label>
+                </div>
+                <div class="CustomerInfo">
+                    <input type="tel" name="contactPhone" autocomplete="on" required/>
+                    <label for="contactPhone" class="cust-input">
+                        <span class="input-content"><i class="bi bi-telephone"></i> Contact Number<span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="Realtor-Questionaire-Conditional"><!--Realtor Questionaire-->
+                <label class="input-title">Are you currently working with a Realtor?</label>
+                <fieldset class="radio">
+                    <label><input type="radio" value="No" name="WWAR"/><span>No<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="Yes" name="WWAR"/><span>Yes<i class="bi bi-check-lg"></i></span></label>
+                    <span class="switch"></span>
+                </fieldset>
+                <label class="input-title">Purpose of home evaluation:</label>
+                <fieldset class="radio">
+                    <label><input type="radio" value="InterestedInSellingProperty" name="PurposeOfEval" /><span>Interested in selling property<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="JustCurious" name="PurposeOfEval"/><span>Just curious<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="ReFinance" name="PurposeOfEval"/><span>Planning to re-finance<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="Other" name="PurposeOfEval"/><span>Other<i class="bi bi-check-lg"></i></span></label>
+                    <span class="switch"></span>
+                </fieldset>
+                <label class="input-title">What is the timeline for selling your home?</label>
+                <fieldset class="radio">    
+                    <label><input type="radio" value="30 Daysorless" name="SellingTimeline"/><span>30 Days or less<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="30-90Days" name="SellingTimeline"/><span>30-90 Days<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="1Yorless" name="SellingTimeline"/><span>Within the next year<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="1Y+" name="SellingTimeline"/><span>More than a year away<i class="bi bi-check-lg"></i></span></label>
+                    <label><input type="radio" value="NotInterested" name="SellingTimeline"/><span>I'm not interested in selling, just curious<i class="bi bi-check-lg"></i></span></label>
+                    <span class="switch"></span>
+                </fieldset>
+            </div>
+
+            <label class="input-title">Is there anything else we should know?<br><br>This could be upgrades you've made, recent renovations, important property history, or anything else that may effect your homes market value.</label>
+                <div class="textarea-container">
+                    <textarea name="AdditionalUserNotes/Information"></textarea>
+                </div>
+
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="error-message" hidden>Required Field Missing</div>
+            <div class="nav-button-container">   
+                <button type="button" button class="secondaryButton" data-previous>
+                    <i class="bi bi-arrow-left"></i>Previous
+                </button>
+                <button type="submit" button class="primaryButton" id="formSubmitButton" data-step="submit">
+                    Submit<i class="bi bi-check-circle-fill"></i>
+                </button>
+            </div>
+        </div>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------Post Submit---------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------------------------------------------------->
+</form>
+
+<div class="footer"> <!-- Footer SECTION -->
+      
+    <div class="social-icons">
+        <a href="https://jakeblack.ca" target="_blank" style="font-size: 1.5rem;">
+            <i class="bi bi-globe2"></i>
+        </a>
+        <a href="https://jakeblack.ca" target="_blank">
+            <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://jakeblack.ca" target="_blank">
+            <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://jakeblack.ca" target="_blank">
+            <i class="bi bi-youtube"></i>
+        </a>
+        <a href="https://jakeblack.ca" target="_blank">
+            <i class="bi bi-google"></i>
+        </a>
+        <a href="https://jakeblack.ca" target="_blank">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://jakeblack.ca" target="_blank">
+            <i class="bi bi-facebook"></i>
+        </a>
+    </div>
+</div>
+
+</body>
