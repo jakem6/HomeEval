@@ -636,12 +636,19 @@ textarea:hover{
 
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------Checkbox Inputs------------------------------------------------------------------------------*/
-[type="checkbox"]{
-    opacity: 0;
+.checkbox{ /*NEW Fieldset*/     
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  padding:0;
+  border:none;   
 }
 
 
-.checkbox{ /*Fieldset*/
+.checkbox{ /*Fieldset*/    
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -656,7 +663,7 @@ textarea:hover{
     position:relative;
     cursor:pointer;
     width: 100%;
-}
+} 
 .checkbox label span {
     display:flex;
     justify-content: center;
@@ -670,7 +677,7 @@ textarea:hover{
     border-radius: 0.4rem;
     outline: 0.0125rem solid var(--primary-color);
     box-shadow: 0.08rem 0.08rem 0.2rem #7e7c7c,-0.2rem -0.2rem 0.2rem 0 #FFF; 
-}
+} 
 .checkbox label input {
     display:none
 }
