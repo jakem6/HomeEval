@@ -1,0 +1,312 @@
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------Spinner Number Input (used for bed/bath input)-------------------------------------------------------------------*/
+.spinner-grid-containers {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 40% 5% 1fr 1fr;
+    gap: .25rem;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .spinner-grid-containers {
+      grid-template-columns: 1fr;
+    }
+    
+    
+    .spinner-grid-containers > div:nth-child(3),
+    .spinner-grid-containers > div:nth-child(4) {
+      grid-column: 1 / -1; 
+    }
+  } 
+  
+  .plus-gap{ /* plus between beds and baths*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .plus-gap i{
+    font-size: 2.5rem;
+    color: var(--primary-color);
+  }
+  
+  .bedroom-input{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4rem;
+    background-color: var(--backround-color);
+    border-radius: .5rem;
+    border: 0.025rem solid var(--primary-color);
+    box-sizing: border-box;
+    padding: .65rem .95rem;
+    transform-style: preserve-3d;
+    box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+  }
+  .bathroom-input{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4rem;
+    height: fit-content;
+    background-color: var(--backround-color);
+    border-radius: .5rem;
+    border: 0.025rem solid var(--primary-color);
+    box-sizing: border-box;
+    padding: .95rem;
+    box-shadow: .1rem .1rem .25rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+  }
+  .bedroom-input:hover,
+  .bathroom-input:hover{
+    outline: .125rem solid var(--primary-color);
+  }
+    
+  .spinner-btn{
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--backround-color);
+  color: var(--primary-color);
+  outline: none;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  }
+  .spinner-btn span{ /*Inside Button*/
+  font-size: 2rem;
+  font-weight: 600;
+  }
+  .spinner-btn:hover{
+  scale: 1.05;
+  }
+  .value{
+  flex-grow: .5;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  }
+  .number{
+  flex-grow: 1;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: .5rem;
+  }
+  .bedroom-input.completed,
+  .bathroom-input.completed{
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--backround-color);
+  }
+  .completed .number {
+    color: var(--backround-color); /* Change text color to indicate completion */
+    font-weight: 500;
+  }
+  /*--------------------------------------------------------------------------------------------------------------------------------------------*/
+  /*--------------------------------------------------------------------------------------------------------------------------------------------*/
+  /*---------------------------------------------Radio Tile Inputs--------------------------------------------------------------------------------------------*/
+  .radio-tiles {/*Fieldset*/       
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    padding: 0 0;
+    background: var(--backround-color);
+  }
+  @media (max-width: 900px){
+  .radio-tiles > :last-child {
+    grid-column: 1 / -1; /* Make the last child span all columns */
+  }
+  }
+  @media (max-width: 900px){
+    .radio-tiles{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 650px){
+    .radio-tiles{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+  @media (max-width: 400px){
+    .radio-tiles{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+  .radio-tile{/*Each tile*/
+    width: 100%;
+    height: 6rem;
+    font-size: 1.25rem;
+    background-color: var(--primary-color);
+    color: var(--backround-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: .75rem;
+    border: solid #000 0.0125rem;
+    box-shadow: .2rem .2rem .4rem #7e7c7c,-.2rem -.2rem .2rem 0 #FFF; 
+    box-shadow: .2rem .2rem .4rem #7e7c7c, inset -.1rem -.1rem .1rem -.1rem #FFF;
+  }
+  .radio-tile .bi.bi-check-lg{
+    font-size: 1.25rem;
+    margin: 0 0;
+    padding: 0 0;
+  }
+  .radio-tile:hover{
+    font-weight: 600;
+    scale: 1.05;
+  }
+  .radio-tile label{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    z-index: 2;
+    padding: .3rem .62rem;
+    border-top: none;
+    border-bottom: none;
+    margin-top: 0; /*These margins are to counteract master label*/     
+    margin-right: 0;
+    margin-bottom: 0;
+    cursor: pointer;
+  } 
+  
+  .radio-tile label span {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: all 500ms ease-in-out;
+  } 
+  
+  input[type="radio"]:checked + .radio-tile {
+    background-color: var(--button-hover-color);
+    color: var(--backround-color); 
+    font-weight: 600;
+  }
+  
+  
+  
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------Picker Class (Scroll)--------------------------------------------------------------------------------------------------------*/
+.dual-picker-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin: 2rem auto;
+    border: .5rem solid #000;
+  }
+  .single-picker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin: 0 .5rem;
+    border: .5rem solid #000;
+  }
+  
+  
+  
+  .scroll-container {
+    flex: 1;
+    position: relative;
+    height: 10rem;
+    max-height: 10rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    width: 100%;
+    z-index: 2;
+    background-color: var(--backround-color);
+    
+  }
+  .scroll-container :nth-child(2){
+    padding-top: 2rem;
+  }
+  .scroll-container :last-child{
+    margin-bottom: 4rem;
+  }
+  .picker-overlay {
+    position: sticky;
+    height: 2rem; /* Same as picker-item height */
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: calc(50% - 1rem);
+    background-color: #efefef;
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: 2;
+  }
+  
+  
+  .picker-item {/* ADJUST THIS FURTHER */
+    width: 100%;
+    position: relative;
+    font-size: .85rem;
+    padding: .5rem 0;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    scroll-snap-align: center;
+    z-index: 3;
+    transition: transform 0.1s ease, background-color 0.1s ease;
+  }
+  .picker-item-highlighted {
+    color: #000; /* Change text color if needed */
+    font-weight: 600; /* Make text bold */
+  }
+  .picker-item-effected {/* Two away from highlighted */
+    opacity: 0.6; 
+    font-size: .625rem;
+    transition: .0005s ease-in-out;
+    
+  }
+    
+  /*-----------------------------------Lot size Picker--------------------------------------------------------------------------------------------------------*/
+  
+  #lotSizePicker .picker-item {
+    /* Different background color for lot size picker items, if needed */
+    background-color: #e8e8e8; /* Slightly different shade of grey, adjust as needed */
+  }
+  

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable="no">
+  <title>InstantHomeEvalForm__LandingPg</title> 
+  <link rel="stylesheet" href="Final-Draft.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="Final-Draft.js" defer></script>
+
+</head>
+<body>
+
+    <!-------------------------------------------------------------------------------------------Beds/baths Spinner (+/-) --------------------------------------------------------------------------------------------->
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="spinner-grid-containers">
+
+        <div>
+            <div class="bedroom-input" id="bedrooms" min="0" max="10" step="1" value="0">
+                <button type="button" class="spinner-btn" id="bedrooms">
+                    <span class="minus"><i class="bi bi-dash-circle"></i></span>
+                </button>
+                    <div class="value">
+                    <span class="number">0 Bedroom(s)</span>
+                    <input type="hidden" name="bedrooms" value="0">
+                </div>
+                <button type="button" class="spinner-btn">
+                    <span class="plus"><i class="bi bi-plus-circle"></i></span>
+                </button>
+            </div>
+        </div>
+        <div class="plus-gap">
+            <i class="bi bi-plus"></i>
+        </div>
+        <div>
+        <div class="bathroom-input" id="full-bath" min="0" max="10" step="1" value="0">
+            <button type="button" class="spinner-btn">
+            <span class="minus"><i class="bi bi-dash-circle"></i></span>
+            </button>
+            <div class="value">
+                <span class="number">0 Full-Bathroom(s)</span>
+                <input type="hidden" name="fullBath" value="0">
+            </div>
+            <button type="button" class="spinner-btn">
+            <span class="plus"><i class="bi bi-plus-circle"></i></span>
+            </button>
+        </div>
+        </div>
+
+        <div>
+            <div class="bathroom-input" id="half-bath" min="0" max="10" step="1" value="0">
+                <button type="button" class="spinner-btn">
+                    <span class="minus"><i class="bi bi-dash-circle"></i></span>
+                </button>
+                <div class="value">
+                    <span class="number">0 Half-Bathroom(s)</span>
+                    <input type="hidden" name="halfBath" value="0">
+                </div>
+                <button type="button" class="spinner-btn">
+                    <span class="plus"><i class="bi bi-plus-circle"></i></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------Radio Tile Buttons------------------------------------------------------------------------------------------------------------------->
+
+     <!--Radio Version DetachedHomestyle-->
+    <fieldset class="radio-tiles">
+        <label>
+            <input type="radio" value="NotSure" name="DetachedHomestyle" />
+            <div class="radio-tile">
+                    <span>Not Sure</span>
+                </div>
+        </label>
+        <label>
+            <input type="radio" value="5Storey" name="DetachedHomestyle"/>
+            <div class="radio-tile">
+                <span>1.5 Storey</span>
+            </div>
+        </label>
+        <label>
+            <input type="radio" value="2Storey2Level" name="DetachedHomestyle"/>
+            <div class="radio-tile">
+                <span>2 Storey /<br> 2 Level</span>
+            </div>
+        </label>
+        <label>
+            <input type="radio" value="2.5Storey" name="DetachedHomestyle"/>
+            <div class="radio-tile">
+                <span>2.5 Storey</span>
+            </div>
+        </label>
+        <label>
+            <input type="radio" value="3Level" name="DetachedHomestyle" />
+            <div class="radio-tile">
+                    <span>3 Level</span>
+                </div>
+        </label>
+        <label>
+            <input type="radio" value="4Level" name="DetachedHomestyle"/>
+            <div class="radio-tile">
+                <span>4 Level</span>
+            </div>
+        </label>
+        <label>
+            <input type="radio" value="Bungalow" name="DetachedHomestyle"/>
+            <div class="radio-tile">
+                <span>Bungalow</span>
+            </div>
+        </label>
+        <label>
+            <input type="radio" value="SplitEntry" name="DetachedHomestyle"/>
+            <div class="radio-tile">
+                <span>Split-Entry</span>
+            </div>
+        </label>
+        <label>
+            <input type="radio" value="OtherDetached" name="DetachedHomestyle"/>
+            <div class="radio-tile">
+                <span>Other</span>
+            </div>
+        </label>
+    </fieldset>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------SQFT Picker Element------------------------------------------------------------------------------------------------->
+              <!-- Picker SQFT -->
+  <label class="input-title">Total finished space: (includes basement if finished)</label>
+
+  <button id="SquareFootagePickerButton" class="primaryButton">Toggle Picker</button>
+  <div id="modalOverlay" class="modal-overlay"></div>
+
+  <div id="SquareFootage-picker-container" class="single-picker-container" name="SquareFootage">
+      <div class="scroll-container">
+          <!-- Dynamically generated options will go here -->
+          <div id="sqftPicker" class="picker" name="SquareFootage">
+              <div class="picker-item" name="SquareFootage" data-value="less">450 sqft or less</div>
+              <div class="picker-item" name="SquareFootage" data-value="more">3500 sqft+</div>
+          </div>
+      </div>
+  </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------Picker (Apple UI Slider)--------------------------------------------------------------------------------------------------->
+
+
+        <!--Picker Version-->
+        <div id="YearBuilt-picker-container" class="single-picker-container" name="YearBuilt">
+            <div class="scroll-container">
+            <div class="picker-overlay"></div>        
+            <div class="picker-item" name="YearBuilt" data-value="Unknown">Unknown</div>
+            <div class="picker-item" name="YearBuilt" data-value="1960 or older">1960 or older</div>
+            <div class="picker-item" name="YearBuilt" data-value="1960-1970">1960-1970</div>
+            <div class="picker-item" name="YearBuilt" data-value="1970-1980">1970-1980</div>
+            <div class="picker-item" name="YearBuilt" data-value="1980-1990">1980-1990</div>
+            <div class="picker-item" name="YearBuilt" data-value="1990-2000">1990-2000</div>
+            <div class="picker-item" name="YearBuilt" data-value="2000-2010">2000-2010</div>
+            <div class="picker-item" name="YearBuilt" data-value="2010-2020">2010-2020</div>
+            <div class="picker-item" name="YearBuilt" data-value="2020 or newer">2020 or newer</div>
+            <div class="picker-item" name="YearBuilt" data-value="Unsure">Unsure</div>
+            </div>
+            <output for="picker-output" id="pickerOutput"></output>
+            </div>
+
+            <div id="Bedrooms-picker-container" class="single-picker-container" name="Bedrooms">
+                <div class="scroll-container">
+                    <div class="picker-overlay"></div>        
+                    <div class="picker-item" name="Bedrooms" data-value="1">1 Bedroom</div>
+                    <div class="picker-item" name="Bedrooms" data-value="2">2 Bedrooms</div>
+                    <div class="picker-item" name="Bedrooms" data-value="3">3 Bedrooms</div>
+                    <div class="picker-item" name="Bedrooms" data-value="4">4 Bedrooms</div>
+                    <div class="picker-item" name="Bedrooms" data-value="5">5 Bedrooms</div>
+                    <div class="picker-item" name="Bedrooms" data-value="6">6 Bedrooms</div>
+                    <div class="picker-item" name="Bedrooms" data-value="7">7 Bedrooms</div>
+                    <div class="picker-item" name="Bedrooms" data-value="7+">7+ Bedrooms</div>
+                </div>
+                <output for="picker-output" id="pickerOutput"></output>
+                </div>
+        
+        
+                <div id="Bathrooms-picker-container" class="single-picker-container" name="Bathrooms">
+                <div class="scroll-container">
+                    <div class="picker-overlay"></div>  
+                    <div class="picker-item" name="Bathrooms" data-value="0">0 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="0.5">0.5 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="1">1 Bathroom</div>
+                    <div class="picker-item" name="Bathrooms" data-value="1.5">1.5 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="2">2 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="2.5">2.5 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="3">3 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="3.5">3.5 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="4">4 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="4.5">4.5 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="5">5 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="5.5">5.5 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="6">6 Bathrooms</div>
+                    <div class="picker-item" name="Bathrooms" data-value="6+">6+ Bathrooms</div>
+                </div>
+                <output for="picker-output" id="pickerOutput"></output>
+                </div>
+                </div>     
+        
+        <!-------------------------Picker Lot Size----------------------------------------->
+        <label class="input-title">Lot Size (Unit)</label>
+        <fieldset class="radio">
+        <label><input type="radio" value="SquareMeters" id="SquareMetersRadio" name="LotSizeUnit"/><span>Square Meters<i class="bi bi-check-lg"></i></span></label>
+        <label><input type="radio" value="Acres" id="AcresRadio" name="LotSizeUnit"/><span>Acres<i class="bi bi-check-lg"></i></span></label>
+        <span class="switch"></span>
+        </fieldset>
+
+        <div class="hidden-container" id="SquareMetersRadio" hidden>
+        <div class="slider-container"> 
+        <div class="slider-custom" style="--min:0; --max:100; --step:5; --value:75; --text-value:'75';">
+        <div class="slider-label-wrapper">
+            <span class="slider-label min-value"><i class="bi bi-arrow-left"></i>750 sqft or less</span>
+            <span class="slider-label max-value">3500 sqft or more<i class="bi bi-arrow-right"></i></span>
+        </div>    
+        <input type="range" min="750" max="3500" step="5" value="1400" name="totalFinishedSpace" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
+        <output for="slider" id="sliderValueSquareMeters"></output>
+        </div>
+        </div>
+        </div> 
+
+        <div class="hidden-container" id="AcresRadio" hidden>
+        <div class="slider-container"> 
+        <div class="slider-custom" style="--min:0; --max:100; --step:5; --value:75; --text-value:'75';">
+        <div class="slider-label-wrapper">
+            <span class="slider-label min-value"><i class="bi bi-arrow-left"></i>750 sqft or less</span>
+            <span class="slider-label max-value">3500 sqft or more<i class="bi bi-arrow-right"></i></span>
+        </div>    
+        <input type="range" min="750" max="3500" step="5" value="1400" name="totalFinishedSpace" id="slider-custom" oninput="updateSliderValue(this.value);"><output for="slider" id="sliderValue"></output>
+        <output for="slider" id="sliderValueAcres"></output>
+        </div>
+        </div> 
+        </div>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
